@@ -35,15 +35,15 @@
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="{{ asset('guest/img/logo.png') }}" alt="" title="" /></a>
+				        <a href="{{ Route('home')}}"><img src="{{ asset('guest/img/logo.png') }}" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="#home">Home</a></li>
-				          <li><a href="#">Product</a></li>
-				          <li><a href="#">Articles</a></li>
-						  <li><a href="#">About us</a></li>
-				          <li><a href="#">Contact us</a></li>
+				          <li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
+				          <li><a href="{{ Route('products')}}">Product</a></li>
+				          <li><a href="{{ Route('articles')}}">Articles</a></li>
+						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
+				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 				          <li class="menu-has-children"><a href="">User</a>
 				            <ul>
 				              <li><a href="{{ Route('login') }}">Login</a></li>

@@ -20,6 +20,14 @@ use App\Http\Controllers\Admin\AccountController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
+
+Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
+
+Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
+
+Route::get('/products', [HomeController::class, 'products'])->name('products');
+
 Route::get('/home', [DashboardController::class, 'home'])->name('admin');
 
 Route::get('/login', [DashboardController::class, 'login'])->name('login');

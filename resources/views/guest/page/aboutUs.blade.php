@@ -1,0 +1,2 @@
+@extends('guest.layout.layout')
+
