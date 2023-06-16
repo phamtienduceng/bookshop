@@ -28,10 +28,23 @@
 			<link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
 			<link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
+
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}">
+			<link href="{{ asset('guest/product/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/animate.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/main_styles.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/responsive.css') }}">
+
+			<link rel="stylesheet" href="{{ asset('guest/product/plugins/themify-icons/themify-icons.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_styles.css') }}">
+			<link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}">
 		</head>
 		<body>
 
-			  <header id="header" id="home">
+			  <header id="header" id="home" style="background-color: black; opacity: 0.9" >
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
@@ -127,6 +140,14 @@
 			<script src="{{ ('guest/js/jquery.counterup.min.js') }}"></script>			
 			<script src="{{ ('guest/js/mail-script.js') }}"></script>	
 			<script src="{{ ('guest/js/main.js') }}"></script>	
+
+			<!-- <script src="{{ asset('guest/product/js/jquery-3.2.1.min.js') }}"></script> -->
+			<script src="{{ asset('guest/product/styles/bootstrap4/popper.js') }}"></script>
+			<script src="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.js') }}"></script>
+			<script src="{{ asset('guest/product/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
+			<script src="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+			<script src="{{ asset('guest/product/plugins/easing/easing.js') }}"></script>
+			<script src="{{ asset('guest/product/js/custom.js') }}"></script>
 		</body>
 	</html>
 

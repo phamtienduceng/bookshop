@@ -2948,3 +2948,7 @@ h6 {
 .switch-wrap p {
   margin: 0;
 }
+
+#header{
+  background-color: black;
+}

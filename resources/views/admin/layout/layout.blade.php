@@ -20,6 +20,14 @@
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/bootstrap4/bootstrap.min.css') }}">
+    <link href="{{ asset('product/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('product/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('product/plugins/OwlCarousel2-2.2.1/animate.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/main_styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/responsive.css') }}">
+
 </head>
 
 <body id="page-top">
@@ -101,6 +109,16 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
+
+
+    <script src="{{ asset('product/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('product/styles/bootstrap4/popper.js') }}"></script>
+    <script src="{{ asset('product/styles/bootstrap4/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('product/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('product/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+    <script src="{{ asset('product/plugins/easing/easing.js') }}"></script>
+    <script src="{{ asset('product/js/custom.js') }}"></script>
+</body>
 
 </body>
 

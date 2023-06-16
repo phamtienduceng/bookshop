@@ -3,12 +3,19 @@
 namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('guest.index');
+        $books = Product::all();
+        return view('guest.index', compact('books'));
+    }
+
+    public function singleProducts($slug){
+        $book = Product::where('slug', $slug)->first();
+        return view('guest.singleProduct', compact('book'));
     }
 
     public function contactUs(){
@@ -24,6 +31,8 @@ class HomeController extends Controller
     }
 
     public function products(){
-        return view('guest.page.products');
+
+        $books = Product::all();
+        return view('guest.page.products', compact('books'));
     }
 }

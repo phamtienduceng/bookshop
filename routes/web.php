@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\AccountController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+ 
+Route::get('/prod/{slug}', [Homecontroller::class, 'singleProducts'])->name('singleProducts');
 
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
 
@@ -33,6 +35,8 @@ Route::get('/home', [DashboardController::class, 'home'])->name('admin');
 Route::get('/login', [DashboardController::class, 'login'])->name('login');
 
 Route::get('/register', [DashboardController::class, 'register'])->name('register');
+
+Route::resource('/product', ProductController::class);
     
 Route::get('/admin-product', [ProductController::class, 'index'])->name('adminProduct');
 
