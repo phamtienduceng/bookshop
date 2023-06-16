@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title>SB Admin 2 - ProFile</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,62 +36,56 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" action="{{route('register')}}" method="POST">
+                            <form class="user" action="{{route('profile')}}" method="POST">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user @error('firstname') is-invalid @enderror" id="exampleFirstName"
-                                            placeholder="First Name" name="firstname" value="{{ old('firstname') }}">
-                                    @if ($errors->has('firstname'))
-                                    <span class="text-danger" style=" font-size: 14px">{{ $errors->first('firstname') }}</span>
-                                    @endif
+                                            placeholder="First Name" name="firstname" value="{{auth()->user()->firstname}}">
+                                            @if ($errors->has('firstname'))
+                                           <span class="text-danger" style=" font-size: 14px">{{ $errors->first('firstname') }}</span>
+                                           @endif
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control form-control-user @error('lastname') is-invalid @enderror" id="exampleLastName"
-                                            placeholder="Last Name" name="lastname" value="{{ old('lastname') }}">
-                                    @if ($errors->has('lastname'))
-                                    <span class="text-danger" style=" font-size: 14px">{{ $errors->first('lastname') }}</span>
-                                    @endif
+                                            placeholder="Last Name" name="lastname" value="{{auth()->user()->lastname}}">
+                                            @if ($errors->has('lastname'))
+                                           <span class="text-danger" style=" font-size: 14px">{{ $errors->first('lastname') }}</span>
+                                           @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail"
-                                            placeholder="Email Address" name="email" value="{{ old('email') }}">
-                                    @if ($errors->has('email'))
-                                    <span class="text-danger">{{ $errors->first('email') }}</span>
-                                    @endif
+                                        <input type="text" class="form-control form-control-user" id="exampleInputEmail"
+                                             value="{{auth()->user()->email}}">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="number" class="form-control form-control-user @error('phone') is-invalid @enderror" id="exampleInputPhone"
-                                            placeholder="Phone number" name="phone" value="{{ old('phone') }}">
-                                    @if ($errors->has('phone'))
-                                    <span class="text-danger" style=" font-size: 14px">{{ $errors->first('phone') }}</span>
-                                    @endif
+                                            placeholder="Phone number" name="phone" value="{{auth()->user()->phone}}">
+                                            @if ($errors->has('phone'))
+                                           <span class="text-danger" style=" font-size: 14px">{{ $errors->first('phone') }}</span>
+                                           @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
                                             id="exampleInputPassword" placeholder="Password" name="password">
-                                    @if ($errors->has('password'))
-                                    <span class="text-danger" style=" font-size: 14px">{{ $errors->first('password') }}</span>
-                                    @endif
+                                            @if ($errors->has('password'))
+                                           <span class="text-danger" style=" font-size: 14px">{{ $errors->first('password') }}</span>
+                                           @endif
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user @error('Confirm-Password') is-invalid @enderror"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password" name="Confirm-Password">
-                                    @if ($errors->has('Confirm-Password'))
-                                    <span class="text-danger" style=" font-size: 14px">{{ $errors->first('Confirm-Password') }}</span>
-                                    @endif
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user @error('address') is-invalid @enderror"
+                                            id="exampleInputPassword" placeholder="Address" name="address" value="{{auth()->user()->address}}">
+                                            @if ($errors->has('address'))
+                                           <span class="text-danger" style=" font-size: 14px">{{ $errors->first('address') }}</span>
+                                           @endif
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Register Account
+                                <button type="submit" class="btn btn-primary btn-user btn-block" >
+                                    Update
                                 </button>
-                                @if( session('success'))
-                                  {{session('success')}}
-                                 @endif
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
@@ -124,7 +118,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('admin/js/sb-admin-2.min.js')}}"></script>
-
 </body>
 
 </html>
