@@ -15,6 +15,7 @@
                                 <li class="active"><img src="{{ asset('/images/'.$book->image) }}" alt="" data-image="images/single_2.jpg"></li>
                                 <li><img src="{{ asset('/images/'.$book->image2) }}" alt="" data-image="images/single_3.jpg"></li>
                             </ul>
+                            
                         </div>
                     </div>
                     <div class="col-lg-9 image_col order-lg-2 order-1">
