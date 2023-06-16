@@ -32,14 +32,29 @@ Route::get('/products', [HomeController::class, 'products'])->name('products');
 
 Route::get('/home', [DashboardController::class, 'home'])->name('admin');
 
-Route::get('/login', [DashboardController::class, 'login'])->name('login');
+Route::get('register',[DashboardController::class,'showFormRegister'])->name('show-form-register');
+Route::post('register',[DashboardController::class,'register'])->name('register');
 
-Route::get('/register', [DashboardController::class, 'register'])->name('register');
-
-Route::resource('/product', ProductController::class);
+Route::get('login',[DashboardController::class,'showFormLogin'])->name('show-form-login');
+Route::post('login',[DashboardController::class,'login'])->name('login');
     
-Route::get('/admin-product', [ProductController::class, 'index'])->name('adminProduct');
+Route::group(['middleware'=>'checklogin'],function(){
+    Route::get('profile',[DashboardController::class,'showProfile'])->name('show-profile');
+    Route::post('profile',[DashboardController::class,'profile'])->name('profile');
 
-Route::get('/admin-order', [OrderController::class, 'index'])->name('adminOrder');
+    Route::group(['middleware'=>'checkadmin'],function(){
+        Route::get('/home', [DashboardController::class, 'home'])->name('admin');
+    
+        Route::get('/admin-product', [ProductController::class, 'index'])->name('adminProduct');
 
-Route::get('/admin-account', [AccountController::class, 'index'])->name('adminAccount');
+        Route::get('/admin-order', [OrderController::class, 'index'])->name('adminOrder');
+
+        Route::get('/admin-account', [AccountController::class, 'index'])->name('adminAccount');
+
+        Route::resource('/product', ProductController::class);
+     });
+});
+
+Route::get('logout',[DashboardController::class,'logout'])->name('logout');
+
+    
