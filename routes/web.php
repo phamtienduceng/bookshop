@@ -26,6 +26,8 @@ Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
 
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
 
+Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+
 Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
 
 Route::get('/products', [HomeController::class, 'products'])->name('products');
