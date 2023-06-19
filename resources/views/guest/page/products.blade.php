@@ -127,9 +127,13 @@
 												<span class="type_sorting_text">Default Sorting</span>
 												<i class="fa fa-angle-down"></i>
 												<ul class="sorting_type">
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+													<li class="type_sorting_btn"><span>Default Sorting</span></li>
+													<li class="type_sorting_btn"><span>Newest</span></li>
+													<li class="type_sorting_btn"><span>Price: High to Low</span></li>
+													<li class="type_sorting_btn"><span>Price: Low to High</span></li>
+													<li class="type_sorting_btn"><span>Name: A-Z</span></li>
+													<li class="type_sorting_btn"><span>Name: Z-A</span></li>
+
 												</ul>
 											</li>
 											<li>
