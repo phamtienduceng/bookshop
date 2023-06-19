@@ -57,6 +57,12 @@
 				          <li><a href="{{ Route('articles')}}">Articles</a></li>
 						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
+<<<<<<< Updated upstream
+=======
+						  <li><a href="{{ Route('cart.index')}}">Cart</a></li>
+						<li><a href="{{ Route('wishlist.index')}}">Wishlist</a></li>
+				          @guest
+>>>>>>> Stashed changes
 				          <li class="menu-has-children"><a href="">User</a>
 				            <ul>
 				              <li><a href="{{ Route('login') }}">Login</a></li>

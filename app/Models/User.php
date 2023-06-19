@@ -42,4 +42,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Get the books that the user has added to their wishlist.
+     */
+    public function wishlist()
+    {
+        return $this->belongsToMany(Book::class, 'wishlists');
+    }
 }

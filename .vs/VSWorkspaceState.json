@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bootstrap",
+    "\\bootstrap\\cache",
+    "\\config",
+    "\\resources",
+    "\\resources\\views",
+    "\\resources\\views\\cart",
+    "\\resources\\views\\checkout",
+    "\\resources\\views\\guest",
+    "\\resources\\views\\guest\\layout"
+  ],
+  "SelectedNode": "\\resources\\views\\cart\\index.blade.php",
+  "PreviewInSolutionExplorer": false
+}

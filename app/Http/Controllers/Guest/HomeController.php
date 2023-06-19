@@ -16,6 +16,8 @@ class HomeController extends Controller
     public function singleProducts($slug){
         $book = Product::where('slug', $slug)->first();
         return view('guest.singleProduct', compact('book'));
+        $wishlist = auth()->user()->wishlist;
+
     }
 
     public function contactUs(){

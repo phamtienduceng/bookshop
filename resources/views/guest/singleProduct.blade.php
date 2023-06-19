@@ -52,13 +52,18 @@
                         <span id="quantity_value">1</span>
                         <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
                     </div>
-                    <div class="red_button add_to_cart" style="width: 250px; margin-left: 20px"><a href="#">add to cart</a></div>
-                    <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+                    <form method="POST" action="{{ route('cart.store') }}">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $book->id }}" />
+                        <input type="hidden" name="quantity" value="1" />
+                        <button type="submit" class="red_button add_to_cart" style="width: 250px; margin-left: 20px">Add to Cart</button>
+                    </form>
+
+                    <div class="red_button add_to_cart" style="width: 250px; margin-left: 20px"><a href="{{ route('wishlist.store', $book->id) }}">Add to Wishlist</a></div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 
