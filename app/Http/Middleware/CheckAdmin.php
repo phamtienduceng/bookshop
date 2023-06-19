@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller\DashboardController;
 
 class CheckAdmin
 {
@@ -17,10 +18,9 @@ class CheckAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::check()){
-            if(Auth::user()->is_admin){
-            return $next($request);
+            if(Auth::user()->is_admin){  
+                return $next($request);
             }
-            return redirect()->route('show-form-login');
         }
         return redirect()->route('show-form-login');
     }
