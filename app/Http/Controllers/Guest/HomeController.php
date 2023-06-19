@@ -22,6 +22,10 @@ class HomeController extends Controller
         return view('guest.page.contactUs');
     }
 
+    public function cart(){
+        return view('guest.cart');
+    }
+
     public function aboutUs(){
         return view('guest.page.aboutUs');
     }
