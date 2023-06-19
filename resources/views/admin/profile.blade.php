@@ -61,7 +61,9 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="number" class="form-control form-control-user @error('phone') is-invalid @enderror" id="exampleInputPhone"
+
                                             placeholder="Phone number" name="phone" value="0{{auth()->user()->phone}}">
+
                                             @if ($errors->has('phone'))
                                            <span class="text-danger" style=" font-size: 14px">{{ $errors->first('phone') }}</span>
                                            @endif
