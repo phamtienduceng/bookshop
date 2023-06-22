@@ -41,5 +41,13 @@
             <span>Accounts</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a>
+    </li>
+
+
 </ul>
 <!-- End of Sidebar -->
