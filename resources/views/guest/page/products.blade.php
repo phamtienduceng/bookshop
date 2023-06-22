@@ -17,10 +17,12 @@
 	<title>Book</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/font-awesome.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/magnific-popup.css') }}">
-	<link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">					
+	<link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
@@ -58,21 +60,16 @@
 							<li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
 							<li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
 						</ul>
-						</li> 
-							@else 
 						</li>
 							@else
 						<li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-						<ul> 
 						<ul>
 							<li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-							<li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
 							<li><a class="" href="{{ Route('logout') }}">LogOut</a></li>
 						</ul>
 						</li>
 						@endguest
 					</ul>
-					</nav><!-- #nav-menu-container -->		    		
 					</nav><!-- #nav-menu-container -->
 				</div>
 			</div>
@@ -175,7 +172,6 @@
 												</div>
 												<div class="red_button add_to_cart_button" style="width: 100%; margin-left: unset; margin-top: -25px">
 													<a href="#">add to cart</a>
-													<a href="#">Add to cart</a>
 												</div>
 											</div>
 										@endforeach
@@ -281,9 +277,7 @@
 			</div>
 		</div>
 	</div>
-			
 
-	<!-- start footer Area -->		
 
 	<!-- start footer Area -->
 	<footer class="footer-area section-gap">
@@ -299,7 +293,6 @@
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>								
 						</p>
 					</div>
 				</div>
@@ -319,7 +312,6 @@
 							</form>
 						</div>
 					</div>
-				</div>						
 				</div>
 				<div class="col-lg-2 col-md-6 col-sm-6 social-widget">
 					<div class="single-footer-widget">
@@ -332,39 +324,26 @@
 							<a href="#"><i class="fa fa-behance"></i></a>
 						</div>
 					</div>
-				</div>							
 				</div>
 			</div>
 		</div>
-	</footer>	
-	<!-- End footer Area -->	
 	</footer>
 	<!-- End footer Area -->
 
 	<script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
 	<script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-	<script src="{{ asset('guest/js/easing.min.js') }}"></script>			
 	<script src="{{ asset('guest/js/easing.min.js') }}"></script>
 	<script src="{{ asset('guest/js/hoverIntent.js') }}"></script>
-	<script src="{{ asset('guest/js/superfish.min.js') }}"></script>	
 	<script src="{{ asset('guest/js/superfish.min.js') }}"></script>
 	<script src="{{ asset('guest/js/jquery.ajaxchimp.min.js') }}"></script>
-	<script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>	
-	<script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>			
 	<script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>
 	<script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('guest/js/jquery.sticky.js') }}"></script>
-	<script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>			
-	<script src="{{ asset('guest/js/parallax.min.js') }}"></script>	
 	<script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>
 	<script src="{{ asset('guest/js/parallax.min.js') }}"></script>
 	<script src="{{ asset('guest/js/waypoints.min.js') }}"></script>
-	<script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
-	<script src="{{ asset('guest/js/mail-script.js') }}"></script>	
-	<script src="{{ asset('guest/js/main.js') }}"></script>	
 	<script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
 	<script src="{{ asset('guest/js/mail-script.js') }}"></script>
 	<script src="{{ asset('guest/js/main.js') }}"></script>
