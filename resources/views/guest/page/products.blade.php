@@ -175,7 +175,7 @@
 													</div>
 												</div>
 												<div class="red_button add_to_cart_button" style="width: 100%; margin-left: unset; margin-top: -25px">
-													<a href="#">add to cart</a>
+													<a href="{{ url('add-to-cart/' .$item->id) }}">add to cart</a>
 												</div>
 											</div>
 										@endforeach

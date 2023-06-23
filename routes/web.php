@@ -19,7 +19,7 @@ use App\Http\Controllers\Admin\AccountController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
- 
+
 Route::get('/prod/{slug}', [Homecontroller::class, 'singleProducts'])->name('singleProducts');
 
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
@@ -27,6 +27,10 @@ Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('aboutUs');
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contactUs');
 
 Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+Route::get('/add-to-cart/{id}', [HomeController::class, 'addToCart'])->name('addToCart');
+Route::patch('/update-cart', [HomeController::class, 'update'])->name('update');
+Route::delete('/remove-from-cart', [HomeController::class, 'remove'])->name('remove');
+
 
 Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
 
@@ -39,14 +43,14 @@ Route::post('register',[DashboardController::class,'register'])->name('register'
 
 Route::get('login',[DashboardController::class,'showFormLogin'])->name('show-form-login');
 Route::post('login',[DashboardController::class,'login'])->name('login');
-    
+
 Route::group(['middleware'=>'checklogin'],function(){
     Route::get('profile',[DashboardController::class,'showProfile'])->name('show-profile');
     Route::post('profile',[DashboardController::class,'profile'])->name('profile');
 
     Route::group(['middleware'=>'checkadmin'],function(){
         Route::get('/home', [DashboardController::class, 'home'])->name('admin');
-    
+
         Route::get('/admin-product', [ProductController::class, 'index'])->name('adminProduct');
 
         Route::get('/admin-order', [OrderController::class, 'index'])->name('adminOrder');
@@ -59,4 +63,3 @@ Route::group(['middleware'=>'checklogin'],function(){
 
 Route::get('logout',[DashboardController::class,'logout'])->name('logout');
 
-    
