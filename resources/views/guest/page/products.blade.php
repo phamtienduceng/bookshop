@@ -43,7 +43,7 @@
 			<div class="container">
 				<div class="row align-items-center justify-content-between d-flex">
 					<div id="logo">
-					<a href="{{ Route('home')}}"><img src="{{ asset('guest/img/logo.png') }}" alt="" title="" /></a>
+					<a href="{{ Route('home')}}"><img src="{{ asset('/images/logo.jpg')}}" style="width: 80px"></a>
 					</div>
 					<nav id="nav-menu-container">
 					<ul class="nav-menu">
@@ -93,6 +93,7 @@
 								<h5>Book Category</h5>
 							</div>
 							<ul class="sidebar_categories">
+								<li><a href="#">All</a></li>
 								<li><a href="#">Literature</a></li>
 								<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Politics - Legal</a></li>
 								<li><a href="#">Science - Technology</a></li>
@@ -127,9 +128,13 @@
 												<span class="type_sorting_text">Default Sorting</span>
 												<i class="fa fa-angle-down"></i>
 												<ul class="sorting_type">
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "original-order" }'><span>Default Sorting</span></li>
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "price" }'><span>Price</span></li>
-													<li class="type_sorting_btn" data-isotope-option='{ "sortBy": "name" }'><span>Product Name</span></li>
+													<li class="type_sorting_btn"><span>Default Sorting</span></li>
+													<li class="type_sorting_btn"><span>Newest</span></li>
+													<li class="type_sorting_btn"><span>Price: High to Low</span></li>
+													<li class="type_sorting_btn"><span>Price: Low to High</span></li>
+													<li class="type_sorting_btn"><span>Name: A-Z</span></li>
+													<li class="type_sorting_btn"><span>Name: Z-A</span></li>
+
 												</ul>
 											</li>
 											<li>
@@ -143,18 +148,6 @@
 												</ul>
 											</li>
 										</ul>
-										<div class="pages d-flex flex-row align-items-center">
-											<div class="page_current">
-												<span>1</span>
-												<ul class="page_selection">
-													<li><a href="#">1</a></li>
-													<li><a href="#">2</a></li>
-													<li><a href="#">3</a></li>
-												</ul>
-											</div>
-											<div class="page_total"><span>of</span> 3</div>
-											<div id="next_page" class="page_next"><a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></div>
-										</div>
 									</div>
 
 									<div class="product-grid">
