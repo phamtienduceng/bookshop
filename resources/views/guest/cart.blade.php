@@ -108,7 +108,7 @@
                                             <td class="column-1 h-25 w-25">
                                                 <img src="{{ asset('/images/'. $details['image']) }}" alt="IMG" class="h-100 w-100 m-l--65 p-t-20">
                                             </td>
-                                            <td class="column-2">{{ $details->title ?? ''}}</td>
+                                            <td class="column-2">{{ $details['title']}}</td>
                                             <td class="column-3">{{ $details['price'] }}.000 đ</td>
                                             <td class="column-4">
                                                 <div class="wrap-num-product flex-w m-l-auto m-r-0">
