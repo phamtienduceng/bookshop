@@ -48,7 +48,7 @@
 			    <div class="container">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="{{ Route('home')}}"><img src="{{ asset('guest/img/logo.png') }}" alt="" title="" /></a>
+				        <a href="{{ Route('home')}}"><img src="{{ asset('/images/logo.jpg')}}" style="width: 80px"></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">

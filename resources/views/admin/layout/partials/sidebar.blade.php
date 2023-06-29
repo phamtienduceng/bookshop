@@ -25,21 +25,29 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="{{ Route('adminProduct')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fa-brands fa-product-hunt"></i>
             <span>Products</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{ Route('adminOrder')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fas fa-wallet"></i>
             <span>Orders</span></a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{ Route('adminAccount')}}">
-            <i class="fas fa-fw fa-chart-area"></i>
+        <i class="fa-regular fa-user"></i>
             <span>Accounts</span></a>
     </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('users.index') }}">Manage Users</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a>
+    </li>
+
 
 </ul>
 <!-- End of Sidebar -->
