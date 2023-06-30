@@ -75,13 +75,6 @@
 			</div>
 	</header><!-- #header -->
 
-
-		@if(isset($_GET['field']) && isset($_GET['sort']))
-			$orderField = isset($_GET['field'])
-			$orderSort = isset($_GET['sort'])
-			$orderCondition = "ORDER BY `.$orderField.`.`price` .$orderSort"
-		@endif
-
 	<div class="super_container">
 		<div class="container product_section_container">
 			<div class="row">
