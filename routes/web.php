@@ -83,10 +83,6 @@ Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPa
 Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-
-// Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']); 
-// Route::get('account/verify/{token}', [AuthController::class, 'verifyAccount'])->name('user.verify');
-// //validation from
-// Route::get('user/create', [ FormController::class, 'create' ]);
-// Route::post('user/create', [ FormController::class, 'store' ]);
+Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware(['auth', 'is_verify_email']); 
+Route::get('account/verify/{token}', [AuthController::class, 'verifyAccount'])->name('user.verify');
 
