@@ -15,28 +15,16 @@ use Session;
 
 class AuthController extends Controller
 {
-    /**
-     * Write code on Method
-
-     */
     public function index()
     {
         return view('auth.login');
     }
 
-    /**
-     * Write code on Method
-
-     */
     public function registration()
     {
         return view('auth.registration');
     }
 
-    /**
-     * Write code on Method
-
-     */
     public function postLogin(Request $request)
     {
         $request->validate([
@@ -44,14 +32,22 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
+        // $remember_me = $request->has('remember_me') ? true : false;
+        // if (auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')], $remember_me)) {
+        //     $user = auth()->user();
+        //     dd($user);
+        // } else {
+        //     return back()->with('error', 'your username and password are wrong.');
+        // }
+
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/')
+            return redirect()->intended('index')
                 ->withSuccess('You have Successfully loggedin');
         }
-
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
+
     public function postRegistration(Request $request)
     {
         $request->validate([
