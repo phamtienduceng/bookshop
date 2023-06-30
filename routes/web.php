@@ -32,6 +32,8 @@ Route::get('/articles', [HomeController::class, 'articles'])->name('articles');
 
 Route::get('/products', [HomeController::class, 'products'])->name('products');
 
+Route::get('/product/{slug}', [Homecontroller::class, 'products'])->name('category');
+
 Route::get('/home', [DashboardController::class, 'home'])->name('admin');
 
 Route::get('register',[DashboardController::class,'showFormRegister'])->name('show-form-register');
