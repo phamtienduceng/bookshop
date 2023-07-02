@@ -92,16 +92,14 @@
 							<div class="sidebar_title">
 								<h5>Book Category</h5>
 							</div>
-							<ul class="sidebar_categories">
-								<li><a href="#">All</a></li>
-								<li><a href="#">Literature</a></li>
-								<li class="active"><a href="#"><span><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>Politics - Legal</a></li>
-								<li><a href="#">Science - Technology</a></li>
-								<li><a href="#">Socio-Cultural - History</a></li>
-								<li><a href="#">Novel</a></li>
-								<li><a href="#">Psychology</a></li>
-								<li><a href="#">Children</a></li>
-							</ul>
+							<form action="">
+								@csrf						
+								<ul class="sidebar_categories">
+									<input type="checkbox" value="" name="" disabled><span>All</span>
+									<input type="checkbox" value="" name=""><span>Literature</span>
+									<input type="checkbox" value="" name=""><span>Children</span>
+								</ul>
+							</form>
 						</div>
 
 						<div class="sidebar_section">
@@ -124,19 +122,32 @@
 
 									<div class="product_sorting_container product_sorting_container_top">
 										<ul class="product_sorting">
-											<li>
+											<form action="">
+												@csrf
+												<select name="sort" id="sort">
+													<option value="{{Request::url()}}?sort_by=none">All</option>
+													<option value="{{Request::url()}}?sort_by=price_desc">Price: High to Low</option>
+													<option value="{{Request::url()}}?sort_by=price_asc">Price: Low to High</option>
+													<option value="{{Request::url()}}?sort_by=title_asc">Name: A-Z</option>
+													<option value="{{Request::url()}}?sort_by=title_desc">Name: Z-A</option>
+													<option value="{{Request::url()}}?sort_by=latest">Latest</option>
+													<option value="{{Request::url()}}?sort_by=oldest">Oldest</option>
+												</select>	
+											</form>
+																					
+											<!-- <li>
 												<span class="type_sorting_text">Default Sorting</span>
 												<i class="fa fa-angle-down"></i>
 												<ul class="sorting_type">
-													<li class="type_sorting_btn"><span>Default Sorting</span></li>
+													<li class="type_sorting_btn">Defaul sorting</li>
 													<li class="type_sorting_btn"><span>Newest</span></li>
-													<li class="type_sorting_btn"><span>Price: High to Low</span></li>
-													<li class="type_sorting_btn"><span>Price: Low to High</span></li>
-													<li class="type_sorting_btn"><span>Name: A-Z</span></li>
-													<li class="type_sorting_btn"><span>Name: Z-A</span></li>
+													<li class="type_sorting_btn" value="?field=price&sort=DESC"><span>Price: High to Low</span></li>
+													<li class="type_sorting_btn" value="?field=price&sort=ASCC"><span>Price: High to Low</span></li>
+													<li class="type_sorting_btn"><a href="#" value="1">Name: A-Z</a></li>
+													<li class="type_sorting_btn"><a href="#" value="2"><span>Name: Z-A</span></li>
 
 												</ul>
-											</li>
+											</li> -->
 											<li>
 												<span>Show</span>
 												<span class="num_sorting_text">6</span>
@@ -348,6 +359,18 @@
 	<script src="{{ asset('guest/product/plugins/easing/easing.js') }}"></script>
 	<script src="{{ asset('guest/product/plugins/jquery-ui-1.12.1.custom/jquery-ui.js') }}"></script>
 	<script src="{{ asset('guest/product/js/categories_custom.js') }}"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#sort').on('change', function(){
+				var url = $(this).val();
+				if(url){
+					window.location = url;
+				}
+				return false;
+			});
+		});
+	</script>
 </body>
 </html>
 
