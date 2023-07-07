@@ -13,7 +13,7 @@
 							<a href="{{ Route('singleProducts', $b->slug) }}" class="primary-btn text-uppercase">Buy Now for $9.99</a>
 						</div>
 						<div class="col-lg-5 banner-right">
-							<img class="img-fluid" src="{{ asset('/images/bogia.jpg') }}" alt="">
+							<img class="img-fluid" src="{{ asset('/images/main-banner.jpg') }}" style="width: 90%" alt="">
 						</div>												
 					</div>
 				</div>

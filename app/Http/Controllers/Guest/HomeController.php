@@ -23,7 +23,7 @@ class HomeController extends Controller
         
         $category_id = $book->category_id;
 
-        $related = Product::where('category_id', $category_id)->whereNotIn('slug', [$slug])->limit(5)->get();
+        $related = Product::where('category_id', $category_id)->whereNotIn('slug', [$slug])->inRandomOrder()->limit(5)->get();
         return view('guest.singleProduct', compact('book', 'related'));
     }
 
