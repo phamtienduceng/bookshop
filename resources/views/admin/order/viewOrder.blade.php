@@ -2,4 +2,6 @@
 
 @section('contents')
 
+@livewire('order-list')
+
 @endsection

@@ -59,7 +59,7 @@
 				          <li><a href="{{ Route('articles')}}">Articles</a></li>
 						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
-						  <li><a href="{{ Route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
 						  <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
 						  @guest
 				          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
