@@ -58,7 +58,7 @@
 				          <li><a href="{{ Route('articles')}}">Articles</a></li>
 						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
-						  <li><a href="{{ Route('cart') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
 						  <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
 						  @guest
 				          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
@@ -131,8 +131,8 @@
                         <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
                             <span class="ti-truck"></span><span>free delivery</span>
                         </div>
-                        <div class="original_price">{{ $book->price}} đ</div>
-                        <div class="product_price">{{ $book->price}}</div>
+                        <div class="original_price">{{ $book->price}}.000 đ</div>
+                        <div class="product_price">{{ $book->price}}.000 đ</div>
                         <ul class="star_rating">
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -147,8 +147,13 @@
                                 <span id="quantity_value">1</span>
                                 <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
                             </div>
-                            <div class="red_button add_to_cart" style="width: 250px; margin-left: 20px"><a href="#">add to cart</a></div>
-                            <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+                            <form method="POST" action="{{ route('cart.store') }}">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $book->id }}" />
+                                <input type="hidden" name="quantity" id="quantity_input" value="1" />
+                                <button type="submit" class="btn btn-primary add_to_cart mt-0">Add to Cart</button>
+                            </form>
+                            <a href="{{ route('wishlist.store', $book->id) }}" class="btn btn-outline-primary add_to_cart mt-0">Wishlist</a>
                         </div>
                     </div>
                 </div>

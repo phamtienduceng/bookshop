@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\database",
+    "\\database\\seeders",
+    "\\public",
+    "\\public\\admin",
+    "\\public\\admin\\js",
+    "\\public\\admin\\js\\demo",
+    "\\public\\admin\\vendor",
+    "\\public\\admin\\vendor\\jquery",
+    "\\public\\js"
+  ],
+  "SelectedNode": "\\resources\\views\\guest\\page\\products.blade.php",
+  "PreviewInSolutionExplorer": false
+}
