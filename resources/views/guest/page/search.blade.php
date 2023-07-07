@@ -161,7 +161,7 @@
 										</div>
 
 									<div class="product-grid">
-										@foreach($books as $item)
+										@foreach($search_books as $item)
 											<div class="product-item men">
 												<div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
 													<div class="product_image" style="margin-top: 10px">
@@ -369,24 +369,6 @@
 		});
 	</script>
 
-	<script type="text/javascript">
-			$(document).ready(function(){
-				$( "#slider-range" ).slider({
-				range: true,
-				min: {{$min_price_range}},
-				max: {{$max_price_range}},
-				values: [ {{$min_price}}, {{$max_price}} ],
-				slide: function( event, ui ) {
-					$( "#amount" ).val(ui.values[ 0 ] + ".000 đ" + " - " + ui.values[ 1 ] + ".000 đ");
-					$( "#start_price" ).val(ui.values[ 0 ]);
-					$( "#end_price" ).val(ui.values[ 1 ]);
-				}
-				});
-
-				$( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) + ".000 đ" +
-				" - " + $( "#slider-range" ).slider( "values", 1 ) + ".000 đ" );
-			});
-	</script>
 </body>
 </html>
 

@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/new-css.css') }}" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('admin/css/css-manage.css') }}" rel="stylesheet">
+    
 </head>
 
 <body id="page-top">
@@ -112,6 +114,26 @@
     <script src="{{ asset('product/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
     <script src="{{ asset('product/plugins/easing/easing.js') }}"></script>
     <script src="{{ asset('product/js/custom.js') }}"></script>
+    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('#filter_cate').on('change', function(){
+				var url = $(this).val();
+				if(url){
+					window.location = url;
+				}
+				return false;
+			});
+		});
+	</script>
+    @yield('sorting')
 </body>
 
 
