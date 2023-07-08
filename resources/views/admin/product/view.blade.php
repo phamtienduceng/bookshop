@@ -9,22 +9,50 @@
     <h1 class="h3 mb-2 text-gray-800">Product List</h1>
     <div class="card shadow mb-4">
         <div class="newdiv">
-            <div class="new-div-item ">
-            <form action="">
-                @csrf
-                <select class="form-select" aria-label="Default select example" name="filter_cate" id="filter_cate">
-                    <option value="{{Request::url()}}?cate=0">Category</option>
-                    <option value="{{Request::url()}}?cate=8">All</option>
-                    <option value="{{Request::url()}}?cate=1">Literature</option>
-                    <option value="{{Request::url()}}?cate=2">Politics - Legal</option>
-                    <option value="{{Request::url()}}?cate=3">Science - Technology</option>
-                    <option value="{{Request::url()}}?cate=4">Culture - Sociery - Hisory</option>
-                    <option value="{{Request::url()}}?cate=5">Novel</option>
-                    <option value="{{Request::url()}}?cate=6">Psychology</option>
-                    <option value="{{Request::url()}}?cate=7">Children</option>
-                </select>            
+            <form
+                class=" new-div-item d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
             </form>
-
+            <div class="new-div-item dropdown mb-4">
+                <button class="btn btn-primary dropdown-toggle" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Default sorting
+                </button>
+                <div class="dropdown-menu animated--fade-in"
+                    aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Name (A-Z)</a>
+                    <a class="dropdown-item" href="#">Name (Z-A)</a>
+                    <a class="dropdown-item" href="#">Price (Low to High)</a>
+                    <a class="dropdown-item" href="#">Price (High to Low)</a>
+                    <a class="dropdown-item" href="#">Newest</a>
+                    <a class="dropdown-item" href="#">Oldest</a>
+                </div>
+            </div>
+            <div class="new-div-item dropdown mb-4">
+                <button class="btn btn-primary dropdown-toggle" type="button"
+                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    Category
+                </button>
+                <div class="dropdown-menu animated--fade-in"
+                    aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Name (A-Z)</a>
+                    <a class="dropdown-item" href="#">Name (Z-A)</a>
+                    <a class="dropdown-item" href="#">Price (Low to High)</a>
+                    <a class="dropdown-item" href="#">Price (High to Low)</a>
+                    <a class="dropdown-item" href="#">Newest</a>
+                    <a class="dropdown-item" href="#">Oldest</a>
+                    <a class="dropdown-item" href="#">Oldest</a>
+                </div>
             </div>
             <div class="new-div-item new-div-add">
                 <a href="{{ Route('product.create')}}" class="btn btn-primary btn-icon-split">
@@ -37,7 +65,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th width="10%">ID</th>
