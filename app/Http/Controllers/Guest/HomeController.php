@@ -4,13 +4,18 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Facades\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class HomeController extends Controller
 {
     public function index(){
-        $books = Product::all();
-        return view('guest.index', compact('books'));
+        $b = Product::where('id', '=', '45')->first();
+
+        $books = Product::inRandomOrder()->limit(10)->get();
+        return view('guest.index', compact('books', 'b'));
     }
 
     public function singleProducts($slug){
@@ -37,21 +42,33 @@ class HomeController extends Controller
     public function articles(){
         return view('guest.page.articles');
     }
+    public function boot(): void
+    {
+        Paginator::useBootstrapFive();
+    }
 
     public function products(Request $request){
+
+        Paginator::useBootstrapFive();
+
+        $min_price = Product::min('price');
+        $min_price_range = $min_price - 12;
+        $max_price = Product::max('price');
+        $max_price_range = $max_price + 100;
+
         if(isset($_GET['sort_by'])){
             $sort_by = $_GET['sort_by'];
 
             if($sort_by == 'price_desc'){
-                $books = Product::all()->sortByDesc('price');
+                $books = Product::orderBy('price', 'desc')->paginate(12);
             }elseif($sort_by == 'price_asc'){
-                $books = Product::all()->sortBy('price');
+                $books = Product::orderBy('price', 'asc')->paginate(12);
             }elseif($sort_by == 'title_asc'){
-                $books = Product::all()->sortBy('title');
+                $books = Product::orderBy('title', 'asc')->paginate(12);
             }elseif($sort_by == 'title_desc'){
-                $books = Product::all()->sortByDesc('title');
+                $books = Product::orderBy('title', 'desc')->paginate(12);
             }elseif($sort_by == 'latest'){
-                $books = Product::all()->sortByDesc('created_at');
+                $books = Product::orderBy('created_at', 'desc')->paginate(12);
             }elseif($sort_by == 'oldest'){
                 $books = Product::orderBy('created_at', 'asc')->paginate(12);
             }

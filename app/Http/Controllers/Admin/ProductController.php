@@ -14,7 +14,29 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $books = Product::all();
+        if(isset($_GET['cate'])){
+            $cate = $_GET['cate'];
+            
+            if($cate == '1'){
+                $books = Product::where('category_id', '1')->get();
+            }elseif($cate == '2'){
+                $books = Product::where('category_id', '2')->get();
+            }elseif($cate == '3'){
+                $books = Product::where('category_id', '3')->get();
+            }elseif($cate == '4'){
+                $books = Product::where('category_id', '4')->get();
+            }elseif($cate== '5'){
+                $books = Product::where('category_id', '5')->get();
+            }elseif($cate == '6'){
+                $books = Product::where('category_id', '6')->get();
+            }elseif($cate == '7'){
+                $books = Product::where('category_id', '7')->get();
+            }elseif($cate == '8'){
+                $books = Product::all();
+            }
+        }else{
+            $books = Product::all();
+        }
         return view('admin.product.view', compact('books'));
     }
 
