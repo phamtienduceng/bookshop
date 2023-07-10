@@ -161,7 +161,7 @@
 										</div>
 
 									<div class="product-grid">
-										@foreach($books as $item)
+										@foreach($search_books as $item)
 											<div class="product-item men" style="margin-bottom: 20px">
 												<div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
 													<div class="product_image" style="margin-top: 10px">
@@ -186,25 +186,10 @@
 									</div>
 <div class="d-flex justify-content-center">
 
-		{{ $books->onEachSide(1)->links() }}
+		{{ $search_books->onEachSide(1)->links() }}
 									</div>
 
 
-									<div class="product_sorting_container product_sorting_container_bottom clearfix">
-										<ul class="product_sorting">
-											<li>
-												<span>Show:</span>
-												<span class="num_sorting_text">12</span>
-												<i class="fa fa-angle-down"></i>
-												<ul class="sorting_num">
-													<li class="num_sorting_btn"><span>08</span></li>
-													<li class="num_sorting_btn"><span>12</span></li>
-													<li class="num_sorting_btn"><span>16</span></li>
-													<li class="num_sorting_btn"><span>20</span></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
 								</div>
 							</div>
 						</div>
