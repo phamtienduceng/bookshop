@@ -161,7 +161,7 @@
 										</div>
 
 									<div class="product-grid">
-										@foreach($books as $item)
+										@foreach($search_books as $item)
 											<div class="product-item men" style="margin-bottom: 20px">
 												<div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
 													<div class="product_image" style="margin-top: 10px">
@@ -186,25 +186,10 @@
 									</div>
 <div class="d-flex justify-content-center">
 
-		{{ $books->onEachSide(1)->links() }}
+		{{ $search_books->onEachSide(1)->links() }}
 									</div>
 
 
-									<div class="product_sorting_container product_sorting_container_bottom clearfix">
-										<ul class="product_sorting">
-											<li>
-												<span>Show:</span>
-												<span class="num_sorting_text">12</span>
-												<i class="fa fa-angle-down"></i>
-												<ul class="sorting_num">
-													<li class="num_sorting_btn"><span>08</span></li>
-													<li class="num_sorting_btn"><span>12</span></li>
-													<li class="num_sorting_btn"><span>16</span></li>
-													<li class="num_sorting_btn"><span>20</span></li>
-												</ul>
-											</li>
-										</ul>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -403,58 +388,8 @@
 	</script>
 </body>
 </html>
-=======
-@extends('guest.layout.layout')
-
-@section('contents')
-<div class="new_arrivals bg-light py-5">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <div class="section_title new_arrivals_title">
-                    <h2>Our Products</h2>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="row">
-            @foreach($books as $item)
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="{{ Route('singleProducts', $item->slug) }}">
-                        <img class="card-img-top" src="{{ asset('/images/'. $item->image) }}" alt="{{ $item->title }}" />
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="{{ Route('singleProducts', $item->slug) }}">{{ $item->title }}</a>
-                        </h5>
-                        <h5>{{ $item->price }}.000 đ</h5>
-                    </div>
-                    <div class="card-footer d-flex justify-content-between align-items-center">
-                        <!-- Add to Wishlist link -->
-                        <a href="{{ route('wishlist.store', $item->id) }}" class="btn btn-outline-primary btn-sm">Add to Wishlist</a>
-
-                        <!-- Add to Cart form -->
-                        <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $item->id }}" />
-                            <input type="hidden" name="quantity" value="1" />
-                            <button id="add-to-cart-button" type="submit" class="btn btn-danger btn-sm">Add to Cart</button>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
-@endsection
-
 
 @push('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 @endpush
+
