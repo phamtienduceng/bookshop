@@ -1,0 +1,24 @@
+.newdiv{
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+
+.new-div-add{
+    float: right;
+    margin-right: 20px;
+}
+
+.action-item{
+    margin-bottom: 10px;
+}
+
+.new-div-item{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.dropdown-ul{
+    list-style: none;
+}
