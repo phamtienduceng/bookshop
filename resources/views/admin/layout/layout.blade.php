@@ -20,9 +20,11 @@
 
     <!-- Custom styles for this template-->
 
+
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="{{ asset('admin/css/css-manage.css') }}" rel="stylesheet">
+
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/bootstrap4/bootstrap.min.css') }}" />
     <link href="{{ asset('product/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -122,26 +124,6 @@
     <script src="{{ asset('product/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
     <script src="{{ asset('product/plugins/easing/easing.js') }}"></script>
     <script src="{{ asset('product/js/custom.js') }}"></script>
-    <script src="//cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
-
-    <script>
-        $(document).ready( function () {
-            $('#myTable').DataTable();
-        });
-    </script>
-
-    <script type="text/javascript">
-		$(document).ready(function(){
-			$('#filter_cate').on('change', function(){
-				var url = $(this).val();
-				if(url){
-					window.location = url;
-				}
-				return false;
-			});
-		});
-	</script>
-    @yield('sorting')
 </body>
 
 
