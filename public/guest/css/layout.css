@@ -1,0 +1,41 @@
+.header-footer{
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.logo-footer{
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.footer-end{
+    margin-top: 20px;
+    margin-bottom: -110px;
+    color: white;
+    text-align: center;
+}
+
+.ul-footer{
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.ul-footer a{
+    color: white;
+}
+
+.social{
+    margin-left: 35px;
+}
+
+.hr-footer {
+    border-top: 1px solid grey;
+    margin: 40px 0;
+}
