@@ -4,7 +4,7 @@
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Favicon-->
-    <link rel="shortcut icon" href="{{ ('guest/img/fav.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('/images/onlyLogo.png') }}" />
     <!-- Author Meta -->
     <meta name="author" content="codepixer" />
     <!-- Meta Description -->
@@ -20,6 +20,7 @@
     <!--
             CSS
             ============================================= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}" />
     <link rel="stylesheet" href="{{ asset('guest/css/font-awesome.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('guest/css/bootstrap.css') }}" />
@@ -44,67 +45,41 @@
 </head>
 <body>
     <div id="alert-box"></div>
-    <header id="header" id="home" style="background-color: black; opacity: 0.9">
-        <div class="container">
-            <div class="row align-items-center justify-content-between d-flex">
-                <div id="logo">
-                    <a href="{{ Route('home')}}">
-                        <img src="{{ asset('guest/img/logo.png') }}" alt="" title="" />
-                    </a>
-                </div>
-                <nav id="nav-menu-container">
-                    <ul class="nav-menu">
-                        <li class="menu-active">
-                            <a href="{{ Route('home')}}">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ Route('products')}}">Product</a>
-                        </li>
-                        <li>
-                            <a href="{{ Route('articles')}}">Articles</a>
-                        </li>
-                        <li>
-                            <a href="{{ Route('aboutUs')}}">About us</a>
-                        </li>
-                        <li>
-                            <a href="{{ Route('contactUs')}}">Contact us</a>
-                        </li>
-                        <li>
-                            <a href="{{ Route('cart.index')}}">Cart</a>
-                        </li>
-                        <li>
-                            <a href="{{ Route('wishlist.index')}}">Wishlist</a>
-                        </li>
-                        @guest
-                        <li class="menu-has-children">
-                            <a href="">User</a>
-                            <ul>
-                                <li>
-                                    <a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a>
-                                </li>
-                                <li>
-                                    <a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a>
-                                </li>
-                            </ul>
-                        </li>
-                        @else
-                        <li class="menu-has-children">
-                            <a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-                            <ul>
-                                <li>
-                                    <a class="" href="{{ Route('profile') }}">Profile</a>
-                                </li>
-                                <li>
-                                    <a class="" href="{{ Route('logout') }}">LogOut</a>
-                                </li>
-                            </ul>
-                        </li>
-                        @endguest
-                    </ul>
-                </nav><!-- #nav-menu-container -->
-            </div>
-        </div>
-    </header><!-- #header -->
+	<header id="header" id="home" style="background-color: black; opacity: 0.9" >
+			<div class="container">
+				<div class="row align-items-center justify-content-between d-flex">
+					<div id="logo">
+					<a href="{{ Route('home')}}"><img src="{{ asset('/images/logo.jpg')}}" style="width: 80px"></a>
+					</div>
+					<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
+						<li><a href="{{ Route('products')}}">Product</a></li>
+						<li><a href="{{ Route('articles')}}">Articles</a></li>
+						<li><a href="{{ Route('aboutUs')}}">About us</a></li>
+						<li><a href="{{ Route('contactUs')}}">Contact us</a></li>
+						<li><a href="{{ Route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+						<li><a href="{{ Route('wishlist.index')}}"><i class="fa-solid fa-heart"></i></a></li>
+						@guest
+						<li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+						<ul>
+							<li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
+							<li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
+						</ul>
+						</li> 
+							@else 
+						<li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
+						<ul> 
+							<li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+							<li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+						</ul>
+						</li>
+						@endguest
+					</ul>
+					</nav><!-- #nav-menu-container -->		    		
+				</div>
+			</div>
+	</header><!-- #header -->
 
     @yield('contents');
 
@@ -187,6 +162,11 @@
     <script src="{{ ('guest/js/jquery.counterup.min.js') }}"></script>
     <script src="{{ ('guest/js/mail-script.js') }}"></script>
     <script src="{{ ('guest/js/main.js') }}"></script>
+
+
+	<!-- ==== -->
+
+	<!-- ==== -->
 
     <!-- <script src="{{ asset('guest/product/js/jquery-3.2.1.min.js') }}"></script> -->
     <script src="{{ asset('guest/product/styles/bootstrap4/popper.js') }}"></script>

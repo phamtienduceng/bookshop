@@ -20,10 +20,12 @@ class HomeController extends Controller
 
     public function singleProducts($slug){
         $book = Product::where('slug', $slug)->first();
-        
+
         $category_id = $book->category_id;
 
         $related = Product::where('category_id', $category_id)->whereNotIn('slug', [$slug])->inRandomOrder()->limit(5)->get();
+
+
         return view('guest.singleProduct', compact('book', 'related'));
     }
 
@@ -79,16 +81,15 @@ class HomeController extends Controller
 
 
             // $books = Product::whereBetween('price', [$min_price, $max_price])->orderBy('price', 'asc')->paginate(12);
-
             $checked = $_GET['filter_cate'];
-            $books = Product::whereIn('category_id', $checked)->get();
+            $books = Product::get()->whereIn('category_id', $checked)->paginate(12);
 
             if(isset($_GET['start_price']) && $_GET['end_price']){
 
             $min_price = $_GET['start_price'];
             $max_price = $_GET['end_price'];
 
-            $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'asc')->get();
+            $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'asc')->get()->paginate(12);
             }
         }
         else{
@@ -99,7 +100,7 @@ class HomeController extends Controller
                 $min_price = $_GET['start_price'];
                 $max_price = $_GET['end_price'];
     
-                $books = Product::whereBetween('price', [$min_price, $max_price])->orderBy('price', 'asc')->get();
+                $books = Product::whereBetween('price', [$min_price, $max_price])->orderBy('price', 'asc')->get()->paginate(12);
             }
 
         }    
@@ -119,11 +120,10 @@ class HomeController extends Controller
         
         if($_GET['keywords'] != null){
             $keywords = $request->keywords;
-            $search_books = Product::where('title', 'like', '%'.$keywords.'%')->get();
-            return view('guest.page.search', compact('category', 'search_books'));
+            $search_books = Product::where('title', 'like', '%'.$keywords.'%')->get()->paginate(12);
+            return view('guest.page.search', compact('category', 'search_books', 'min_price', 'max_price'
+            , 'min_price_range', 'max_price_range'));
         }else{
-            $category = Category::orderBy('id', 'asc')->get();
-            $books = Product::all();
             return redirect()->route('products');
         }
     }
