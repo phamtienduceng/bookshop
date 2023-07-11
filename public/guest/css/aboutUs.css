@@ -108,7 +108,7 @@
 .layout-about-2{
   margin-top: 100px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
   margin-left: 120px;
   margin-right: 110px;  

@@ -29,7 +29,7 @@
 			<link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
 			<link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
 			<link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
-			<link rel="stylesheet" href="{{ asset('guest/css/about.css') }}">
+			<link rel="stylesheet" href="{{ asset('guest/css/aboutUs.css') }}">
 			<link rel="stylesheet" href="{{ asset('guest/css/layout.css') }}">
 			<!-- <link rel="stylesheet" href="{{ asset('guest/cart.css') }}"> -->
 
@@ -83,11 +83,35 @@
 			    </div>
 			  </header><!-- #header -->
 
+              <div>
+              <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{ asset('/images/aboutUsBanner3.jpg') }}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('/images/aboutUsBanner1.jpg') }}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ asset('/images/aboutUsBanner2.jpg') }}" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    </div>
+              </div>
+
                 <div class="top-div">
                     <div class="layout-item-our">
                         <div class="header header3" id="layout-item-1-1" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="700">Our story</div>
                         <div data-aos="fade-up" data-aos-duration="700">
-                            <p class="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea modi ipsum, recusandae voluptatibus excepturi dolorum, adipisci quam ipsa animi blanditiis possimus consequatur maxime at ut odit consectetur rerum architecto vitae!</p>
+                            <p class="p1">From a small bookstore with 5 employees established in 1998, with 25 years of development, Duc Tri has become a familiar place to buy books for customers all over Vietnam. We are committed to bringing the best quality books at affordable prices to our beloved customers.</p>
                         </div>
                     </div>
                 </div>
@@ -102,9 +126,6 @@
 				<div class="top-div">
                     <div class="layout-item-our">
                         <div class="header header3" id="layout-item-1-1" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="700">Our team</div>
-                        <div data-aos="fade-up" data-aos-duration="700">
-                            <p class="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea modi ipsum, recusandae voluptatibus excepturi dolorum, adipisci quam ipsa animi blanditiis possimus consequatur maxime at ut odit consectetur rerum architecto vitae!</p>
-                        </div>
                     </div>
                 </div>
                     <div class="layout-about-2">
@@ -130,6 +151,12 @@
                             <div class="card-about">
                                 <img class="card-about" width="100%" src="{{ asset('/images/o4.jpg')}}" alt="Denim Jeans" style="width:100%">
                                 <p class="item-name">Phu Hoang</p>
+                            </div>
+                        </div>
+                        <div class="layout-about-item2">
+                            <div class="card-about">
+                                <img class="card-about" width="100%" src="{{ asset('/images/o4.jpg')}}" alt="Denim Jeans" style="width:100%">
+                                <p class="item-name">Phat Tai</p>
                             </div>
                         </div>
                     </div>
