@@ -71,11 +71,11 @@ Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
 
 //login - register - logout
 //Route::get('/login', [AuthController::class, 'index'])->name('login');
-Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.post');
+// Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.post');
 
-Route::get('/registration', [AuthController::class, 'registration'])->name('register');
-Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('/registration', [AuthController::class, 'registration'])->name('register');
+// Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //role and permission
 Route::group(['middleware' => ['auth']], function () {

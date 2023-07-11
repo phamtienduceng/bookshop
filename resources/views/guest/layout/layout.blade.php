@@ -46,7 +46,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}" />
 </head>
 <body>
-    <div id="alert-box"></div>
+
 	<header id="header" id="home" style="background-color: black; opacity: 0.9" >
 			<div class="container">
 				<div class="row align-items-center justify-content-between d-flex">
@@ -62,21 +62,21 @@
 						<li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 						<li><a href="{{ Route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
 						<li><a href="{{ Route('wishlist.index')}}"><i class="fa-solid fa-heart"></i></a></li>
-						@guest
-						<li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
-						<ul>
-							<li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
-							<li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
-						</ul>
-						</li> 
-							@else 
-						<li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-						<ul> 
-							<li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-							<li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
-						</ul>
-						</li>
-						@endguest
+                        @guest
+				          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+				            <ul>
+				              <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
+				              <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
+                            </ul>
+                          </li> 
+							  @else 
+						  <li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
+							<ul> 
+							  <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+				              <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+				            </ul>
+				          </li>
+						  @endguest
 					</ul>
 					</nav><!-- #nav-menu-container -->		    		
 				</div>
