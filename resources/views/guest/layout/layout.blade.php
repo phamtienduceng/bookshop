@@ -20,6 +20,7 @@
     <!--
             CSS
             ============================================= -->
+            
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}" />
     <link rel="stylesheet" href="{{ asset('guest/css/font-awesome.min.css') }}" />
@@ -45,45 +46,46 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}" />
+<!-- 
+    <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script> -->
 </head>
 <body>
 
-	<header id="header" id="home" style="background-color: black; opacity: 0.9" >
-			<div class="container">
-				<div class="row align-items-center justify-content-between d-flex">
-					<div id="logo">
-					<a href="{{ Route('home')}}"><img src="{{ asset('/images/logo.jpg')}}" style="width: 80px"></a>
-					</div>
-					<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
-						<li><a href="{{ Route('products')}}">Product</a></li>
-						<li><a href="{{ Route('articles')}}">Articles</a></li>
-						<li><a href="{{ Route('aboutUs')}}">About us</a></li>
-						<li><a href="{{ Route('contactUs')}}">Contact us</a></li>
-						<li><a href="{{ Route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-						<li><a href="{{ Route('wishlist.index')}}"><i class="fa-solid fa-heart"></i></a></li>
+<header id="header" id="home" style="background-color: black; opacity: 0.9" >
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                    <div id="logo">
+                    <a href="{{ Route('home')}}"><img src="{{ asset('/images/logo.jpg')}}" style="width: 80px"></a>
+                    </div>
+                    <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
+                        <li><a href="{{ Route('products')}}">Product</a></li>
+                        <li><a href="{{ Route('articles')}}">Articles</a></li>
+                        <li><a href="{{ Route('aboutUs')}}">About us</a></li>
+                        <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
+                        <li><a href="{{ Route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href="{{ Route('wishlist.index')}}"><i class="fa-solid fa-heart"></i></a></li>
                         @guest
-				          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
-				            <ul>
-				              <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
-				              <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
-                            </ul>
-                          </li> 
-							  @else 
-						  <li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-							<ul> 
-							  <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-				              <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
-				            </ul>
-				          </li>
-						  @endguest
-					</ul>
-					</nav><!-- #nav-menu-container -->		    		
-				</div>
-
-			</div>
-	</header><!-- #header -->
+                        <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+                        <ul>
+                            <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
+                            <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
+                        </ul>
+                        </li> 
+                            @else 
+                        <li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
+                        <ul> 
+                            <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+                            <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+                        </ul>
+                        </li>
+                        @endguest
+                    </ul>
+                    </nav><!-- #nav-menu-container -->		    		
+                </div>
+            </div>
+    </header><!-- #header -->
 
     @yield('contents');
 
@@ -151,36 +153,18 @@
     </footer>
     <!-- End footer Area -->
 
-    <script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-    <script src="{{ asset('guest/js/easing.min.js') }}"></script>			
-    <script src="{{ asset('guest/js/hoverIntent.js') }}"></script>
-    <script src="{{ asset('guest/js/superfish.min.js') }}"></script>	
-    <script src="{{ asset('guest/js/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>	
-    <script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>			
-    <script src="{{ asset('guest/js/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>			
-    <script src="{{ asset('guest/js/parallax.min.js') }}"></script>	
-    <script src="{{ asset('guest/js/waypoints.min.js') }}"></script>
-    <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
-    <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
-    <script src="{{ asset('guest/js/main.js') }}"></script>	
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
 	<!-- ==== -->
 
 	<!-- ==== -->
 
-    <!-- <script src="{{ asset('guest/product/js/jquery-3.2.1.min.js') }}"></script> -->
     <script src="{{ asset('guest/product/styles/bootstrap4/popper.js') }}"></script>
     <script src="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.js') }}"></script>
     <script src="{{ asset('guest/product/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
     <script src="{{ asset('guest/product/plugins/easing/easing.js') }}"></script>
     <script src="{{ asset('guest/product/js/custom.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" ></script>
 
     <!-- New Script Stack -->
     @stack('scripts')
@@ -238,13 +222,31 @@
     }
 });
 
-    </script>
-
-
-
-
+</script>
 </body>
 </html>
+@push('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@endpush
 
+
+    <script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="{{ asset('guest/js/easing.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/hoverIntent.js') }}"></script>
+    <script src="{{ asset('guest/js/superfish.min.js') }}"></script>	
+    <script src="{{ asset('guest/js/jquery.ajaxchimp.min.js') }}"></script>
+    <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>	
+    <script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/jquery.sticky.js') }}"></script>
+    <script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/parallax.min.js') }}"></script>	
+    <script src="{{ asset('guest/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
+    <script src="{{ asset('guest/js/main.js') }}"></script>	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 
 

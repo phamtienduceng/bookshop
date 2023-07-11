@@ -155,7 +155,7 @@
                         </div>
                         <div class="layout-about-item2">
                             <div class="card-about">
-                                <img class="card-about" width="100%" src="{{ asset('/images/o4.jpg')}}" alt="Denim Jeans" style="width:100%">
+                                <img class="card-about" width="100%" src="{{ asset('/images/o5.jpg')}}" alt="Denim Jeans" style="width:100%">
                                 <p class="item-name">Phat Tai</p>
                             </div>
                         </div>
@@ -167,7 +167,7 @@
 			
 
 			<!-- start footer Area -->		
-			<footer class="footer-area section-gap" style="padding-top: 50px;">
+    <footer class="footer-area section-gap" style="padding-top: 50px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">

@@ -17,7 +17,6 @@
     <title>Book</title>
 
 
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 	<link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}">
@@ -129,18 +128,18 @@
                     </div>
 
                     <div class="main_content">
-
                         <div class="products_iso">
                             <div class="row">
                                 <div class="col">
 
                                     <div class="product_sorting_container product_sorting_container_top">
+                                        <!-- sorting -->
                                         <ul class="product_sorting">
                                             <form action="">
                                                 @csrf
                                                 <select name="sort" id="sort" class="">
-                                                    <option value="{{Request::url()}}?sort_by=none">All</option>
-                                                    <option value="{{Request::url()}}?sort_by=price_desc">Price: High to Low</option>
+                                                    <option value="{{URL::current()}}?sort_by=none">All</option>
+                                                    <option value="{{URL::current()}}?sort_by=price_desc">Price: High to Low</option>
                                                     <option value="{{Request::url()}}?sort_by=price_asc">Price: Low to High</option>
                                                     <option value="{{Request::url()}}?sort_by=title_asc">Name: A-Z</option>
                                                     <option value="{{Request::url()}}?sort_by=title_desc">Name: Z-A</option>
@@ -149,8 +148,10 @@
                                                 </select>	
                                             </form>
                                         </ul>
-                                        <div class="pages d-flex flex-row align-items-center">
+                                        <!-- end sorting -->
 
+                                        <!-- search -->
+                                        <div class="pages d-flex flex-row align-items-center">
                                             <form action="{{ Route('search') }}" method="get">
                                                 <div class="input-group">
                                                     <input class="form-control border-end-0 border rounded-pill" name="keywords" type="text" placeholder="Search..." id="example-search-input">
@@ -162,7 +163,7 @@
                                                 </div>
                                             </form>
                                         </div>
-
+                                        <!-- end search -->
                                     <div class="product-grid">
                                         @foreach($books as $item)
                                             <div class="product-item men" style="margin-bottom: 20px">

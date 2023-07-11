@@ -58,27 +58,8 @@ class HomeController extends Controller
         $max_price = Product::max('price');
         $max_price_range = $max_price + 100;
 
-        if(isset($_GET['sort_by'])){
-            $sort_by = $_GET['sort_by'];
-
-            if($sort_by == 'price_desc'){
-                $books = Product::orderBy('price', 'desc')->paginate(12);
-            }elseif($sort_by == 'price_asc'){
-                $books = Product::orderBy('price', 'asc')->paginate(12);
-            }elseif($sort_by == 'title_asc'){
-                $books = Product::orderBy('title', 'asc')->paginate(12);
-            }elseif($sort_by == 'title_desc'){
-                $books = Product::orderBy('title', 'desc')->paginate(12);
-            }elseif($sort_by == 'latest'){
-                $books = Product::orderBy('created_at', 'desc')->paginate(12);
-            }elseif($sort_by == 'oldest'){
-                $books = Product::orderBy('created_at', 'asc')->paginate(12);
-            }
-       
-        }
 
         if(isset($_GET['filter_cate'])){
-
 
             // $books = Product::whereBetween('price', [$min_price, $max_price])->orderBy('price', 'asc')->paginate(12);
             $checked = $_GET['filter_cate'];
@@ -91,18 +72,55 @@ class HomeController extends Controller
 
             $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'asc')->get()->paginate(12);
             }
+
+            if(isset($_GET['sort_by'])){
+                $sort_by = $_GET['sort_by'];
+    
+                if($sort_by == 'price_desc'){
+                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'desc')->get()->paginate(12);
+                }elseif($sort_by == 'price_asc'){
+                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'asc')->get()->paginate(12);
+                }elseif($sort_by == 'title_asc'){
+                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('title', 'asc')->get()->paginate(12);
+                }elseif($sort_by == 'title_desc'){
+                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('title', 'desc')->get()->paginate(12);
+                }elseif($sort_by == 'latest'){
+                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('created_at', 'desc')->get()->paginate(12);
+                }elseif($sort_by == 'oldest'){
+                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('created_at', 'asc')->get()->paginate(12);
+                }
+            }
         }
-        else{
+        elseif(isset($_GET['start_price']) && $_GET['end_price']){
             $books = Product::paginate(12);
             
-            if(isset($_GET['start_price']) && $_GET['end_price']){
+
 
                 $min_price = $_GET['start_price'];
                 $max_price = $_GET['end_price'];
     
                 $books = Product::whereBetween('price', [$min_price, $max_price])->orderBy('price', 'asc')->get()->paginate(12);
-            }
+                  
+        }else{
+            $books = Product::paginate(12);
 
+            if(isset($_GET['sort_by'])){
+                $sort_by = $_GET['sort_by'];
+    
+                if($sort_by == 'price_desc'){
+                    $books = Product::orderBy('price', 'desc')->get()->paginate(12);
+                }elseif($sort_by == 'price_asc'){
+                    $books = Product::orderBy('price', 'asc')->get()->paginate(12);
+                }elseif($sort_by == 'title_asc'){
+                    $books = Product::orderBy('title', 'asc')->get()->paginate(12);
+                }elseif($sort_by == 'title_desc'){
+                    $books = Product::orderBy('title', 'desc')->get()->paginate(12);
+                }elseif($sort_by == 'latest'){
+                    $books = Product::orderBy('created_at', 'desc')->get()->paginate(12);
+                }elseif($sort_by == 'oldest'){
+                    $books = Product::orderBy('created_at', 'asc')->get()->paginate(12);
+                }
+            }
         }    
 
         $category = Category::orderBy('id', 'asc')->get();
