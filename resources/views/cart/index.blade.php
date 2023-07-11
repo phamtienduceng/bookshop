@@ -111,7 +111,6 @@
                 <div class="total-price">
                     <h3 id="grandTotal">Total Price: {{ number_format($totalPrice, 0, ',', '.') }}₫</h3>
                 </div>
-
                 <div class="checkout-button">
                     <a href="{{ route('checkout.index') }}" class="btn btn-success">Checkout</a>
                 </div>
@@ -121,6 +120,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+$(document).ready(function() {
+    $('.increase-quantity').click(function() {
+        var productId = $(this).data('product-id');
+        var quantityElement = $('#quantity-' + productId);
+        var priceElement = $('#total-' + productId);
+        var price = parseFloat(quantityElement.data('price'));
+        var quantity = parseInt(quantityElement.text());
+
+        quantity++;
+        quantityElement.text(quantity);
+        priceElement.text((price * quantity).toLocaleString('vi-VN') + '₫');
+    });
+
+    $('.decrease-quantity').click(function() {
+        var productId = $(this).data('product-id');
+        var quantityElement = $('#quantity-' + productId);
+        var priceElement = $('#total-' + productId);
+        var price = parseFloat(quantityElement.data('price'));
+        var quantity = parseInt(quantityElement.text());
+
+        if (quantity > 1) {
+            quantity--;
+            quantityElement.text(quantity);
+            priceElement.text((price * quantity).toLocaleString('vi-VN') + '₫');
+        }
+    });
+
+    $('.remove-item').click(function() {
+        var productId = $(this).data('product-id');
+        var rowElement = $('#product-row-' + productId);
+
+        rowElement.remove();
+    });
+});
+    </script>
+
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
