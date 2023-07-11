@@ -17,6 +17,7 @@
     <title>Book</title>
 
 
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 	<link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}">
@@ -28,7 +29,6 @@
 	<link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
 	<link rel="stylesheet" href="{{ asset('guest/css/layout.css') }}">
-
 
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}">
     <link href="{{ asset('guest/product/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
@@ -176,6 +176,7 @@
                                                     <h6 class="product_name"><a href="{{ Route('singleProducts', $item->slug) }}" style="margin-top: -20px">{{ $item->title}}</a></h6>
                                                     <div class="product_price">{{ number_format($item->price, 0, ',', '.') }}₫<span>{{ number_format($item->price, 0, ',', '.') }}₫</span></div>
                                                 </div>
+
                                                 </div>
                                                 <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
                                                         @csrf
@@ -238,6 +239,7 @@
                                 <h6>opening all week</h6>
                                 <p>8AM - 09PM</p>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -348,6 +350,7 @@
     <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
     <script src="{{ asset('guest/js/main.js') }}"></script>	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+
 
     <!-- ==== -->
 
