@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Order;
 use App\Models\OrderItem;
 
@@ -21,23 +20,25 @@ class CheckoutController extends Controller
 
         // Process the payment using the selected payment method and amount
         $paymentSuccessful = $this->processPaymentMethod($paymentMethod, $paymentAmount);
-
         if ($paymentSuccessful) {
             // Payment is successful, create the order
             $order = $this->createOrder($request);
 
-            if ($order) {
+            if ($order instanceof Order) { // Check if $order is an Order instance
                 // Clear the cart data
                 $this->clearCartData($request);
-
                 // Redirect to success page with order ID
                 return redirect()->route('checkout.success')->with('success', 'Payment processed successfully. Order ID: ' . $order->id);
+            } else {
+                // In case of a RedirectResponse, simply return it
+                return $order;
             }
         }
 
         // If payment fails or order creation fails, redirect to the cancel page
         return redirect()->route('checkout.cancel')->with('error', 'Payment processing failed.');
     }
+
 
     private function createOrder(Request $request)
     {
@@ -47,7 +48,12 @@ class CheckoutController extends Controller
         $products = $request->session()->get('cart');
 
         // Get the user ID
-        $userId = auth()->user()->id; // Replace 'auth()->user()->id' with your user ID retrieval logic
+        $user = auth()->user();
+        if ($user === null) {
+            // Handle the situation where no user is logged in, perhaps by redirecting to a login page.
+            return redirect()->route('login')->with('error', 'You must be logged in to complete the checkout process.');
+        }
+        $userId = $user->id;
 
         // Create the order
         $order = Order::create([
@@ -58,29 +64,30 @@ class CheckoutController extends Controller
             // Add any other relevant fields for the order
         ]);
 
-        // Create and associate the order items
-        foreach ($products as $product) {
-            if (isset($product['id'])) {
-                OrderItem::create([
-                    'order_id' => $order->id,
-                    'product_id' => $product['id'],
-                    'quantity' => $product['quantity'],
-                    'price' => $product['price'],
-                ]);
+        // Check if $products is not null
+        if ($products !== null) {
+            // Create and associate the order items
+            foreach ($products as $product) {
+                if (isset($product['id'])) {
+                    OrderItem::create([
+                        'order_id' => $order->id,
+                        'product_id' => $product['id'],
+                        'quantity' => $product['quantity'],
+                        'price' => $product['price'],
+                    ]);
+                }
             }
         }
-
 
         return $order;
     }
 
-
     private function processPaymentMethod($paymentMethod, $paymentAmount)
     {
         // Add your payment processing logic here
-        // Return true if payment is successful, false otherwise
 
-        // Placeholder
+        // Return true if payment is successful, false otherwise
+        // Placeholder return
         return true;
     }
 

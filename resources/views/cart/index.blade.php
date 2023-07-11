@@ -95,7 +95,6 @@
             {{ session('success') }}
         </div>
         @endif
-
         <div class="row">
             <div class="col">
                 @if(count($cartItems) > 0)
@@ -117,13 +116,13 @@
                             <td>
                                 <img src="{{ asset('images/' . $item['product']['image']) }}" alt="{{ $item['product']['title'] }}" style="width: 100px;" />
                             </td>
-                            <td>{{ number_format($item['product']['price'], 0, ',', '.') }}.000 đ</td><!-- Add dot separator and currency symbol -->
+                            <td>{{ number_format($item['product']['price'], 0, ',', '.') }}₫</td>
                             <td>
                                 <button class="btn btn-secondary decrease-quantity" data-product-id="{{ $item['product']['id'] }}">-</button>
                                 <span id="quantity-{{ $item['product']['id'] }}" data-price="{{ $item['product']['price'] }}">{{ $item['quantity'] }}</span>
                                 <button class="btn btn-secondary increase-quantity" data-product-id="{{ $item['product']['id'] }}">+</button>
                             </td>
-                            <td id="total-{{ $item['product']['id'] }}">{{ number_format($item['product']['price'] * $item['quantity'], 0, ',', '.') }}.000 đ</td><!-- Add dot separator and currency symbol -->
+                            <td id="total-{{ $item['product']['id'] }}">{{ number_format($item['product']['price'] * $item['quantity'], 0, ',', '.') }}₫</td>
                             <td>
                                 <button class="btn btn-danger remove-item" data-product-id="{{ $item['product']['id'] }}">Remove</button>
                             </td>
@@ -131,15 +130,12 @@
                         @endforeach
                     </tbody>
                 </table>
-
                 <div class="total-price">
-                    <h3 id="grandTotal">Total Price: {{ number_format($totalPrice, 0, ',', '.') }} đ</h3><!-- Add dot separator and currency symbol -->
+                    <h3 id="grandTotal">Total Price: {{ number_format($totalPrice, 0, ',', '.') }}₫</h3>
                 </div>
-
                 <div class="checkout-button">
                     <a href="{{ route('checkout.index') }}" class="btn btn-success">Checkout</a>
                 </div>
-
                 @else
                 <p>Your cart is empty.</p>
                 @endif
@@ -147,14 +143,52 @@
         </div>
     </div>
 
+    <script>
+$(document).ready(function() {
+    $('.increase-quantity').click(function() {
+        var productId = $(this).data('product-id');
+        var quantityElement = $('#quantity-' + productId);
+        var priceElement = $('#total-' + productId);
+        var price = parseFloat(quantityElement.data('price'));
+        var quantity = parseInt(quantityElement.text());
+
+        quantity++;
+        quantityElement.text(quantity);
+        priceElement.text((price * quantity).toLocaleString('vi-VN') + '₫');
+    });
+
+    $('.decrease-quantity').click(function() {
+        var productId = $(this).data('product-id');
+        var quantityElement = $('#quantity-' + productId);
+        var priceElement = $('#total-' + productId);
+        var price = parseFloat(quantityElement.data('price'));
+        var quantity = parseInt(quantityElement.text());
+
+        if (quantity > 1) {
+            quantity--;
+            quantityElement.text(quantity);
+            priceElement.text((price * quantity).toLocaleString('vi-VN') + '₫');
+        }
+    });
+
+    $('.remove-item').click(function() {
+        var productId = $(this).data('product-id');
+        var rowElement = $('#product-row-' + productId);
+
+        rowElement.remove();
+    });
+});
+    </script>
+
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Add these lines before your cart.js script -->
     <script>
-    var updateQuantityUrl = "{{ url('/cart/update-quantity') }}";
-    var removeItemUrl = "{{ url('/cart/remove-item') }}";
+        var updateQuantityUrl = "{{ url('/cart/update-quantity') }}";
+        var removeItemUrl = "{{ url('/cart/remove-item') }}";
     </script>
     <!-- Now include your cart.js script -->
     <script src="{{ asset('js/cart.js') }}"></script>

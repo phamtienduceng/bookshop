@@ -14,7 +14,7 @@
             @foreach ($orders as $order)
             <tr>
                 <td>{{ $order->id }}</td>
-                <td>{{ $order->customer_name ?? 'N/A' }}</td>
+                <td>{{ $order->customer_name ?? 'Gabriel Belmont' }}</td>
                 <td>{{ $order->order_total }}</td>
                 <td>{{ $order->created_at }}</td>
                 <td>
