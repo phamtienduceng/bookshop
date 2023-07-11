@@ -73,7 +73,6 @@
             {{ session('success') }}
         </div>
         @endif
-
         <div class="row">
             <div class="col">
                 @if(count($cartItems) > 0)
@@ -95,13 +94,13 @@
                             <td>
                                 <img src="{{ asset('images/' . $item['product']['image']) }}" alt="{{ $item['product']['title'] }}" style="width: 100px;" />
                             </td>
-                            <td>{{ number_format($item['product']['price'], 0, ',', '.') }}.000 đ</td><!-- Add dot separator and currency symbol -->
+                            <td>{{ number_format($item['product']['price'], 0, ',', '.') }}₫</td>
                             <td>
                                 <button class="btn btn-secondary decrease-quantity" data-product-id="{{ $item['product']['id'] }}">-</button>
                                 <span id="quantity-{{ $item['product']['id'] }}" data-price="{{ $item['product']['price'] }}">{{ $item['quantity'] }}</span>
                                 <button class="btn btn-secondary increase-quantity" data-product-id="{{ $item['product']['id'] }}">+</button>
                             </td>
-                            <td id="total-{{ $item['product']['id'] }}">{{ number_format($item['product']['price'] * $item['quantity'], 0, ',', '.') }}.000 đ</td><!-- Add dot separator and currency symbol -->
+                            <td id="total-{{ $item['product']['id'] }}">{{ number_format($item['product']['price'] * $item['quantity'], 0, ',', '.') }}₫</td>
                             <td>
                                 <button class="btn btn-danger remove-item" data-product-id="{{ $item['product']['id'] }}">Remove</button>
                             </td>
@@ -109,15 +108,13 @@
                         @endforeach
                     </tbody>
                 </table>
-
                 <div class="total-price">
-                    <h3 id="grandTotal">Total Price: {{ number_format($totalPrice, 0, ',', '.') }} đ</h3><!-- Add dot separator and currency symbol -->
+                    <h3 id="grandTotal">Total Price: {{ number_format($totalPrice, 0, ',', '.') }}₫</h3>
                 </div>
 
-                <div class="checkout-button" style="margin-bottom: 100px">
+                <div class="checkout-button">
                     <a href="{{ route('checkout.index') }}" class="btn btn-success">Checkout</a>
                 </div>
-
                 @else
                 <p>Your cart is empty.</p>
                 @endif
@@ -125,75 +122,14 @@
         </div>
     </div>
 
-    <footer class="footer-area section-gap" style="padding-top: 50px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                    <h6 class="header-footer">About us</h6>
-                        <ul class="ul-footer">
-                            <li>Location: District 3, Nam Ky Khoi Nghia street, Ho Chi Minh city</li>
-                            <li>Number: 012345678</li>
-                            <li>Contact: <a href="#" style="text-decoration: none">triducstore@gmail.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6 class="header-footer">Shopping</h6>
-                        <ul class="ul-footer">
-                            <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6 class="header-footer">Information</h6>
-                        <ul class="ul-footer">
-                            <li><a href="{{ Route('contactUs') }}">About us</a></li>
-                            <li><a href="{{ Route('aboutUs') }}">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                    <div class="single-footer-widget">
-                    <img src="{{ asset('/images/logo.jpg')}}" alt="" class="logo-footer">
-                        <div class="footer-social d-flex align-items-center social">
-                            <a href="https://facebook.com">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="https://twitter.com">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="https://google.com">
-                                <i class="fa fa-google"></i>
-                            </a>
-                            <a href="https://instagram.com">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row footer-end">
-                <div class="col-lg-12">
-                    Copyright 2023 Duc Tri Co. Ltd. All Right Reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
-
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <!-- Add these lines before your cart.js script -->
     <script>
-    var updateQuantityUrl = "{{ url('/cart/update-quantity') }}";
-    var removeItemUrl = "{{ url('/cart/remove-item') }}";
+        var updateQuantityUrl = "{{ url('/cart/update-quantity') }}";
+        var removeItemUrl = "{{ url('/cart/remove-item') }}";
     </script>
     <!-- Now include your cart.js script -->
     <script src="{{ asset('js/cart.js') }}"></script>

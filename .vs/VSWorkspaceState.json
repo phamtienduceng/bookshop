@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\database",
-    "\\database\\seeders",
-    "\\public",
-    "\\public\\admin",
-    "\\public\\admin\\js",
-    "\\public\\admin\\js\\demo",
-    "\\public\\admin\\vendor",
-    "\\public\\admin\\vendor\\jquery",
-    "\\public\\js"
+    "\\app",
+    "\\app\\Http",
+    "\\app\\Http\\Controllers",
+    "\\app\\Http\\Controllers\\Admin",
+    "\\resources",
+    "\\resources\\views",
+    "\\resources\\views\\admin\\layout\\partials",
+    "\\resources\\views\\guest\\page",
+    "\\resources\\views\\livewire"
   ],
-  "SelectedNode": "\\resources\\views\\guest\\page\\products.blade.php",
+  "SelectedNode": "\\resources\\views\\livewire\\order-list.blade.php",
   "PreviewInSolutionExplorer": false
 }
