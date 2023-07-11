@@ -100,100 +100,104 @@
                 </div>
             </div>
 
+        <div class="row">
+    <div class="col-lg-7">
+        <div class="single_product_pics">
             <div class="row">
-                <div class="col-lg-7">
-                    <div class="single_product_pics">
-                        <div class="row">
-                            <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
-                                <div class="single_product_thumbnails">
-                                    <ul>
-                                        <li><img src="{{ asset('/images/'.$book->image1) }}" alt="" data-image="{{ asset('/images/'.$book->image1) }}"></li>
-                                        <li class="active"><img src="{{ asset('/images/'.$book->image) }}" alt="" data-image="{{ asset('/images/'.$book->image) }}"></li>
-                                        <li><img src="{{ asset('/images/'.$book->image2) }}" alt="" data-image="{{ asset('/images/'.$book->image2) }}"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-9 image_col order-lg-2 order-1">
-                    
-                            <div class="single_product_image">
-                                    <div class="single_product_image_background" style="background-image:url({{ asset('/images/'.$book->image) }})"></div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+                    <div class="single_product_thumbnails">
+                        <ul>
+                            <li><img src="{{ asset('/images/'.$book->image1) }}" alt="" data-image="{{ asset('/images/'.$book->image1) }}"></li>
+                            <li class="active"><img src="{{ asset('/images/'.$book->image) }}" alt="" data-image="{{ asset('/images/'.$book->image) }}"></li>
+                            <li><img src="{{ asset('/images/'.$book->image2) }}" alt="" data-image="{{ asset('/images/'.$book->image2) }}"></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="product_details">
-                        <div class="product_details_title">
-                            <h2>{{ $book->title}}</h2>
-                            <p>{{ $book->description}}</p>
-                        </div>
-                        <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
-                            <span class="ti-truck"></span><span>free delivery</span>
-                        </div>
-                        <div class="original_price">{{ $book->price}}.000 đ</div>
-                        <div class="product_price">{{ $book->price}}.000 đ</div>
-                        <ul class="star_rating">
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                            <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-                        </ul>
-                        <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-                            <span>Quantity:</span>
-                            <div class="quantity_selector">
-                                <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                <span id="quantity_value">1</span>
-                                <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                            </div>
-                            <form method="POST" action="{{ route('cart.store') }}">
-                                @csrf
-                                <input type="hidden" name="product_id" value="{{ $book->id }}" />
-                                <input type="hidden" name="quantity" id="quantity_input" value="1" />
-                                <button type="submit" class="btn btn-primary add_to_cart mt-0">Add to Cart</button>
-                            </form>
-                            <a href="{{ route('wishlist.store', $book->id) }}" class="btn btn-outline-primary add_to_cart mt-0">Wishlist</a>
-                        </div>
+                <div class="col-lg-9 image_col order-lg-2 order-1">
+                    <div class="single_product_image">
+                        <div class="single_product_image_background" style="background-image:url({{ asset('/images/'.$book->image) }})"></div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="new_arrivals">
-	<div class="container">
-		<div class="row">
-			<div class="col text-center">
-				<div class="section_title new_arrivals_title">
-					<h2>Related Product</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-				<div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-					@foreach($related as $item)
-					<div class="product-item men">
-						<div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
-							<div class="product_image" style="margin-top: 10px">
-								<img src="{{ asset('/images/'. $item->image) }}" alt="">
-							</div>
-							<div class="favorite favorite_left"></div>
-							<div class="product_info">
-								<h6 class="product_name"><a href="{{ Route('singleProducts', $item->slug) }}" style="margin-top: -20px">{{ $item->title}}</a></h6>
-								<div class="product_price">{{$item->price}}.000 đ<span>{{$item->price}}.000 đ</span></div>
-							</div>
-						</div>
-						<div class="red_button add_to_cart_button" style="width: 100%; margin-left: unset; margin-top: -25px">
-							<a href="#">add to cart</a>
-						</div>
-					</div>
-					@endforeach
-				</div>
-			</div>
-		</div>
-	</div>
+    </div>
+    <div class="col-lg-5">
+        <div class="product_details">
+            <div class="product_details_title">
+                <h2>{{ $book->title}}</h2>
+                <p>{{ $book->description}}</p>
+            </div>
+            <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+                <span class="ti-truck"></span><span>free delivery</span>
+            </div>
+            <div class="original_price">{{ number_format($book->price, 0, ',', '.') }}₫</div>
+            <div class="product_price">{{ number_format($book->price, 0, ',', '.') }}₫</div>
+            <ul class="star_rating">
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+            </ul>
+            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+                <span>Quantity:</span>
+                <div class="quantity_selector">
+                    <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                    <span id="quantity_value">1</span>
+                    <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                </div>
+                <form method="POST" action="{{ route('cart.store') }}">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $book->id }}" />
+                    <input type="hidden" name="quantity" id="quantity_input" value="1" />
+                    <button type="submit" class="btn btn-primary add_to_cart mt-0">Add to Cart</button>
+                </form>
+                <a href="{{ route('wishlist.store', $book->id) }}" class="btn btn-outline-primary add_to_cart mt-0">Wishlist</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div class="new_arrivals">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title new_arrivals_title">
+                    <h2>Related Product</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+                    @foreach($related as $item)
+                    <div class="product-item men">
+                        <div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
+                            <div class="product_image" style="margin-top: 10px">
+                                <img src="{{ asset('/images/'. $item->image) }}" alt="">
+                            </div>
+                            <div class="favorite favorite_left"></div>
+                            <div class="product_info">
+                                <h6 class="product_name"><a href="{{ Route('singleProducts', $item->slug) }}" style="margin-top: -20px">{{ $item->title}}</a></h6>
+                                <div class="product_price">{{ number_format($item->price, 0, ',', '.') }}₫<span>{{ number_format($item->price, 0, ',', '.') }}₫</span></div>
+                            </div>
+                        </div>
+                        
+                            <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $item->id }}" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <button id="add-to-cart-button" type="submit" style="width: 215px" class="btn btn-danger btn-sm">Add to Cart</button>
+                            </form>
+                       
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         <!-- Benefit -->
 
         <div class="benefit">
