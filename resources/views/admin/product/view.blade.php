@@ -32,6 +32,10 @@
                         <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Add new product</span>
+
+
+
+                    
                 </a>
             </div>
         </div>
