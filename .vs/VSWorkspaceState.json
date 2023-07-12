@@ -7,10 +7,10 @@
     "\\app\\Http\\Controllers\\Admin",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\admin\\layout\\partials",
+    "\\resources\\views\\guest",
     "\\resources\\views\\guest\\page",
     "\\resources\\views\\livewire"
   ],
-  "SelectedNode": "\\resources\\views\\livewire\\order-list.blade.php",
+  "SelectedNode": "\\resources\\views\\guest\\page\\products.blade.php",
   "PreviewInSolutionExplorer": false
 }

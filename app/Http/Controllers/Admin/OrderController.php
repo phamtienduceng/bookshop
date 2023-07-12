@@ -45,27 +45,40 @@ class OrderController extends Controller
     }
 
 
-    public function show(Order $order)
-    {
-        return view('admin.order.showOrder', compact('order'));
-    }
-
     public function edit(Order $order)
     {
         return view('admin.order.editOrder', compact('order'));
     }
 
-    public function update(Request $request, Order $order)
+    public function show($id)
     {
-        $validatedData = $request->validate([
-            'customer_name' => 'required|max:255',
-            'order_total' => 'required|numeric',
-        ]);
-
-        $order->update($validatedData);
-
-        return redirect()->route('orders.index');
+        $order = Order::find($id);
+        return view('admin.order.editOrder', compact('order'));
     }
+
+
+
+    public function update(Request $request, $id)
+    {
+        $order = Order::find($id);
+        if (!$order) {
+            // Xử lý khi không tìm thấy order
+        }
+
+        // Cập nhật dữ liệu order
+        $order->customer_name = $request->input('customer_name');
+        $order->order_total = $request->input('order_total');
+        $order->status = $request->input('status');
+        $order->payment_method = $request->input('payment_method');
+        // Cập nhật các trường khác theo cần thiết
+
+        $order->save();
+
+        // Xử lý sau khi cập nhật thành công
+
+        return redirect()->route('admin.orders.index')->with('success', 'Order updated successfully');
+    }
+
 
     public function destroy(Order $order)
     {

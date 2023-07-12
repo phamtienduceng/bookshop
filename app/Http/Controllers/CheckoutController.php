@@ -20,13 +20,15 @@ class CheckoutController extends Controller
 
         // Process the payment using the selected payment method and amount
         $paymentSuccessful = $this->processPaymentMethod($paymentMethod, $paymentAmount);
+
         if ($paymentSuccessful) {
             // Payment is successful, create the order
             $order = $this->createOrder($request);
 
-            if ($order instanceof Order) { // Check if $order is an Order instance
+            if ($order instanceof Order) {
                 // Clear the cart data
                 $this->clearCartData($request);
+
                 // Redirect to success page with order ID
                 return redirect()->route('checkout.success')->with('success', 'Payment processed successfully. Order ID: ' . $order->id);
             } else {
@@ -39,7 +41,6 @@ class CheckoutController extends Controller
         return redirect()->route('checkout.cancel')->with('error', 'Payment processing failed.');
     }
 
-
     private function createOrder(Request $request)
     {
         // Retrieve the necessary data from the request
@@ -49,17 +50,20 @@ class CheckoutController extends Controller
 
         // Get the user ID
         $user = auth()->user();
+
         if ($user === null) {
             // Handle the situation where no user is logged in, perhaps by redirecting to a login page.
             return redirect()->route('login')->with('error', 'You must be logged in to complete the checkout process.');
         }
+
         $userId = $user->id;
 
         // Create the order
         $order = Order::create([
             'user_id' => $userId,
             // Set the user ID
-            'customer_name' => $customerName,
+            'customer_name' => $customerName ?: 'Administrator',
+            // Use 'Administrator' as fallback if customer name is empty
             'order_total' => $orderTotal,
             // Add any other relevant fields for the order
         ]);
@@ -82,11 +86,13 @@ class CheckoutController extends Controller
         return $order;
     }
 
+
+
     private function processPaymentMethod($paymentMethod, $paymentAmount)
     {
         // Add your payment processing logic here
-
         // Return true if payment is successful, false otherwise
+
         // Placeholder return
         return true;
     }
