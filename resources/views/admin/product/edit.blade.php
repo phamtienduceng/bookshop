@@ -14,7 +14,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input  id="title" class="form-control" name="title" value=""
+                    <input  id="title" class="form-control" name="title" value="{{$product->title}}"
                     />
                 </div>
                 @error('title')
@@ -92,11 +92,21 @@
                         Update
                     </button>
                 </div>
+
             </div>
             <!-- /.card-body -->
          </div>
     <!-- /.card -->
     </div>
 </form>
+
+<div>
+                    <a href="{{ Route('admin')}}">
+                        <button >
+                            Cancel
+                        </button>
+                    </a>
+
+                </div>
 
 @endsection

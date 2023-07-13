@@ -56,11 +56,11 @@ Route::get('/products', [HomeController::class, 'products'])->name('products');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
 
-Route::post('/getContactUs', [DashboardController::class, 'getContactUs'])->name('getContactUs');
+Route::post('/getContactUs', [ContactUsController::class, 'getContactUs'])->name('getContactUs');
 
 
 // Admin home page
-Route::get('/home', [DashboardController::class, 'home'])->name('admin');
+
 
 // login - register - profile - logout
 Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -77,7 +77,8 @@ Route::group(['middleware' => 'checklogin'], function () {
 
     // Admin routes (requires admin role)
     Route::group(['middleware' => 'checkadmin'], function () {
-        Route::get('/admin-product', [ProductController::class, 'index'])->name('adminProduct');
+        Route::get('/home', [ProductController::class, 'index'])->name('admin');
+        Route::get('/viewSingle/{slug}', [DashboardController::class, 'viewSingle'])->name('viewSingle');
         Route::get('/admin-order', [OrderController::class, 'index'])->name('adminOrder');
         Route::get('/admin-contactUs', [ContactUsController::class, 'index'])->name('adminContactUs');
         Route::resource('/product', ProductController::class);

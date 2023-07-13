@@ -90,6 +90,11 @@
 					<h2 class="heading-section">Contact Duc Tri Book Store</h2>
 				</div>
 			</div>
+			@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
 			<div class="row justify-content-center">
 				<div class="col-md-12">
 					<div class="wrapper">
