@@ -7,7 +7,9 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Product List</h1>
+
     <div class="card shadow mb-4">
+
         <div class="newdiv">
             <div class="new-div-item ">
             <form action="">
@@ -35,6 +37,7 @@
                 </a>
             </div>
         </div>
+        
         <div class="card-body" wire:ignore>
             <div class="table-responsive">
                 <table class="table table-bordered" id="myTable" width="100%" cellspacing="0" wire:ignore>
