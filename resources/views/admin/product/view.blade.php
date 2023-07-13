@@ -3,7 +3,7 @@
 @section('contents')
 
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div wire:ignore class="container-fluid">
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Product List</h1>
@@ -32,16 +32,12 @@
                         <i class="fas fa-plus"></i>
                     </span>
                     <span class="text">Add new product</span>
-
-
-
-                    
                 </a>
             </div>
         </div>
-        <div class="card-body">
+        <div class="card-body" wire:ignore>
             <div class="table-responsive">
-                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="myTable" width="100%" cellspacing="0" wire:ignore>
                     <thead>
                         <tr>
                             <th width="10%">ID</th>

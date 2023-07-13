@@ -9,13 +9,12 @@ use App\Http\Controllers\Guest\HomeController;
 use App\Http\Controllers\Userontroller;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -55,8 +54,7 @@ Route::get('/products', [HomeController::class, 'products'])->name('products');
 // Search page
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
-// Category page
-Route::get('/product/{slug}', [Homecontroller::class, 'products'])->name('category');
+Route::post('/getContactUs', [DashboardController::class, 'getContactUs'])->name('getContactUs');
 
 // Admin home page
 Route::get('/home', [DashboardController::class, 'home'])->name('admin');
@@ -77,7 +75,7 @@ Route::group(['middleware' => 'checklogin'], function () {
     Route::group(['middleware' => 'checkadmin'], function () {
         Route::get('/admin-product', [ProductController::class, 'index'])->name('adminProduct');
         Route::get('/admin-order', [OrderController::class, 'index'])->name('adminOrder');
-        Route::get('/admin-account', [AccountController::class, 'index'])->name('adminAccount');
+        Route::get('/admin-contactUs', [ContactUsController::class, 'index'])->name('adminContactUs');
         Route::resource('/product', ProductController::class);
     });
 });
@@ -107,10 +105,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/wishlist/{product}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 });
 
-// Books
-Route::get('/books', [BookController::class, 'index'])->name('books.index');
-Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
-
 // Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
@@ -122,7 +116,7 @@ Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('c
 Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
 // Product detail
-Route::get('/products/{product}', 'ProductController@show')->name('products.show');
+
 
 // Session data (for debugging)
 Route::get('/session-data', function () {

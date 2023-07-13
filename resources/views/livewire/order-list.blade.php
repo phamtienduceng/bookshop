@@ -4,7 +4,7 @@
     <h1>Order Management</h1>
 
     <!-- Display a table of orders -->
-    <table class="table">
+    <table class="table" id="myTable">
         <!-- Table headers -->
         <thead>
             <tr>

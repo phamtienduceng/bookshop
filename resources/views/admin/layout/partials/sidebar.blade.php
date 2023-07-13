@@ -36,9 +36,18 @@
     </li>
 
     <li class="nav-item">
+
+        <a class="nav-link" href="{{ Route('adminContactUs')}}">
+        <i class="fa-regular fa-user"></i>
+            <span>Contact Us</span></a>
+
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('users.index') }}">
             <i class="fa-solid fa-users"></i>
             <span>Users</span></a>
+
     </li>
 
     <li class="nav-item">
