@@ -1,12 +1,12 @@
-<!--// File: C:\xampp\htdocs\bookshop1\resources\views\livewire\order-list.blade.php-->
-<!-- Order Management Page -->
-<div>
-    <h1>Order Management</h1>
+<div class="container-fluid">
 
-    <!-- Display a table of orders -->
-    <table class="table" id="myTable">
-        <!-- Table headers -->
-        <thead>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Order List</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered sortOrder" id="myTable" width="100%" cellspacing="0" wire:ignore>
+                <thead>
             <tr>
                 <th>Order ID</th>
                 <th>Customer Name</th>
@@ -14,15 +14,10 @@
                 <th>Status</th>
                 <th>Payment Method</th>
                 <th>Created At</th>
-                <th>Actions</th>
                 <th>Order Details</th>
             </tr>
         </thead>
-
-        <!-- Table body -->
-        <tbody>
-            <!-- Loop through each order and display its info -->
-            @foreach ($orders as $order)
+        @foreach ($orders as $order)
             <tr>
                 <!-- Order info -->
                 <td>{{ $order->id }}</td>
@@ -31,22 +26,14 @@
                 <td>{{ $order->status ?? 'Pending' }}</td>
                 <td>{{ $order->payment_method ?? 'Cash' }}</td>
                 <td>{{ $order->created_at }}</td>
-
-                <!-- Delete order button -->
-                <td>
-                    <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-
-                <!-- View detail order -->
                 <td>
                     <a href="{{ route('order.detail', ['id' => $order->id]) }}">View</a>
                 </td>
             </tr>
             @endforeach
-        </tbody>
-    </table>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>

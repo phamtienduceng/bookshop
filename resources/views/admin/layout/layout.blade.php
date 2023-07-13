@@ -126,6 +126,12 @@
         });
     </script>
 
+    <script>
+        new DataTable('.sortOrder', {
+            order: [[5, 'desc']]
+        });
+    </script>
+
     <script type="text/javascript">
 		$(document).ready(function(){
 			$('#filter_cate').on('change', function(){
