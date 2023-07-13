@@ -15,6 +15,7 @@ class AccountController extends Controller
         return view('admin.account.viewAccount');
     }
 
+    // ahihi
     /**
      * Show the form for creating a new resource.
      */
