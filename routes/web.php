@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -54,7 +55,9 @@ Route::get('/products', [HomeController::class, 'products'])->name('products');
 // Search page
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
+
 Route::post('/getContactUs', [DashboardController::class, 'getContactUs'])->name('getContactUs');
+
 
 // Admin home page
 Route::get('/home', [DashboardController::class, 'home'])->name('admin');
@@ -65,6 +68,7 @@ Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.po
 Route::get('/registration', [AuthController::class, 'registration'])->name('register');
 Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 
 // Profile (requires login)
 Route::group(['middleware' => 'checklogin'], function () {
@@ -115,9 +119,6 @@ Route::post('/checkout/process', [CheckoutController::class, 'processPayment'])-
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
 Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
-// Product detail
-
-
 // Session data (for debugging)
 Route::get('/session-data', function () {
     dd(session()->all());
@@ -138,3 +139,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // Delete order
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::delete('orders/{order}', 'App\Http\Controllers\Admin\OrderController@destroy')->name('orders.destroy');
+
+// gọi phương thức clearCartItems():
+Route::get('/clear-cart-items', 'CheckoutController@clearCartItems')->name('clear.cart.items');
+

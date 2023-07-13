@@ -1,4 +1,3 @@
-<!--// File: C:\xampp\htdocs\bookshop1\resources\views\checkout\index.blade.php-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,27 +40,89 @@
 <body>
     <div class="container mt-5">
         <!-- Checkout header -->
+        <div class="text-center">
+            <img src="https://cdn-icons-png.flaticon.com/128/2838/2838838.png" alt="Cart Logo" style="width: 50px; height: 50px;">
+            <h1 class="text-primary d-inline-block align-middle ml-2">DucTriBookShop</h1>
+        </div>
         <h1 class="text-center text-primary">Checkout</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <!-- Error Message -->
                 @if (session('error'))
-                <div class="alert alert-danger">{{ session('error') }}</div>
+                    <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
+
                 <!-- Checkout Form -->
                 <form action="{{ route('checkout.processPayment') }}" method="POST">
                     @csrf
-                   <!-- Customer Name -->
+
+                    <!-- Customer Name -->
                     <div class="form-group">
                         <label for="customer_name">Customer Name:</label>
                         <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Customer Name" value="{{ old('customer_name') ?: 'Administrator' }}" required>
                     </div>
 
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value="{{ old('phone') }}" required>
+                    </div>
+
+                    <!-- Country -->
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <select class="form-control" id="country" name="country" required>
+                            <option value="">Select Country</option>
+                            <option value="USA">USA</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Australia">Australia</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="Russia">Russia</option>
+                            <option value="China">China</option>
+                            <option value="India">India</option>
+                            <option value="Japan">Japan</option>
+                            <option value="South Korea">South Korea</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="Canada">Canada</option>
+                            <!-- Thêm các quốc gia khác -->
+                        </select>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea class="form-control" id="address" name="address" placeholder="Address" required>{{ old('address') }}</textarea>
+                    </div>
+
+                    <!-- Note -->
+                    <div class="form-group">
+                        <label for="note">Note:</label>
+                        <textarea class="form-control" id="note" name="note" placeholder="Note">{{ old('note') }}</textarea>
+                    </div>
+
                     <!-- Order Total -->
                     <div class="form-group">
                         <label for="order_total">Order Total:</label>
-                        <input type="text" class="form-control" id="order_total" name="order_total" value="{{ session('total') }}" readonly>
+                        <input type="text" class="form-control" id="order_total" name="order_total" value="{{ $totalPrice }}" readonly>
                     </div>
+
                     <!-- Payment Method -->
                     <div class="form-group">
                         <label for="payment_method">Payment Method:</label>
@@ -71,15 +132,24 @@
                             <option value="paypal">PayPal</option>
                         </select>
                     </div>
+
                     <!-- Shipping Units -->
                     <div class="form-group">
                         <label for="shipping_units">Shipping Units:</label>
                         <select class="form-control" id="shipping_units" name="shipping_units" required>
                             <option value="">Select Shipping Units</option>
-                            <option value="unit1">Shipping Unit 1</option>
-                            <option value="unit2">Shipping Unit 2</option>
+                            <option value="unit1">Grab Giao Hàng</option>
+                            <option value="unit2">LalaMove</option>
+                            <option value="fedex">FedEx</option>
+                            <option value="ups">UPS</option>
+                            <option value="dhl">DHL Express</option>
+                            <option value="usps">USPS</option>
+                            <option value="ems">EMS</option>
+                            <option value="tnt">TNT Express</option>
                         </select>
                     </div>
+
+
                     <!-- Payment Amount -->
                     <div class="form-group">
                         <label for="payment_amount">Payment Amount:</label>
@@ -87,7 +157,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Việt Nam Đồng</span>
                             </div>
-                            <input type="text" class="form-control" id="payment_amount" name="payment_amount" value="{{ session('total') }}" readonly>
+                            <input type="text" class="form-control" id="payment_amount" name="payment_amount" value="{{ $totalPrice }}" readonly>
                         </div>
                     </div>
                     <!-- Submit Button -->
@@ -98,6 +168,7 @@
             </div>
         </div>
     </div>
+
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
     <!-- Including jQuery library -->

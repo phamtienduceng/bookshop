@@ -56,27 +56,8 @@ class AuthController extends Controller
 
         $user->save();
         return  redirect()->route('login')->withSuccess('Great! You have Successfully loggedin');
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'password' => 'required|min:6',
-        // ]);
-
-        // $data = $request->all();
-        // $check = $this->create($data);
-
-        // return redirect("login")->withSuccess('Great! You have Successfully loggedin');
     }
 
-    // public function create(array $data)
-    // {
-    //     return User::create([
-    //         'name' => $data['name'],
-    //         'email' => $data['email'],
-    //         'password' => Hash::make($data['password'])
-    //     ]);
-    // }
 
     public function logout()
     {

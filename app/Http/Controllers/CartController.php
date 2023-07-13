@@ -3,93 +3,62 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\CartItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Models\Order;
+use App\Models\OrderItem;
 
 class CartController extends Controller
 {
     public function store(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
+        $quantity = $request->quantity;
 
-        // Retrieve the cart items from the session
-        $cartItems = Session::get('cart.items', []);
+        $cartItem = CartItem::where('product_id', $product->id)->first();
 
-        // Check if the product already exists in the cart
-        if (isset($cartItems[$product->id])) {
-            // If it exists, update the quantity
-            $cartItems[$product->id]['quantity'] += $request->quantity;
+        if ($cartItem) {
+            $cartItem->quantity += $quantity;
+            $cartItem->save();
         } else {
-            // If it doesn't exist, add it to the cart
-            $cartItems[$product->id] = [
-                'product' => $product,
-                'quantity' => $request->quantity,
-            ];
+            CartItem::create([
+                'product_id' => $product->id,
+                'quantity' => $quantity,
+            ]);
         }
 
-        // Store the updated cart items back to the session
-        Session::put('cart.items', $cartItems);
-
-        // Redirect to cart index and display success message
         return redirect()->route('cart.index')->with('success', 'Product added to cart successfully.');
     }
 
-
     public function index()
     {
-        // Retrieve the cart items from the session
-        $cartItems = Session::get('cart.items', []);
+        $cartItems = CartItem::all();
+        $totalPrice = $this->calculateTotalPrice($cartItems);
 
-        // Calculate the total price of the cart items
-        $totalPrice = 0;
-        foreach ($cartItems as $item) {
-            $totalPrice += $item['product']->price * $item['quantity'];
-        }
-
-        // Store the total price in the session
-        Session::put('total', $totalPrice);
-
-        // Pass the cart items and total price to the cart view
         return view('cart.index', compact('cartItems', 'totalPrice'));
     }
+
     public function updateQuantity(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
+        $quantity = $request->quantity;
 
-        $cartItems = Session::get('cart.items', []);
-        if (isset($cartItems[$product->id])) {
-            if ($request->action == 'increase') {
-                $cartItems[$product->id]['quantity']++;
-            } else if ($request->action == 'decrease') {
-                $cartItems[$product->id]['quantity']--;
-                if ($cartItems[$product->id]['quantity'] <= 0) {
-                    unset($cartItems[$product->id]);
-                }
-            }
+        $cartItem = CartItem::where('product_id', $product->id)->first();
 
-            Session::put('cart.items', $cartItems);
-
-            // Recalculate total price
-            $totalPrice = $this->calculateTotalPrice($cartItems);
-            Session::put('total', $totalPrice);
+        if ($cartItem) {
+            $cartItem->quantity = $quantity;
+            $cartItem->save();
         }
 
-        return response()->json(['newQuantity' => $cartItems[$product->id]['quantity'] ?? 0]);
+        return response()->json(['newQuantity' => $cartItem ? $cartItem->quantity : 0]);
     }
 
     public function removeItem(Request $request)
     {
         $product = Product::findOrFail($request->product_id);
 
-        $cartItems = Session::get('cart.items', []);
-        if (isset($cartItems[$product->id])) {
-            unset($cartItems[$product->id]);
-            Session::put('cart.items', $cartItems);
-
-            // Recalculate total price
-            $totalPrice = $this->calculateTotalPrice($cartItems);
-            Session::put('total', $totalPrice);
-        }
+        CartItem::where('product_id', $product->id)->delete();
 
         return response()->json(['success' => true]);
     }
@@ -97,14 +66,51 @@ class CartController extends Controller
     private function calculateTotalPrice($cartItems)
     {
         $totalPrice = 0;
-        foreach ($cartItems as $item) {
-            $totalPrice += $item['product']->price * $item['quantity'];
+
+        foreach ($cartItems as $cartItem) {
+            $product = Product::findOrFail($cartItem->product_id);
+            $totalPrice += $product->price * $cartItem->quantity;
         }
 
         return $totalPrice;
     }
 
+    // xử lý quá trình thanh toán
+    public function processPayment(Request $request)
+    {
+        // Lấy thông tin các mục trong giỏ hàng từ bảng cart_items
+        $cartItems = CartItem::all();
 
+        // Tạo đơn hàng mới
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            // Đổi thành phương thức lấy ID người dùng hiện tại của bạn
+            'total_price' => $this->calculateTotalPrice($cartItems),
+        ]);
 
+        // Lưu các mục trong giỏ hàng vào bảng order_items
+        foreach ($cartItems as $cartItem) {
+            OrderItem::create([
+                'order_id' => $order->id,
+                'product_id' => $cartItem->product_id,
+                'quantity' => $cartItem->quantity,
+            ]);
+        }
 
+        // Xóa các mục trong giỏ hàng
+        CartItem::truncate();
+
+        // Chuyển hướng đến trang xác nhận thanh toán thành công
+        return redirect()->route('checkout.success');
+    }
+
+    public function success()
+    {
+        return view('checkout.success');
+    }
+
+    public function cancel()
+    {
+        return view('checkout.cancel');
+    }
 }

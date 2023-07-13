@@ -46,27 +46,21 @@
 <body>
     <div class="container">
         <h1 class="display-4">Payment Successful</h1>
-        <p class="lead">
-            Your payment has been processed successfully.
-        </p>
+        <p class="lead"> Your payment has been processed successfully. </p>
         <p class="lead">
             <b>Thank you very much for choosing DucTriBookshop.</b>
         </p>
-        <p class="lead">
-            The summary of your order is as follows:
-        </p>
-
-
-
+        <p class="lead"> The summary of your order is as follows: </p>
         <h2 class="mt-4">Order Summary:</h2>
-        <p>Order ID: {{ session('order_id') }}</p>
-        <p>Total Amount: {{ session('total') }} VND</p><!-- Display amount in VND -->
+        <p>Order ID: {{ $orderID }}</p>
+        <p>Total Amount: {{ $totalAmount }} VND</p><!-- Display amount in VND -->
         <!-- More order details as needed -->
-
+        <p class="mt-4"> Your order will be delivered within 3 - 5 days. </p>
         <p class="mt-4">
             You will be redirected to the home page in <span id="counter">5</span> seconds.
         </p>
     </div>
+
 
     <script>
     document.addEventListener("DOMContentLoaded", function() {

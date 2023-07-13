@@ -136,19 +136,13 @@
                                             <form action="">
                                                 @csrf
                                                 <select name="sort" id="sort" class="">
-                                                    <option value="{{ Request::url() }}?sort_by=none">All</option>
-                                                    <option value="{{ Request::url() }}?sort_by=price_desc">Price:
-                                                        High to Low</option>
-                                                    <option value="{{ Request::url() }}?sort_by=price_asc">Price: Low
-                                                        to High</option>
-                                                    <option value="{{ Request::url() }}?sort_by=title_asc">Name: A-Z
-                                                    </option>
-                                                    <option value="{{ Request::url() }}?sort_by=title_desc">Name: Z-A
-                                                    </option>
-                                                    <option value="{{ Request::url() }}?sort_by=latest">Latest
-                                                    </option>
-                                                    <option value="{{ Request::url() }}?sort_by=oldest">Oldest
-                                                    </option>
+                                                    <option value="{{Request::url()}}?sort_by=none">All</option>
+                                                    <option value="{{Request::url()}}?sort_by=price_desc">Price: High to Low</option>
+                                                    <option value="{{Request::url()}}?sort_by=price_asc">Price: Low to High</option>
+                                                    <option value="{{Request::url()}}?sort_by=title_asc">Name: A-Z</option>
+                                                    <option value="{{Request::url()}}?sort_by=title_desc">Name: Z-A</option>
+                                                    <option value="{{Request::url()}}?sort_by=latest">Latest</option>
+                                                    <option value="{{Request::url()}}?sort_by=oldest">Oldest</option>
                                                 </select>
                                             </form>
                                         </ul>
@@ -170,36 +164,25 @@
                                         </div>
                                     </div>
                                     <div class="product-grid">
-                                        @foreach ($books as $item)
-                                            <div class="product-item men" style="margin-bottom: 20px">
-                                                <div class="product discount product_filter"
-                                                    style="margin-bottom: -5px; height: 340px">
-                                                    <div class="product_image" style="margin-top: 10px">
-                                                        <img src="{{ asset('/images/' . $item->image) }}"
-                                                            alt="">
-                                                    </div>
-                                                    <a href="{{ route('wishlist.store', $item->id) }}"
-                                                        class="favorite favorite_left"></a>
-                                                    <div class="product_info">
-                                                        <h6 class="product_name"><a
-                                                                href="{{ Route('singleProducts', $item->slug) }}"
-                                                                style="margin-top: -20px">{{ $item->title }}</a></h6>
-                                                        <div class="product_price">
-                                                            {{ number_format($item->price, 0, ',', '.') }}₫<span>{{ number_format($item->price, 0, ',', '.') }}₫</span>
-                                                        </div>
-                                                    </div>
+                                        @foreach($books as $item)
+                                        <div class="product-item men" style="margin-bottom: 20px">
+                                            <div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
+                                                <div class="product_image" style="margin-top: 10px">
+                                                    <img src="{{ asset('/images/'. $item->image) }}" alt="">
                                                 </div>
-                                                <form class="add-to-cart-form" method="POST"
-                                                    action="{{ route('cart.store') }}">
-                                                    @csrf
-                                                    <input type="hidden" name="product_id"
-                                                        value="{{ $item->id }}" />
-                                                    <input type="hidden" name="quantity" value="1" />
-                                                    <button class="add-to-cart-button" type="button"
-                                                        style="width: 215px" class="btn btn-danger btn-sm">Add to
-                                                        Cart</button>
-                                                </form>
+                                                <a href="{{ route('wishlist.store', $item->id) }}" class="favorite favorite_left"></a>
+                                                <div class="product_info">
+                                                    <h6 class="product_name"><a href="{{ Route('singleProducts', $item->slug) }}" style="margin-top: -20px">{{ $item->title}}</a></h6>
+                                                    <div class="product_price">{{ number_format($item->price, 0, ',', '.') }}₫<span>{{ number_format($item->price, 0, ',', '.') }}₫</span></div>
+                                                </div>
                                             </div>
+                                          <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
+    @csrf
+    <input type="hidden" name="product_id" value="{{ $item->id }}" />
+    <input type="hidden" name="quantity" value="1" />
+    <button class="add-to-cart-button" type="button" style="width: 215px" class="btn btn-danger btn-sm">Add to Cart</button>
+</form>
+                                        </div>
                                         @endforeach
                                     </div>
                                     <div class="d-flex justify-content-center">
@@ -275,19 +258,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <div
-                            class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+                        <div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
                             <h4>Newsletter</h4>
                             <p>Subscribe to our newsletter and get 20% off your first purchase</p>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div
-                            class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
-                            <input id="newsletter_email" type="email" placeholder="Your email" required="required"
-                                data-error="Valid email is required.">
-                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300"
-                                value="Submit">subscribe</button>
+                        <div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+                            <input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+                            <button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300" value="Submit">subscribe</button>
                         </div>
                     </div>
                 </div>
@@ -302,16 +281,12 @@
                 <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
                         <h6>About Us</h6>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                            ut labore dolore magna aliqua. </p>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. </p>
                         <p class="footer-text">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            &copy;
-                            <script>
+                            &copy;<script>
                                 document.write(new Date().getFullYear());
-                            </script> All rights reserved | This template is made with <i
-                                class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                                target="_blank">Colorlib</a>
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
@@ -321,18 +296,12 @@
                         <h6>Newsletter</h6>
                         <p>Stay update with our latest</p>
                         <div class="" id="mc_embed_signup">
-                            <form target="_blank" novalidate="true"
-                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                method="get" class="form-inline">
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="form-inline">
                                 <div class="d-flex flex-row">
-                                    <input class="form-control" name="EMAIL" placeholder="Enter Email"
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-                                        required="" type="email">
-                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
-                                            aria-hidden="true"></i></button>
+                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
                                     <div style="position: absolute; left: -5000px;">
-                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1"
-                                            value="" type="text">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
                                     </div>
 
                                     <div class="info"></div>
@@ -385,8 +354,7 @@
                 max: 500000,
                 values: [0, 500000],
                 slide: function(event, ui) {
-                    $("#amount").val(ui.values[0].toLocaleString() + "₫ - " + ui.values[1]
-                        .toLocaleString() + "₫");
+                    $("#amount").val(ui.values[0].toLocaleString() + "₫ - " + ui.values[1].toLocaleString() + "₫");
                     $("#start_price").val(ui.values[0]);
                     $("#end_price").val(ui.values[1]);
                 }
@@ -397,26 +365,26 @@
             $("#end_price").val($("#slider-range").slider("values", 1));
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            $('.add-to-cart-button').click(function() {
-                var form = $(this).closest('form');
-                $.ajax({
-                    url: form.attr('action'),
-                    method: form.attr('method'),
-                    data: form.serialize(),
-                    success: function(response) {
-                        // Hiển thị thông báo add thành công
-                        alert('Added to Cart successfully!');
-                    },
-                    error: function(xhr, status, error) {
-                        // Xử lý lỗi khi add to cart không thành công
-                        alert('Error adding to Cart.');
-                    }
-                });
+   <script>
+    $(document).ready(function() {
+        $('.add-to-cart-button').click(function() {
+            var form = $(this).closest('form');
+            $.ajax({
+                url: form.attr('action'),
+                method: form.attr('method'),
+                data: form.serialize(),
+                success: function(response) {
+                    // Hiển thị thông báo add thành công
+                    alert('Added to Cart successfully!');
+                },
+                error: function(xhr, status, error) {
+                    // Xử lý lỗi khi add to cart không thành công
+                    alert('Error adding to Cart.');
+                }
             });
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>

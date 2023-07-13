@@ -96,6 +96,74 @@
         </div>
     </header><!-- #header -->
 
+    <header id="header" id="home" style="background-color: black; opacity: 0.9">
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="{{ Route('home')}}">
+                        <img src="{{ asset('guest/img/logo.png') }}" alt="" title="" />
+                    </a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li class="menu-active">
+                            <a href="{{ Route('home')}}">Home</a>
+                        </li>
+                        <li>
+                            <a href="{{ Route('products')}}">Product</a>
+                        </li>
+                        <li>
+                            <a href="{{ Route('articles')}}">Articles</a>
+                        </li>
+                        <li>
+                            <a href="{{ Route('aboutUs')}}">About us</a>
+                        </li>
+                        <li>
+                            <a href="{{ Route('contactUs')}}">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="{{ Route('cart.store') }}">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                        </li>
+                        @guest
+                        <li class="menu-has-children">
+                            <a href="">
+                                <i class="fa-solid fa-user"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a>
+                                </li>
+                                <li>
+                                    <a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @else
+                        <li class="menu-has-children">
+                            <a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
+                            <ul>
+                                <li>
+                                    <a class="" href="{{ Route('profile') }}">Profile</a>
+                                </li>
+                                <li>
+                                    <a class="" href="{{ Route('logout') }}">LogOut</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @endguest
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header><!-- #header -->
+
     <!-- contents -->
     <div class="super_container">
         <div class="container single_product_container">
@@ -412,6 +480,27 @@
         <script src="{{ asset('guest/product/plugins/easing/easing.js') }}"></script>
         <script src="{{ asset('guest/product/plugins/jquery-ui-1.12.1.custom/jquery-ui.js') }}"></script>
         <script src="{{ asset('guest/product/js/single_custom.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.plus').click(function () {
+                    var quantity = parseInt($('#quantity_value').text());
+                    quantity += 1;
+                    $('#quantity_value').text(quantity);
+                    $('#quantity_input').val(quantity);
+                });
+
+                $('.minus').click(function () {
+                    var quantity = parseInt($('#quantity_value').text());
+                    if (quantity > 1) { // prevent going below 1
+                        quantity -= 1;
+                        $('#quantity_value').text(quantity);
+                        $('#quantity_input').val(quantity);
+                    }
+                });
+            });
+        </script>
+
 </body>
 </html>
 
