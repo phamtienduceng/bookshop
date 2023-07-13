@@ -19,9 +19,9 @@
 
     <!-- Custom styles for this template-->
 
-    <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="{{ asset('admin/css/css-manage.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet" />
+    <link href="//cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="{{ asset('admin/css/css-manage.css') }}" rel="stylesheet" />
     <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/bootstrap4/bootstrap.min.css') }}" />
     <link href="{{ asset('product/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -30,9 +30,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('product/plugins/OwlCarousel2-2.2.1/animate.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/main_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('product/styles/responsive.css') }}" />
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /><!-- Core plugin JavaScript-->
 
+   
+</head>
 <body id="page-top">
+
+
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -95,9 +100,9 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
+
     <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    <!-- Core plugin JavaScript-->
+
     <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
     <!-- Custom scripts for all pages-->
@@ -136,8 +141,9 @@
 				return false;
 			});
 		});
-	</script>
+    </script>
     @yield('sorting')
+   
 </body>
 
 

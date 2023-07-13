@@ -4,13 +4,13 @@
     "\\app",
     "\\app\\Http",
     "\\app\\Http\\Controllers",
-    "\\app\\Http\\Controllers\\Admin",
+    "\\public\\guest\\js",
+    "\\public\\js",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\admin\\layout\\partials",
-    "\\resources\\views\\guest\\page",
-    "\\resources\\views\\livewire"
+    "\\resources\\views\\cart",
+    "\\resources\\views\\checkout"
   ],
-  "SelectedNode": "\\resources\\views\\livewire\\order-list.blade.php",
+  "SelectedNode": "\\resources\\views\\checkout\\index.blade.php",
   "PreviewInSolutionExplorer": false
 }
