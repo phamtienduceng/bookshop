@@ -65,7 +65,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="#" class="action-item btn btn-info btn-icon-split">
+                                        <a href="{{ Route('viewSingle', $item->slug)}}" class="action-item btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-info-circle"></i>
                                             </span>
@@ -84,7 +84,7 @@
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
-                                                <span class="text">Delete</span>
+                                                <button type="submit">Delete</button>
                                             </form>
                                         </a>
                                     </td>

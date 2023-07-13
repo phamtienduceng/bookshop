@@ -11,7 +11,7 @@ class OrderList extends Component
 
     public function render()
 {
-    $this->orders = Order::all();
+    $this->orders = Order::latest()->get();
     return view('livewire.order-list');
 }
 

@@ -65,7 +65,7 @@
     </div>
 
     <div class="col-md-12">
-        <a href="#" class="btn btn-secondary">Cancel</a>
+        <a href="{{ Route('admin')}}" class="btn btn-secondary">Cancel</a>
         <input type="submit" value="Create" class="btn btn-success float-right">
     </div>
 </form>

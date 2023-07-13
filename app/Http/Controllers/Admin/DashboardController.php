@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\contactUs;
+use App\Models\Product;
 
 class DashboardController extends Controller
 {
@@ -15,6 +16,12 @@ class DashboardController extends Controller
 
     public function product(){
         return view('admin.product');
+    }
+
+    public function viewSingle($slug){
+        $book = Product::where('slug', $slug)->first();
+
+        return view('admin.product.viewSingle', compact('book'));
     }
     
     public function showProfile()
@@ -26,16 +33,23 @@ class DashboardController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|alpha|min:2|max:30',
-            'password' => 'nullable|min:8',
-            'phone' => 'required|min:10|numeric',
+            'phone' => 'required|integer|digits: 10',
             'address' => 'required',
+        ], [
+            'name.required' => 'Name is required',
+            'name.alpha' => 'Name must only contain letters.',
+            'name.min' => 'Name must only contain letters.',
+            'name.max' => 'Name must only contain letters.',
+            'phone.required' => 'Phone is required',
+            'phone.integer' => 'Phone must only contain digits',
+            'phone.digits' => 'Phone field must be 10 digits',
+            'address.required' => 'Address is required',
         ]);
 
         $user= User::find(\auth()->id());
         $user->name =$request->name;
         $user->phone =$request->phone;
         $user->address =$request->address;
-        $user->password = bcrypt($request->input('password')); 
 
         $user->save();
         return redirect()->route('home')->with('success','cap nhat thanh cong');
@@ -46,25 +60,4 @@ class DashboardController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
-
-    public function getContactUs(Request $request){
-        $contact = $request->all();
-
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
-        ], 
-        [
-            'name.required' => 'Name is required.',
-            'email.required' => 'Email is required.',
-            'subject.required' => 'Subject is required.',
-            'message.required' => 'Message is required.',
-        ]);
-        
-        contactUs::create($contact);
-        return redirect()->route('contactUs');
-    }
-
 }

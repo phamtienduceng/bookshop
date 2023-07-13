@@ -25,6 +25,9 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
+        ], [
+            'email.required' => 'Email is required',
+            'password.required' => 'Password is required',
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -48,6 +51,18 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:4',
             'Confirm-Password' => 'required|same:password',
+        ], [
+            'name.required' => 'Name is required.',
+            'name.alpha' => 'Name must only contain letters.',
+            'name.min' => 'Name must be at least 2 characters.',
+            'name.max' => 'Name must not be greater than 30 characters',
+            'email.required' => 'Email is required.',
+            'email.email' => 'Email must be a valid email address.',
+            'email.unique' => 'Email has already been taken',
+            'password.required' => 'Password is required.',
+            'password.min' => 'Password must be at least 4 characters.',
+            'Confirm-Password.same' => 'Confirm password field must match password',
+            'Confirm-Password.required' => 'Confirm password is required.',
         ]);
         $user = new User();
         $user->name = $request->name;
