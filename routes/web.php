@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,13 +61,12 @@ Route::get('/product/{slug}', [Homecontroller::class, 'products'])->name('catego
 // Admin home page
 Route::get('/home', [DashboardController::class, 'home'])->name('admin');
 
-// Register
-Route::get('register', [DashboardController::class, 'showFormRegister'])->name('show-form-register');
-Route::post('register', [DashboardController::class, 'register'])->name('register');
-
-// Login
-Route::get('login', [DashboardController::class, 'showFormLogin'])->name('show-form-login');
-Route::post('login', [DashboardController::class, 'login'])->name('login');
+// login - register - profile - logout
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/post-login', [AuthController::class, 'postLogin'])->name('login.post');
+Route::get('/registration', [AuthController::class, 'registration'])->name('register');
+Route::post('/post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Profile (requires login)
 Route::group(['middleware' => 'checklogin'], function () {
@@ -81,9 +81,6 @@ Route::group(['middleware' => 'checklogin'], function () {
         Route::resource('/product', ProductController::class);
     });
 });
-
-// Logout
-Route::get('logout', [DashboardController::class, 'logout'])->name('logout');
 
 // Role and permission (requires authentication)
 Route::group(['middleware' => ['auth']], function () {

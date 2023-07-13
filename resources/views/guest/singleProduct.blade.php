@@ -15,7 +15,6 @@
     <meta charset="UTF-8" />
     <!-- Site Title -->
     <title>Book</title>
-
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}" />
@@ -29,9 +28,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/main_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/responsive.css') }}" />
-
-
-
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}" />
     <link href="{{ asset('guest/product/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}" />
@@ -43,8 +39,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}" />
 </head>
 <body>
-
-
     <header id="header" id="home" style="background-color: black; opacity: 0.9">
         <div class="container">
             <div class="row align-items-center justify-content-between d-flex">
@@ -80,31 +74,20 @@
                                 <i class="fa-solid fa-heart"></i>
                             </a>
                         </li>
+
                         @guest
-                        <li class="menu-has-children">
-                            <a href="">
-                                <i class="fa-solid fa-user"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a>
-                                </li>
-                                <li>
-                                    <a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a>
-                                </li>
-                            </ul>
-                        </li>
-                        @else
-                        <li class="menu-has-children">
-                            <a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-                            <ul>
-                                <li>
-                                    <a class="" href="{{ Route('profile') }}">Profile</a>
-                                </li>
-                                <li>
-                                    <a class="" href="{{ Route('logout') }}">LogOut</a>
-                                </li>
-                            </ul>
+                        <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+                        <ul>
+                            <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
+                            <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
+                        </ul>
+                        </li> 
+                            @else 
+                        <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
+                        <ul> 
+                            <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+                            <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+                        </ul>
                         </li>
                         @endguest
                     </ul>
