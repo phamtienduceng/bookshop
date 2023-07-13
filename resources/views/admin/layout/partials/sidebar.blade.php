@@ -36,7 +36,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ Route('adminAccount')}}">
+        <a class="nav-link" href="{{ Route('adminContactUs')}}">
         <i class="fa-regular fa-user"></i>
             <span>Accounts</span></a>
     </li>

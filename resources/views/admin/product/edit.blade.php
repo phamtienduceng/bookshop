@@ -14,12 +14,19 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input  id="title" value="{{$product->title}}" class="form-control" name="title"/>
+                    <input  id="title" class="form-control" name="title" value=""
+                    />
                 </div>
+                @error('title')
+                        <span style="color: red">{{$message}}</span>
+                    @enderror
                 <div class="form-group">
                     <label for="price">Price</label>
                     <input id="price" value="{{$product->price}}" class="form-control" name="price"/>
                 </div>
+                @error('price')
+                        <span style="color: red">{{$message}}</span>
+                    @enderror
 
                 <div>
                     @if($product->image != null)
@@ -41,6 +48,9 @@
                         </div>
                     @endif
                 </div>
+                @error('title')
+                        <span style="color: red">{{$message}}</span>
+                    @enderror
                 <div class="form-group">
                     <label for="photo1">Image 1: </label>
                     <input type="file" id="photo1" class="form-control" name="photo1"/>
@@ -67,12 +77,18 @@
                             @endforeach
                     </select>
                 </div>
+                @error('category_id')
+                        <span style="color: red">{{$message}}</span>
+                    @enderror
                 <div class="form-group">
                     <label for="description">Description</label>
                     <input  id="description" value="{{$product->description}}" class="form-control" name="description"/>
                 </div>
+                @error('description')
+                        <span style="color: red">{{$message}}</span>
+                    @enderror
                 <div>
-                    <button type="submit">
+                    <button type="submit" name="btn_submit">
                         Update
                     </button>
                 </div>

@@ -111,6 +111,26 @@ class ProductController extends Controller
         $books['image'] = $imgName;
         $books['image1'] = $imgName1;
         $books['image2'] = $imgName2;
+
+        $request->validate([
+            'title' => 'required|between: 3, 60',
+            'price' => 'required|integer|digits_between: 3, 10|between: 5000, 1000000',
+            'description' => 'required|between: 50, 1000',
+            'category_id' =>'required'        
+        ], 
+        [
+            'title.required' => 'Title is required.',
+            'title.between' => 'Title must be between 3 and 60 characters.',
+            'price.required' => 'Price is required.',
+            'price.integer' => 'Price must be a number.',
+            'price.digits_between' => 'Price must be betwwen 3 and 10 digits.',
+            'price.between' => 'Price must be between 5.000 vnđ and 1.000.000 vnđ.',
+            'description.required' => 'description is required.',
+            'description.between' => 'description must be between 50 and 100 characters.',
+            'category_id.required' => 'category_id is required.',
+        ]);
+
+
         Product::create($books);
         return redirect()->route('product.index');
     }
@@ -194,6 +214,24 @@ class ProductController extends Controller
         $books['image'] = $imgName;
         $books['image1'] = $imgName1;
         $books['image2'] = $imgName2;
+
+        $request->validate([
+            'title' => 'required|between: 3, 60',
+            'price' => 'required|integer|digits_between: 3, 10|between: 5000, 1000000',
+            'description' => 'required|between: 50, 1000',
+            'category_id' =>'required'        
+        ], 
+        [
+            'title.required' => 'Title is required.',
+            'title.between' => 'Title must be between 3 and 60 characters.',
+            'price.required' => 'Price is required.',
+            'price.integer' => 'Price must be a number.',
+            'price.digits_between' => 'Price must be betwwen 3 and 10 digits.',
+            'price.between' => 'Price must be between 5.000 vnđ and 1.000.000 vnđ.',
+            'description.required' => 'description is required.',
+            'description.between' => 'description must be between 50 and 100 characters.',
+            'category_id.required' => 'category_id is required.',
+        ]);
         $product->update($books);
         return redirect()->route('product.index');
     }

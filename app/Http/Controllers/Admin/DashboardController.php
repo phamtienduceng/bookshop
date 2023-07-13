@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\contactUs;
 
 class DashboardController extends Controller
 {
@@ -85,5 +86,25 @@ class DashboardController extends Controller
     {
         Auth::logout();
         return redirect()->route('home');
+    }
+
+    public function getContactUs(Request $request){
+        $contact = $request->all();
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ], 
+        [
+            'name.required' => 'Name is required.',
+            'email.required' => 'Email is required.',
+            'subject.required' => 'Subject is required.',
+            'message.required' => 'Message is required.',
+        ]);
+        
+        contactUs::create($contact);
+        return redirect()->route('contactUs');
     }
 }

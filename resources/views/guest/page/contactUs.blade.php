@@ -101,31 +101,46 @@
 				      		<div id="form-message-success" class="mb-4">
 				            Your message was sent, thank you!
 				      		</div>
-									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+									<form action=" {{ Route('getContactUs')}}" method="POST" id="contactForm" name="contactForm" class="contactForm">
+										@csrf
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
 													<label class="label" for="name">Full Name</label>
 													<input type="text" class="form-control" name="name" id="name" placeholder="Name">
 												</div>
+												@error('name')
+													<span style="color: red">{{$message}}</span>
+												@enderror
 											</div>
+
 											<div class="col-md-6"> 
 												<div class="form-group">
 													<label class="label" for="email">Email Address</label>
 													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
 												</div>
+												@error('email')
+													<span style="color: red">{{$message}}</span>
+												@enderror
 											</div>
+
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="subject">Subject</label>
 													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
 												</div>
+												@error('subject')
+													<span style="color: red">{{$message}}</span>
+												@enderror
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="#">Message</label>
 													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
 												</div>
+												@error('message')
+													<span style="color: red">{{$message}}</span>
+												@enderror
 											</div>
 											<div class="col-md-12">
 												<div class="form-group">
