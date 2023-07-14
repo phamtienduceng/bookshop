@@ -33,10 +33,15 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            if($request->remember=='on'){
             if($request->has('remember')){
                 Cookie::queue('email',$request->email,1440);
                 Cookie::queue('password',$request->password,1440);
             }
+        }else{
+            Cookie::queue('email',"");
+            Cookie::queue('password',"");
+        }
             return redirect()->intended('/')
                 ->withSuccess('You have Successfully loggedin');
         }
