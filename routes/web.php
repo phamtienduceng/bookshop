@@ -74,6 +74,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::group(['middleware' => 'checklogin'], function () {
     Route::get('profile', [DashboardController::class, 'showProfile'])->name('show-profile');
     Route::post('profile', [DashboardController::class, 'profile'])->name('profile');
+    Route::get('password', [DashboardController::class, 'showPassword'])->name('show-pasword');
+    Route::post('password', [DashboardController::class, 'password'])->name('password');
 
     // Admin routes (requires admin role)
     Route::group(['middleware' => 'checkadmin'], function () {

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\contactUs;
 use App\Models\Product;
+use Hash;
 
 class DashboardController extends Controller
 {
@@ -33,7 +34,7 @@ class DashboardController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|alpha|min:2|max:30',
-            'phone' => 'required|integer|digits: 10',
+            'phone' => 'required|numeric|min:10',
             'address' => 'required',
         ], [
             'name.required' => 'Name is required',
@@ -41,8 +42,6 @@ class DashboardController extends Controller
             'name.min' => 'Name must only contain letters.',
             'name.max' => 'Name must only contain letters.',
             'phone.required' => 'Phone is required',
-            'phone.integer' => 'Phone must only contain digits',
-            'phone.digits' => 'Phone field must be 10 digits',
             'address.required' => 'Address is required',
         ]);
 
@@ -53,6 +52,30 @@ class DashboardController extends Controller
 
         $user->save();
         return redirect()->route('home')->with('success','cap nhat thanh cong');
+    }
+
+
+    public function showPassword()
+    {
+        return view('admin.UpdatePassword'); 
+    }
+
+    public function password(Request $request)
+    {
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' =>'required|min:4',
+            'new_confirm_password' => 'same:new_password',
+        ]);
+        $current_user=auth()->user();
+        if(Hash::check($request->old_password, $current_user->password)){
+            $current_user->update([
+                'password'=>bcrypt($request->input('new_password'))
+            ]);
+            return redirect()->back()->with('success','Change Password Successfully');
+        }else{
+            return redirect()->back()->with('error','Old Password Is Not Correct');
+        }
     }
 
     public function logout()

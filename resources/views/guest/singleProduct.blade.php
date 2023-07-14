@@ -149,11 +149,12 @@
                         </li>
                         @else
                         <li class="menu-has-children">
-                            <a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
+                            <a href="">{{auth()->user()->name}} </a>
                             <ul>
                                 <li>
                                     <a class="" href="{{ Route('profile') }}">Profile</a>
                                 </li>
+                                <li><a class="" href="{{ Route('password') }}">UpdatePassword</a></li> 
                                 <li>
                                     <a class="" href="{{ Route('logout') }}">LogOut</a>
                                 </li>
