@@ -49,21 +49,21 @@
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
 						  <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
-						  @guest
-				          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
-				            <ul>
-				              <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
-				              <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
-                            </ul>
+                          @guest
+                          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+                          <ul>
+                              <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
+                              <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
+                          </ul>
                           </li> 
-							  @else 
-						  <li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-							<ul> 
-							  <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-				              <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
-				            </ul>
-				          </li>
-						  @endguest
+                              @else 
+                          <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
+                          <ul> 
+                              <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+                              <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+                          </ul>
+                          </li>
+                          @endguest
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>

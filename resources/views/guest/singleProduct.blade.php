@@ -178,7 +178,7 @@
                     <div class="breadcrumbs d-flex flex-row align-items-center">
                         <ul>
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="{{Route('home')}}">Home</a>
                             </li>
                             <li>
                                 <a href="{{ Route('products')}}">
