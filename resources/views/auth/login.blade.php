@@ -85,8 +85,16 @@
 
                                     <form method="POST" action="{{ route('login.post') }}" class="user">
                                         @csrf
+                                           <div class="form-group">
+                                          @if(session()->has('error'))
+                                         <div class="alert alert-warning">
+                                            {{ session()->get('error') }}
+                                        </div>
+                                             @endif
+                                        </div>
 
                                         <div class="form-group">
+                                            
                                             <input class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="email" autofocus
@@ -96,13 +104,7 @@
                                             @endif
                                         </div>
 
-                                        <div class="form-group">
-                                            @if (session('error'))
-                                                <span class="text-danger" style=" font-size: 14px">
-                                                    {{ session('error') }}</span>
-                                            @endif
-                                        </div>
-
+                                      
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" name="password"

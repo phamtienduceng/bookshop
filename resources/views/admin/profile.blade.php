@@ -85,6 +85,13 @@
                             <form class="user" action="{{ route('profile') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
+                                <div class="col-sm-12">
+                                @if(session()->has('success'))
+                                    <div class="alert alert-success">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                @endif
+                                </div>
                                     <div class="col-sm-12">
                                         <input type="text"
                                             class="form-control form-control-user"

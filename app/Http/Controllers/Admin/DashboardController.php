@@ -51,7 +51,7 @@ class DashboardController extends Controller
         $user->address =$request->address;
 
         $user->save();
-        return redirect()->route('home')->with('success','cap nhat thanh cong');
+        return redirect()->back()->with('success','Successfully updated');
     }
 
 
