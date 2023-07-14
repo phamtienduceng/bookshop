@@ -49,21 +49,21 @@
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
 						  <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
-						  @guest
-				          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
-				            <ul>
-				              <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
-				              <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
-                            </ul>
-                          </li> 
-							  @else 
-						  <li class="menu-has-children"><a href="">{{auth()->user()->firstname}} {{auth()->user()->lastname}}</a>
-							<ul> 
-							  <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-				              <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
-				            </ul>
-				          </li>
-						  @endguest
+                          @guest
+                        <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+                        <ul>
+                            <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
+                            <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
+                        </ul>
+                        </li> 
+                            @else 
+                        <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
+                        <ul> 
+                            <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+                            <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+                        </ul>
+                        </li>
+                        @endguest
 				        </ul>
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
@@ -84,7 +84,7 @@
                             <form class="user" action="{{ route('profile') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input type="text"
                                             class="form-control form-control-user"
                                             id="exampleName" placeholder="Fullname" name="name"
@@ -94,13 +94,15 @@
                                                 style=" font-size: 14px">{{ $errors->first('name') }}</span>
                                         @endif
                                     </div>
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" placeholder="Email" disabled
                                             id="exampleInputEmail" value="{{ auth()->user()->email }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
                                         <input 
                                             class="form-control form-control-user"
                                             id="exampleInputPhone" placeholder="Phone number" name="phone"
@@ -110,7 +112,9 @@
                                                 style=" font-size: 14px">{{ $errors->first('phone') }}</span>
                                         @endif
                                     </div>
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="text"
                                             class="form-control form-control-user @error('address') is-invalid @enderror"
                                             id="exampleInputPassword" placeholder="Address" name="address"
