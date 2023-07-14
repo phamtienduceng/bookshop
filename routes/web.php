@@ -76,6 +76,12 @@ Route::group(['middleware' => 'checklogin'], function () {
     Route::post('profile', [DashboardController::class, 'profile'])->name('profile');
     Route::get('password', [DashboardController::class, 'showPassword'])->name('show-pasword');
     Route::post('password', [DashboardController::class, 'password'])->name('password');
+    // Checkout
+Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
+Route::post('/checkout/process', [CheckoutController::class, 'processPayment'])->name('checkout.processPayment');
+Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+
 
     // Admin routes (requires admin role)
     Route::group(['middleware' => 'checkadmin'], function () {
@@ -115,12 +121,6 @@ Route::middleware(['auth'])->group(function () {
 // Cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
-
-// Checkout
-Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout.index');
-Route::post('/checkout/process', [CheckoutController::class, 'processPayment'])->name('checkout.processPayment');
-Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
-Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
 // Session data (for debugging)
 Route::get('/session-data', function () {

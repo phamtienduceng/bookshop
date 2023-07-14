@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Route;
 use Session;
+use Cookie;
 
 class AuthController extends Controller
 {
@@ -32,6 +33,10 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
+            if($request->has('remember')){
+                Cookie::queue('email',$request->email,1440);
+                Cookie::queue('password',$request->password,1440);
+            }
             return redirect()->intended('/')
                 ->withSuccess('You have Successfully loggedin');
         }

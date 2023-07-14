@@ -90,7 +90,7 @@
                                             <input class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address..." name="email" autofocus
-                                                >
+                                                @if(Cookie::has('email')) value="{{Cookie::get('email')}}"@endif>
                                             @if ($errors->has('email'))
                                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                                             @endif
@@ -106,7 +106,7 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" name="password"
-                                                >
+                                                @if(Cookie::has('password')) value="{{Cookie::get('password')}}"@endif>
                                             @if ($errors->has('password'))
                                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                             @endif
@@ -114,7 +114,7 @@
 
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" name="remember"  @if(Cookie::has('email')) checked @endif>
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
                                             </div>
