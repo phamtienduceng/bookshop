@@ -20,7 +20,7 @@
                             <div class="product_image" style="margin-top: 10px">
                                 <img src="{{ asset('/images/'. $item->image) }}" alt="" />
                             </div>
-                            <div class="favorite favorite_left"></div>
+                            <a href="{{ route('wishlist.store', $item->id) }}" class="favorite favorite_left"></a>
                             <div class="product_info">
                                 <!-- Product Name -->
                                 <h6 class="product_name">
