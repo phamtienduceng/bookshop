@@ -57,7 +57,7 @@
                                 <tr>
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->title}}</td>
-                                    <td>{{$item->price}}</td>
+                                    <td>{{ number_format($item->price, 0, ',', '.') }}₫</td>
                                     <td>{{$item->category != null ? $item->category->name : ''}}</td>
                                     <td>
                                         @if($item->image != null)
