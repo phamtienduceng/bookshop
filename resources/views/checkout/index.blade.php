@@ -59,19 +59,19 @@
                     <!-- Customer Name -->
                     <div class="form-group">
                         <label for="customer_name">Customer Name:</label>
-                        <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Customer Name" value="{{ old('customer_name') ?: 'Administrator' }}" required>
+                        <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="Customer Name"  value="{{ auth()->user()->name }}" required>
                     </div>
 
                     <!-- Email -->
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ auth()->user()->email }}"  required disabled>
                     </div>
 
                     <!-- Phone -->
                     <div class="form-group">
                         <label for="phone">Phone:</label>
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value="{{ old('phone') }}" required>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value="{{ auth()->user()->phone }}" required>
                     </div>
 
                     <!-- Country -->
@@ -108,7 +108,7 @@
                     <!-- Address -->
                     <div class="form-group">
                         <label for="address">Address:</label>
-                        <textarea class="form-control" id="address" name="address" placeholder="Address" required>{{ old('address') }}</textarea>
+                        <input class="form-control" id="address" name="address" placeholder="Address" required  value="{{ auth()->user()->address }}"></input>
                     </div>
 
                     <!-- Note -->
