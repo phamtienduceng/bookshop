@@ -172,7 +172,7 @@
 													<a href="{{ route('wishlist.store', $item->id) }}" class="favorite favorite_left"></a>
 													<div class="product_info">
 														<h6 class="product_name"><a href="{{ Route('singleProducts', $item->slug) }}" style="margin-top: -20px">{{ $item->title}}</a></h6>
-														<div class="product_price">{{$item->price}}.000 đ<span>{{$item->price}}.000 đ</span></div>
+														<div class="product_price">{{ number_format($item->price, 0, ',', '.') }}₫<span>{{ number_format($item->price, 0, ',', '.') }}₫</span></div>
 													</div>
 												</div>
 												<form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">

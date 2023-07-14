@@ -89,8 +89,8 @@
         </div>
     </header><!-- #header -->
 
-    <div class="container mt-5" style="margin-top: 100px; margin-bottom: 100px">
-        <h1 style="margin-top: 100px">My Cart</h1>
+    <div class="container mt-5" style="margin-bottom: 100px">
+        <h1>My Cart</h1>
 
         <!-- Display success message -->
         @if(session('success'))
@@ -240,7 +240,6 @@
 </body>
 
 </html>
-
 <script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
@@ -258,4 +257,3 @@
 <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
 <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
 <script src="{{ asset('guest/js/main.js') }}"></script>	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>

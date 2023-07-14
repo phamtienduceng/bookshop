@@ -46,6 +46,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <!-- 
     <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script> -->
 </head>
@@ -77,7 +78,7 @@
                         <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
                         <ul> 
                             <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-                            <li><a class="" href="{{ Route('password') }}">UpdatePassword</a></li> 
+                            <li><a class="" href="{{ Route('password') }}">Change Password</a></li> 
                             <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
                         </ul>
                         </li>
@@ -249,5 +250,6 @@
     <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
     <script src="{{ asset('guest/js/main.js') }}"></script>	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 

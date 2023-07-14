@@ -72,30 +72,10 @@ class HomeController extends Controller
 
             $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'asc')->get()->paginate(12);
             }
-
-            if(isset($_GET['sort_by'])){
-                $sort_by = $_GET['sort_by'];
-    
-                if($sort_by == 'price_desc'){
-                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'desc')->get()->paginate(12);
-                }elseif($sort_by == 'price_asc'){
-                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('price', 'asc')->get()->paginate(12);
-                }elseif($sort_by == 'title_asc'){
-                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('title', 'asc')->get()->paginate(12);
-                }elseif($sort_by == 'title_desc'){
-                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('title', 'desc')->get()->paginate(12);
-                }elseif($sort_by == 'latest'){
-                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('created_at', 'desc')->get()->paginate(12);
-                }elseif($sort_by == 'oldest'){
-                    $books = Product::whereBetween('price', [$min_price, $max_price])->whereIn('category_id', $checked)->orderBy('created_at', 'asc')->get()->paginate(12);
-                }
-            }
         }
         elseif(isset($_GET['start_price']) && $_GET['end_price']){
             $books = Product::paginate(12);
             
-
-
                 $min_price = $_GET['start_price'];
                 $max_price = $_GET['end_price'];
     

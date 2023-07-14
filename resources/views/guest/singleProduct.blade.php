@@ -39,6 +39,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}" />
+    
 </head>
 <body>
     <header id="header" id="home" style="background-color: black; opacity: 0.9">
@@ -253,7 +254,7 @@
                         </ul>
                         <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
                             <span>Quantity:</span>
-                            <div class="quantity_selector">
+                            <div class="quantity_selector" style="margin-left: 5px;">
                                 <span class="minus">
                                     <i class="fa fa-minus" aria-hidden="true"></i>
                                 </span>
@@ -262,13 +263,13 @@
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                 </span>
                             </div>
-                            <form method="POST" action="{{ route('cart.store') }}">
+                            <form method="POST" action="{{ route('cart.store') }}" style="margin-left: -10px; margin-right: 15px">
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $book->id }}" />
                                 <input type="hidden" name="quantity" id="quantity_input" value="1" />
                                 <button type="submit" class="btn btn-primary add_to_cart mt-0">Add to Cart</button>
                             </form>
-                            <a href="{{ route('wishlist.store', $book->id) }}" class="btn btn-outline-primary add_to_cart mt-0">Wishlist</a>
+                            <a href="{{ route('wishlist.store', $book->id) }}" class="btn btn-outline-primary mt-0">Wishlist</a>
                         </div>
                     </div>
                 </div>
@@ -520,6 +521,8 @@
         <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('guest/js/mail-script.js') }}"></script>
         <script src="{{ asset('guest/js/main.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
 
 
 

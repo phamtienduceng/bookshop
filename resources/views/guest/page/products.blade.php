@@ -71,7 +71,7 @@
                         <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
                         <ul> 
                             <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-                            <li><a class="" href="{{ Route('password') }}">UpdatePassword</a></li> 
+                            <li><a class="" href="{{ Route('password') }}">Change Password</a></li> 
                             <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
                         </ul>
                         </li>
@@ -178,12 +178,12 @@
                                                     <div class="product_price">{{ number_format($item->price, 0, ',', '.') }}₫<span>{{ number_format($item->price, 0, ',', '.') }}₫</span></div>
                                                 </div>
                                             </div>
-                                          <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
-    @csrf
-    <input type="hidden" name="product_id" value="{{ $item->id }}" />
-    <input type="hidden" name="quantity" value="1" />
-    <button class="add-to-cart-button" type="button" style="width: 215px" class="btn btn-danger btn-sm">Add to Cart</button>
-</form>
+                                            <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
+                                                @csrf
+                                                <input type="hidden" name="product_id" value="{{ $item->id }}" />
+                                                <input type="hidden" name="quantity" value="1" />
+                                                <button class="add-to-cart-button btn btn-danger btn-sm" type="button" style="width: 215px" class="btn btn-danger btn-sm">Add to Cart</button>
+                                            </form>
                                         </div>
                                         @endforeach
                                     </div>
@@ -343,25 +343,23 @@
     <script src="{{ asset('guest/product/plugins/easing/easing.js') }}"></script>
     <script src="{{ asset('guest/product/js/categories_custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-    <script>
-        $(function() {
-            $("#slider-range").slider({
-                range: true,
-                min: 0,
-                max: 500000,
-                values: [0, 500000],
-                slide: function(event, ui) {
-                    $("#amount").val(ui.values[0].toLocaleString() + "₫ - " + ui.values[1].toLocaleString() + "₫");
-                    $("#start_price").val(ui.values[0]);
-                    $("#end_price").val(ui.values[1]);
-                }
-            });
-            $("#amount").val($("#slider-range").slider("values", 0).toLocaleString() +
-                "₫ - " + $("#slider-range").slider("values", 1).toLocaleString() + "₫");
-            $("#start_price").val($("#slider-range").slider("values", 0));
-            $("#end_price").val($("#slider-range").slider("values", 1));
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#slider-range").slider({
+            range: true,
+            min: {{$min_price_range}},
+            max: {{$max_price_range}},
+            values: [{{$min_price}}, {{$max_price}}],
+            slide: function(event, ui) {
+                $("#amount").val(ui.values[0].toLocaleString('vi-VN') + "₫ - " + ui.values[1].toLocaleString('vi-VN') + "₫");
+                $("#start_price").val(ui.values[0]);
+                $("#end_price").val(ui.values[1]);
+            }
         });
-    </script>
+
+        $("#amount").val($("#slider-range").slider("values", 0).toLocaleString('vi-VN') + "₫ - " + $("#slider-range").slider("values", 1).toLocaleString('vi-VN') + "₫");
+    });
+</script>
    <script>
     $(document).ready(function() {
         $('.add-to-cart-button').click(function() {
@@ -372,11 +370,10 @@
                 data: form.serialize(),
                 success: function(response) {
                     // Hiển thị thông báo add thành công
-                    alert('Added to Cart successfully!');
+                    swal("Done!", "Add to cart succesfully", "success");
                 },
-                error: function(xhr, status, error) {
-                    // Xử lý lỗi khi add to cart không thành công
-                    alert('Error adding to Cart.');
+                error: function (xhr, ajaxOptions, thrownError) {
+                    swal("Error", "Please sign in", "error");
                 }
             });
         });
@@ -404,3 +401,5 @@
 <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
 <script src="{{ asset('guest/js/main.js') }}"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+

@@ -1,5 +1,5 @@
 <!-- New Arrivals -->
-<div class="new_arrivals">
+<div class="new_arrivals" style="margin-bottom: 100px">
     <div class="container">
         <div class="row">
             <div class="col text-center">
@@ -17,10 +17,10 @@
                     <div class="product-item men">
                         <div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
                             <!-- Product Image -->
-                            <div class="product_image" style="margin-top: 10px">
+                            <div class="product_image ajax-form-2" style="margin-top: 10px">
                                 <img src="{{ asset('/images/'. $item->image) }}" alt="" />
                             </div>
-                            <div class="favorite favorite_left"></div>
+                            <a href="{{ route('wishlist.store', $item->id) }}" class="favorite favorite_left"></a>
                             <div class="product_info">
                                 <!-- Product Name -->
                                 <h6 class="product_name">
@@ -62,28 +62,13 @@
                 type: 'POST',
                 url: url,
                 data: form.serialize(),
-                success: function (response) {
-                    // Xử lý thành công
-                    showSuccessMessage('Added to cart successfully.');
-                },
+                success: function () {
+                swal("Done!", "Add to cart succesfully", "success");
+            },
                 error: function (xhr) {
                     // Xử lý lỗi (nếu có)
                 }
             });
         });
-
-        // Hiển thị thông báo thành công
-        function showSuccessMessage(message) {
-            // Tạo một thông báo thành công
-            var successMessage = $('<div class="alert alert-success"></div>').text(message);
-
-            // Thêm thông báo vào phần tử có class "new_arrivals"
-            $('.new_arrivals').prepend(successMessage);
-
-            // Tự động ẩn thông báo sau 3 giây
-            setTimeout(function () {
-                successMessage.fadeOut();
-            }, 3000);
-        }
     });
 </script>
