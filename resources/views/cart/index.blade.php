@@ -30,6 +30,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/animate.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/main_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/responsive.css') }}" />
+    <style>
+        .body-center{
+            min-height: 500px;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,15 +95,8 @@
         </div>
     </header><!-- #header -->
 
-    <div class="container mt-5" style="margin-bottom: 100px">
+    <div class="container mt-5 body-center">
         <h1>My Cart</h1>
-
-        <!-- Display success message -->
-        @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-        @endif
 
         <div class="row">
             <div class="col">
@@ -106,7 +104,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Product</th>
+                            <th>Title</th>
                             <th>Image</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -233,14 +231,47 @@
     var removeItemUrl = "{{ url('/cart/remove-item') }}";
     </script>
 
+
+
+    <script>
+    // Hàm để làm mới trang
+    function refreshPage() {
+        window.location.reload();
+    }
+
+    $(document).ready(function() {
+        // Bắt sự kiện khi nhấn nút xóa sản phẩm
+        $('.remove-item').on('click', function(e) {
+            e.preventDefault();
+            var productId = $(this).data('product-id');
+
+            // Gửi yêu cầu xóa sản phẩm bằng Ajax
+            $.ajax({
+                type: 'POST',
+                url: removeItemUrl,
+                data: {
+                    product_id: productId,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function(response) {
+                    // Thực hiện làm mới trang
+                    refreshPage();
+                },
+                error: function(xhr) {
+                    // Xử lý lỗi (nếu có)
+                }
+            });
+        });
+    });
+    </script>
     <!-- Cart script -->
     <script src="{{ asset('js/cart.js') }}"></script>
 
     <!-- Additional Scripts -->
-   
 </body>
 
 </html>
+
 <script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
@@ -258,3 +289,4 @@
 <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
 <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
 <script src="{{ asset('guest/js/main.js') }}"></script>	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>

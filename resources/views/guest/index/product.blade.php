@@ -1,5 +1,5 @@
 <!-- New Arrivals -->
-<div class="new_arrivals" style="margin-bottom: 100px">
+<div class="new_arrivals" style="margin-bottom: 50px">
     <div class="container">
         <div class="row">
             <div class="col text-center">
@@ -14,13 +14,13 @@
                 <!-- Product Grid -->
                 <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
                     @foreach($books as $item)
-                    <div class="product-item men">
+                    <div class="product-item men" style="margin-bottom: 30px">
                         <div class="product discount product_filter" style="margin-bottom: -5px; height: 340px">
                             <!-- Product Image -->
-                            <div class="product_image ajax-form-2" style="margin-top: 10px">
+                            <div class="product_image" style="margin-top: 10px">
                                 <img src="{{ asset('/images/'. $item->image) }}" alt="" />
                             </div>
-                            <a href="{{ route('wishlist.store', $item->id) }}" class="favorite favorite_left"></a>
+                            <div class="favorite favorite_left"></div>
                             <div class="product_info">
                                 <!-- Product Name -->
                                 <h6 class="product_name">
@@ -33,12 +33,7 @@
                             </div>
                         </div>
                         <!-- Add to Cart Button -->
-                        <form class="add-to-cart-form ajax-form" method="POST" action="{{ route('cart.store') }}">
-                            @csrf
-                            <input type="hidden" name="product_id" value="{{ $item->id }}" />
-                            <input type="hidden" name="quantity" value="1" />
-                            <button type="submit" style="width: 215px" class="btn btn-danger btn-sm">Add to Cart</button>
-                        </form>
+                        <button type="button" style="width: 215px" class="btn btn-danger btn-sm add-to-cart-btn" data-product-id="{{ $item->id }}">Add to Cart</button>
                     </div>
                     @endforeach
                 </div>
@@ -50,25 +45,25 @@
 <!-- JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function () {
-        // Gửi yêu cầu bằng Ajax khi submit form
-        $('.ajax-form').on('submit', function (e) {
-            e.preventDefault();
+  $(document).ready(function () {
+    $('.add-to-cart-btn').on('click', function () {
+      var productId = $(this).data('product-id');
 
-            var form = $(this);
-            var url = form.attr('action');
-
-            $.ajax({
-                type: 'POST',
-                url: url,
-                data: form.serialize(),
-                success: function () {
-                swal("Done!", "Add to cart succesfully", "success");
+      $.ajax({
+        type: 'POST',
+        url: '{{ route('cart.store') }}',
+        data: {
+          _token: '{{ csrf_token() }}',
+          product_id: productId,
+          quantity: 1
+        },
+          success: function () {
+              swal("Done!", "Add to cart succesfully", "success");
             },
-                error: function (xhr) {
-                    // Xử lý lỗi (nếu có)
-                }
-            });
-        });
+        error: function (xhr) {
+
+        }
+      });
     });
+  });
 </script>

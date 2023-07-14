@@ -64,36 +64,55 @@
 			    </div>
 </header><!-- #header -->
 
-    <div class="container mt-5">
-        <h1>My Wishlist</h1>
+    <div class="container mt-5" style="min-height: 500px">
+        <h1 style="margin-top: 80px">Your Wishlist</h1>
 
-        <h2>
-            <a href="{{ url('/products') }}" class="btn btn-primary">Go to Books</a>
-        </h2>
-        <h2>
-            <a href="{{ route('cart.index') }}" class="btn btn-primary">Go to Cart</a>
-        </h2>
         <div class="row">
-            @foreach ($wishlist as $book)
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <a href="{{ route('singleProducts', $book->slug) }}">
-                        <img src="{{ asset('/images/' . $book->image) }}" class="card-img-top" alt="{{ $book->title }}" />
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="{{ route('singleProducts', $book->slug) }}">{{ $book->title }}</a>
-                        </h5>
-                        <p class="card-text">{{ $book->author }}</p>
-                        <form method="post" action="{{ route('wishlist.destroy', $book->id) }}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Remove from Wishlist</button>
-                        </form>
-                    </div>
-                </div>
+            <div class="col">
+                @if(count($wishlist) > 0)
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="50%">Title</th>
+                            <th width="14%">Image</th>
+                            <th width="12%">Price</th>
+                            <th width="12%">Shop</th>
+                            <th width="12%">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($wishlist as $book)
+                        <tr>
+                            <td><a style="text-decoration: none; color: black" href="{{ Route('singleProducts', $book->slug) }}">{{$book->title}}</a></td>
+                            <td>
+                            <a style="text-decoration: none; color: black" href="{{ Route('singleProducts', $book->slug) }}">
+                                <img src="{{ asset('/images/' . $book->image) }}" class="card-img-top" alt="{{ $book->title }}" style="width: 100px; margin-left: -20px"/>
+                            </a>   
+                            </td>
+                            <td>{{ number_format($book->price, 0, ',', '.') }}₫</td>
+                            <td>
+                                <form class="add-to-cart-form" method="POST" action="{{ route('cart.store') }}">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $book->id }}" />
+                                    <input type="hidden" name="quantity" value="1" />
+                                    <button type="submit" class="btn btn-success add-to-cart-btn">Add to Cart</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="{{ route('wishlist.destroy', $book->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger wishlist-remove-btn">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @else
+                <p>Your cart is empty.</p>
+                @endif
             </div>
-            @endforeach
         </div>
     </div>
 
