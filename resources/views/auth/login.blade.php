@@ -67,7 +67,7 @@
 				      </nav><!-- #nav-menu-container -->		    		
 			    	</div>
 			    </div>
-			  </header><!-- #header -->
+</header><!-- #header -->
     <div class="container" style="margin-top: 50px">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -208,7 +208,7 @@
                 </div>
             </div>
         </div>
-    </footer>
+</footer>
             
 
             <!-- Bootstrap core JavaScript-->

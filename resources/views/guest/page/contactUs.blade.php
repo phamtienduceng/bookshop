@@ -169,9 +169,9 @@
                                             <div class="col-md-12">
 												<div class="form-group">
 													<label class="label" for="name">Follow us: 
-                                                        <span><a href="#" class="icon-social fa fa-facebook"></a></span>
-                                                        <span><a href="#" class="icon-social fa fa-instagram"></a></span>
-                                                        <span><a href="#" class="icon-social fa fa-twitter"></a></span>
+                                                        <span><a href="https://facebook.com" class="icon-social fa fa-facebook"></a></span>
+                                                        <span><a href="https://instagram.com" class="icon-social fa fa-instagram"></a></span>
+                                                        <span><a href="https://twitter.com" class="icon-social fa fa-twitter"></a></span>
                                                     </label>
 												</div>
 											</div>
