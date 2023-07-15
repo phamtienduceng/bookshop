@@ -154,7 +154,7 @@
 									<div class="post-01__media">
 
 										<!-- carousel__element owl-carousel -->
-										<div class="carousel__element owl-carousel" data-options="{items: 1, loop: true}">
+										<div class="carousel__element owl-carousel" data-options="{items: 1, loop: true, dots: false, nav: true}">
 											<div><img src="{{ asset('/guest/img/blogs/best1.jpg')}}" alt=""/></div>
 											<div><img src="{{ asset('/guest/img/blogs/best2.jpg')}}" alt=""/></div>
                                             <div><img src="{{ asset('/guest/img/blogs/best3.jpg')}}" alt=""/></div>
