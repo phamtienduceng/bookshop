@@ -94,7 +94,7 @@ Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('che
         Route::get('/admin-contactUs', [ContactUsController::class, 'index'])->name('adminContactUs');
         Route::resource('/product', ProductController::class);
         Route::get('/adminArticles', [ArticlesController::class, 'index'])->name('adminArticles');
-        Route::resource('/article', ArticlesController::class);
+        Route::resource('/articles', ArticlesController::class);
     });
 });
 
