@@ -28,7 +28,7 @@
 
             </div>
             <div class="new-div-item new-div-add">
-                <a href="{{ Route('articles.create')}}" class="btn btn-primary btn-icon-split">
+                <a href="{{ Route('article.create')}}" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
@@ -75,7 +75,7 @@
                                             <span class="text">Update</span>
                                         </a>
                                         <a class="action-item btn btn-danger btn-icon-split">
-                                            <form action="{{ Route('articles.destroy', $item->id) }}" method="POST">
+                                            <form action="{{ Route('article.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <span class="icon text-white-50">
