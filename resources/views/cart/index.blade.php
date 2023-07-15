@@ -55,9 +55,6 @@
                             <a href="{{ Route('products')}}">Product</a>
                         </li>
                         <li>
-                            <a href="{{ Route('articles')}}">Articles</a>
-                        </li>
-                        <li>
                             <a href="{{ Route('aboutUs')}}">About us</a>
                         </li>
                         <li>
@@ -170,9 +167,6 @@
                         <ul class="ul-footer">
                             <li>
                                 <a href="{{ Route('products') }}">Products</a>
-                            </li>
-                            <li>
-                                <a href="{{ Route('articles') }}">Articles</a>
                             </li>
                         </ul>
                     </div>
