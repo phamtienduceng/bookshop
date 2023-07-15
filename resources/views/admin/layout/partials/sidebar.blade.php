@@ -29,7 +29,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ Route('admin.articles.view')}}">
+        <a class="nav-link" href="{{ Route('adminArticles')}}">
             <i class="fa-solid fa-mug-saucer"></i>
             <span>Articles</span></a>
     </li>

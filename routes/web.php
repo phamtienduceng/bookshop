@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\ArticlesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
@@ -92,6 +93,7 @@ Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('che
         Route::get('/admin-order', [OrderController::class, 'index'])->name('adminOrder');
         Route::get('/admin-contactUs', [ContactUsController::class, 'index'])->name('adminContactUs');
         Route::resource('/product', ProductController::class);
+        Route::get('/adminArticles', [ArticlesController::class, 'view'])->name('adminArticles');
     });
 });
 
