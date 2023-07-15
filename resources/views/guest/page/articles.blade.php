@@ -2,6 +2,7 @@
 
 @section('contents')
 
+<!DOCTYPE html>
 <html>
 	<head>
         <!-- Mobile Specific Meta -->
