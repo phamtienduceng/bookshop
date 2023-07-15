@@ -1,4 +1,6 @@
-@extends('admin.layout.layout')
+@extends('guest.layout.layout')
+
+@section('contents')
 
 	<head>
         <!-- Mobile Specific Meta -->
