@@ -68,7 +68,7 @@
                                             </span>
                                             <span class="text">View</span>
                                         </a>
-                                        <a href="{{ Route('articles.edit', $item->id)}}" class="action-item btn btn-success btn-icon-split">
+                                        <a href="{{ Route('article.edit', $item->id)}}" class="action-item btn btn-success btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-flag"></i>
                                             </span>
