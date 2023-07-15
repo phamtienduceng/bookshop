@@ -43,10 +43,8 @@
   .owl-carousel .owl-dots.disabled {
     display: none; }
   .owl-carousel .owl-nav .owl-prev .owl-next{
-    width: 15px;
-    height: 100px;
     position: absolute;
-    top: 50%;
+    bottom: 50%;
     transform: translateY(-50%);
     display: block !important;
     border:0px solid black;
