@@ -42,7 +42,7 @@ class HomeController extends Controller
     }
 
     public function articles(){
-        return view('guest.page.articles.index');
+        return view('guest.page.articles');
     }
     public function boot(): void
     {
