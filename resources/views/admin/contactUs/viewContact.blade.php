@@ -32,8 +32,8 @@
                             <td>{{$item->subject}}</td>
                             <td></td>
                             <td>
-                                <a href="#"><input type="button" value="update"></a>
-                                <a href="#"><input type="button" value="delete"></a>
+                                <a href="{{ Route('viewContactDetail', $item->id)}}"><input type="button" value="view"></a>
+
                             </td>
                         </tr>
                         @endforeach

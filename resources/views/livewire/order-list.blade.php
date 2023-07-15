@@ -12,7 +12,6 @@
                 <th>Customer Name</th>
                 <th>Order Total (VND)</th>
                 <th>Status</th>
-                <th>Payment Method</th>
                 <th>Created At</th>
                 <th>Order Details</th>
             </tr>
@@ -21,10 +20,9 @@
             <tr>
                 <!-- Order info -->
                 <td>{{ $order->id }}</td>
-                <td>{{ $order->customer_name ?? 'Administrator' }}</td>
+                <td>{{ $order->customer_name }}</td>
                 <td>{{ number_format($order->order_total, 0, ',', '.') }} đ</td><!-- Format the order_total with thousand separator -->
                 <td>{{ $order->status ?? 'Pending' }}</td>
-                <td>{{ $order->payment_method ?? 'Cash' }}</td>
                 <td>{{ $order->created_at }}</td>
                 <td>
                     <a href="{{ route('order.detail', ['id' => $order->id]) }}">View</a>

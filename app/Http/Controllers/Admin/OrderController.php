@@ -66,10 +66,8 @@ class OrderController extends Controller
         }
 
         // Cập nhật dữ liệu order
-        $order->customer_name = $request->input('customer_name');
-        $order->order_total = $request->input('order_total');
         $order->status = $request->input('status');
-        $order->payment_method = $request->input('payment_method');
+
         // Cập nhật các trường khác theo cần thiết
 
         $order->save();

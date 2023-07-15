@@ -400,7 +400,7 @@
 
 
     			<!-- start footer Area -->		
-                <footer class="footer-area section-gap" style="padding-top: 50px;">
+    <footer class="footer-area section-gap" style="padding-top: 50px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">

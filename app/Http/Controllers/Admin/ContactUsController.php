@@ -33,4 +33,10 @@ class ContactUsController extends Controller
         Contact::create($contact);
         return redirect()->route('contactUs')->with('message', 'Send message successfully');
     }
+
+    public function viewContactDetail($id){
+        $contact = Contact::where('id', $id)->first();
+
+        return view('admin.contactUs.viewContactDetail', compact('contact'));
+    }
 }

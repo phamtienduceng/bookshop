@@ -55,8 +55,10 @@ Route::get('/products', [HomeController::class, 'products'])->name('products');
 // Search page
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 
-
+// Contact us
 Route::post('/getContactUs', [ContactUsController::class, 'getContactUs'])->name('getContactUs');
+
+Route::get('/viewContactDetail/{id}', [ContactUsController::class, 'viewContactDetail'])->name('viewContactDetail');
 
 
 // Admin home page

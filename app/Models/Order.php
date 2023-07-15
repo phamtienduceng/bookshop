@@ -13,7 +13,7 @@ class Order extends Model
     const STATUS_PROCESSING = 'processing';
     const STATUS_COMPLETED = 'completed';
 
-    protected $fillable = ['user_id', 'status', 'payment_method', 'order_total'];
+    protected $fillable = ['user_id', 'customer_name', 'status', 'payment_method', 'order_total'];
     public $timestamps = true;
 
     public function orderItems()
