@@ -1,8 +1,5 @@
 @extends('guest.layout.layout')
 
-
-<!DOCTYPE html>
-<html>
 	<head>
 		<title>Articles</title>
 		<meta charset="utf-8">
@@ -282,4 +279,4 @@
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
 	</body>
-</html>
+
