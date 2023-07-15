@@ -125,7 +125,7 @@ class ArticlesController extends Controller
 
 
         Articles::create($articles);
-        return redirect()->route('adminArticles');
+        return redirect()->route('article.view');
     }
 
     /**
@@ -139,16 +139,16 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Articles $articles)
+    public function edit(Articles $article)
     {
         $cates = Category::all();
-        return view('admin.articles.edit', compact('cates', 'articles'));
+        return view('admin.articles.edit', compact('cates', 'article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Articles $articles)
+    public function update(Request $request, Articles $article)
     {
         $articles = $request->all();
         $articles['slug'] = \Str::slug($request->title);
@@ -220,16 +220,16 @@ class ArticlesController extends Controller
             'content.between' => 'content must be between 50 and 3000 characters.',
             'artcat_id.required' => 'article_category_id is required.',
         ]);
-        $articles->update($articles);
+        $article->update($articles);
         return redirect()->route('articles.view');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Articles $articles)
+    public function destroy(Articles $article)
     {
-        $articles->delete();
-        return redirect()->route('adminArticles');
+        $article->delete();
+        return redirect()->route('article.view');
     }
 }
