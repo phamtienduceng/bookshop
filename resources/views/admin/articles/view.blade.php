@@ -62,7 +62,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ Route('viewSingleArt', $item->slug)}}" class="action-item btn btn-info btn-icon-split">
+                                        <a href="{{ Route('viewSingle', $item->slug)}}" class="action-item btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-info-circle"></i>
                                             </span>
