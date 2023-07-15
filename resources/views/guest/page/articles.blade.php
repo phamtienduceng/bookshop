@@ -155,7 +155,7 @@
 
 										<!-- carousel__element owl-carousel -->
 										<div class="carousel__element owl-carousel" data-options="{items: 1, loop: true, nav: true, dots: false}">
-											<div><img src="{{ asset('/guest/img/blogs/b1.jpg')}}" alt=""/></div>
+											<div><img src="{{ asset('/guest/img/blogs/best1.jpg')}}" alt=""/></div>
 											<div><img src="{{ asset('/guest/img/blogs/best2.jpg')}}" alt=""/></div>
                                             <div><img src="{{ asset('/guest/img/blogs/best3.jpg')}}" alt=""/></div>
 										</div><!-- End / carousel__element owl-carousel -->
@@ -169,16 +169,14 @@
 										<div class="post-01__time">July 12, 2023</div>
 										<div class="post-01__note">by Duc Tri Bookshop</div>
 									</div>
-
-                                    <!-- pagination -->
-								<ul class="pagination"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a class="pagination__item" href="#">3</a><span class="pagination__item active">4</span>
-								</ul><!-- End / pagination -->
 								</div><!-- End /  -->
 
-
-
-
+								<!-- pagination -->
+								<ul class="pagination"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
+                                    class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination -->
 							</div>
+                        </div>
+
 							<aside class="layout-blog__sidebar">
 
 									<!--  -->
