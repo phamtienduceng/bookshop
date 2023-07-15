@@ -42,7 +42,7 @@ class HomeController extends Controller
     }
 
     public function articles(){
-        return view('guest.page.articles');
+        return view('guest.page.articles.index');
     }
     public function boot(): void
     {
@@ -75,18 +75,18 @@ class HomeController extends Controller
         }
         elseif(isset($_GET['start_price']) && $_GET['end_price']){
             $books = Product::paginate(12);
-            
+
                 $min_price = $_GET['start_price'];
                 $max_price = $_GET['end_price'];
-    
+
                 $books = Product::whereBetween('price', [$min_price, $max_price])->orderBy('price', 'asc')->get()->paginate(12);
-                  
+
         }else{
             $books = Product::paginate(12);
 
             if(isset($_GET['sort_by'])){
                 $sort_by = $_GET['sort_by'];
-    
+
                 if($sort_by == 'price_desc'){
                     $books = Product::orderBy('price', 'desc')->get()->paginate(12);
                 }elseif($sort_by == 'price_asc'){
@@ -101,7 +101,7 @@ class HomeController extends Controller
                     $books = Product::orderBy('created_at', 'asc')->get()->paginate(12);
                 }
             }
-        }    
+        }
 
         $category = Category::orderBy('id', 'asc')->get();
 
@@ -115,7 +115,7 @@ class HomeController extends Controller
         $min_price_range = $min_price - 12;
         $max_price = Product::max('price');
         $max_price_range = $max_price + 100;
-        
+
         if($_GET['keywords'] != null){
             $keywords = $request->keywords;
             $search_books = Product::where('title', 'like', '%'.$keywords.'%')->get()->paginate(12);
