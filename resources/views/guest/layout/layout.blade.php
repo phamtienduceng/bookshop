@@ -20,7 +20,7 @@
     <!--
             CSS
             ============================================= -->
-            
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('guest/css/linearicons.css') }}" />
     <link rel="stylesheet" href="{{ asset('guest/css/font-awesome.min.css') }}" />
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}" />
     <link rel="stylesheet" href="{{ asset('guest/css/main.css') }}" />
     <link rel="stylesheet" href="{{ asset('guest/css/layout.css') }}">
-    
+
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}" />
@@ -47,8 +47,26 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_styles.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/single_responsive.css') }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<!-- 
+<!--
     <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script> -->
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Fonts-->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/fonts/themify-icons/themify-icons.css">
+    <!-- Vendors-->
+    <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap4/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendors/owl.carousel/owl.carousel.css">
+    <!-- App & fonts-->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <![endif]-->
 </head>
 <body>
 
@@ -73,18 +91,18 @@
                             <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
                             <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
                         </ul>
-                        </li> 
-                            @else 
+                        </li>
+                            @else
                         <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
-                        <ul> 
+                        <ul>
                             <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-                            <li><a class="" href="{{ Route('password') }}">Change Password</a></li> 
-                            <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
+                            <li><a class="" href="{{ Route('password') }}">Change Password</a></li>
+                            <li><a class="" href="{{ Route('logout') }}">LogOut</a></li>
                         </ul>
                         </li>
                         @endguest
                     </ul>
-                    </nav><!-- #nav-menu-container -->		    		
+                    </nav><!-- #nav-menu-container -->
                 </div>
             </div>
     </header><!-- #header -->
@@ -234,21 +252,21 @@
 
     <script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-    <script src="{{ asset('guest/js/easing.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/easing.min.js') }}"></script>
     <script src="{{ asset('guest/js/hoverIntent.js') }}"></script>
-    <script src="{{ asset('guest/js/superfish.min.js') }}"></script>	
+    <script src="{{ asset('guest/js/superfish.min.js') }}"></script>
     <script src="{{ asset('guest/js/jquery.ajaxchimp.min.js') }}"></script>
-    <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>	
-    <script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>			
+    <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('guest/js/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>			
-    <script src="{{ asset('guest/js/parallax.min.js') }}"></script>	
+    <script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('guest/js/parallax.min.js') }}"></script>
     <script src="{{ asset('guest/js/waypoints.min.js') }}"></script>
-    <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
-    <script src="{{ asset('guest/js/mail-script.js') }}"></script>	
-    <script src="{{ asset('guest/js/main.js') }}"></script>	
+    <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('guest/js/mail-script.js') }}"></script>
+    <script src="{{ asset('guest/js/main.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
