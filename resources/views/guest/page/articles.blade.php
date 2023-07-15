@@ -171,9 +171,9 @@
 									</div>
 								</div><!-- End /  -->
 
-								<!-- pagination -->
+								{{-- <!-- pagination -->
 								<ul class="pagination" style="margin-left: 43%"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
-                                    class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination -->
+                                    class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination --> --}}
 
 							</div>
 							<aside class="layout-blog__sidebar">
@@ -201,7 +201,7 @@
 										<section class="widget-text__widget widget-text__style-02 widget">
 											<h3 class="widget-title">categories</h3>
 											<div class="widget-text__content">
-                                                <form action="{{ URL::current() }}" method="get" name="filter">
+                                                {{-- <form action="{{ URL::current() }}" method="get" name="filter"> --}}
 												{{-- @foreach ($category as $cate)
                                                     @php
                                                         $checked = [];
@@ -224,7 +224,7 @@
 													<li><a href="#">Your Articles</a></li>
 													<li><a href="#">Bookmarks</a></li>
 												</ul>
-                                                </form>
+                                                {{-- </form> --}}
 											</div>
 										</section><!-- End / widget-text__widget -->
 
