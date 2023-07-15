@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\ArticleCategory;
+use App\Models\Articles;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Support\Facades\Requests;
@@ -27,6 +29,16 @@ class HomeController extends Controller
 
 
         return view('guest.singleProduct', compact('book', 'related'));
+    }
+
+    public function singleArticles($slug){
+        $article = Articles::where('slug', $slug)->first();
+
+        $artcat_id = $article->artcat_id;
+
+        $related = Articles::where('artcat_id', $artcat_id)->whereNotIn('slug', [$slug])->inRandomOrder()->limit(5)->get();
+
+        return view('guest.singleArticles', compact('article', 'related'));
     }
 
     public function contactUs(){
@@ -123,6 +135,44 @@ class HomeController extends Controller
             , 'min_price_range', 'max_price_range'));
         }else{
             return redirect()->route('products');
+        }
+    }
+
+    public function articless(Request $request){
+
+        Paginator::useBootstrapFive();
+
+        $articles = Articles::paginate(12);
+
+        if(isset($_GET['sort_by'])){
+            $sort_by = $_GET['sort_by'];
+
+            if($sort_by == 'title_asc'){
+                $articles = Articles::orderBy('title', 'asc')->get()->paginate(12);
+            }elseif($sort_by == 'title_desc'){
+                $articles = Articles::orderBy('title', 'desc')->get()->paginate(12);
+            }elseif($sort_by == 'latest'){
+                $articles = Articles::orderBy('created_at', 'desc')->get()->paginate(12);
+            }elseif($sort_by == 'oldest'){
+                $articles = Articles::orderBy('created_at', 'asc')->get()->paginate(12);
+            }
+
+        }
+
+        $article_category = ArticleCategory::orderBy('id', 'asc')->get();
+
+        return view('guest.page.articles', compact('articles', 'article_category'));
+    }
+
+    public function article_search(Request $request){
+        $article_category = ArticleCategory::orderBy('id', 'asc')->get();
+
+        if($_GET['keywords'] != null){
+            $keywords = $request->keywords;
+            $search_articles = Articles::where('title', 'like', '%'.$keywords.'%')->get()->paginate(12);
+            return view('guest.page.search', compact('article_category', 'search_articles'));
+        }else{
+            return redirect()->route('articles');
         }
     }
 }
