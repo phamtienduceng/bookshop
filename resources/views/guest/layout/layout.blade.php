@@ -271,3 +271,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 
+    <!-- Vendors-->
+    <script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.countUp/jquery.countup.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
+    <script type="text/javascript" src="assets/vendors/owl.carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/menu/menu.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
+    <!-- App-->
+    <script type="text/javascript" src="assets/js/main.js"></script>
