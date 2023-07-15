@@ -172,7 +172,7 @@
 								</div><!-- End /  -->
 
 								<!-- pagination -->
-								<ul class="pagination" style="margin-left: 55%"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
+								<ul class="pagination" style="margin-left: 48%"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
                                     class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination -->
 
 							</div>
@@ -328,7 +328,7 @@
         <script src="{{ asset('guest/js/superfish.min.js') }}"></script>
         <script src="{{ asset('guest/js/jquery.ajaxchimp.min.js') }}"></script>
         <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>
+        {{-- <script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script> --}}
         <script src="{{ asset('guest/js/jquery.sticky.js') }}"></script>
         <script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>
         <script src="{{ asset('guest/js/parallax.min.js') }}"></script>
