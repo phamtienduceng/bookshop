@@ -2,6 +2,7 @@
 
 @section('contents')
 
+<html>
 	<head>
         <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -300,11 +301,7 @@
 
 		</div>
 
-
-
-
 	</body>
-
 
 		<!-- Vendors-->
 		<script src="{{ asset('guest/js/vendors/jquery/jquery.min.js')}}"></script>
@@ -342,3 +339,4 @@
         {{-- <script type="text/javascript" src="{{ asset('guest/js/articles.js')}}"></script> --}}
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script> --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+</html>
