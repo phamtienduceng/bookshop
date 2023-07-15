@@ -276,33 +276,6 @@
 											</div>
 										</section><!-- End / widget-text__widget -->
 
-
-										<!-- widget-text__widget -->
-										<section class="widget-text__widget widget">
-											<h3 class="widget-title">popular tags</h3>
-											<div class="widget-text__content">
-
-												<!-- tagclould -->
-												<div class="tagclould"><a href="#">Accounting</a><a href="#">Budgets</a><a href="#">Business</a><a href="#">Business</a><a href="#">Plans</a><a href="#">Commodities</a><a href="#">Insurance</a><a href="#">Consulting</a>
-												</div><!-- End /  tagclould -->
-
-											</div>
-										</section><!-- End / widget-text__widget -->
-
-
-										<!-- widget-text__widget -->
-										<section class="widget-text__widget widget-text__style-03 widget">
-											<h3 class="widget-title">Archieves</h3>
-											<div class="widget-text__content">
-												<ul>
-													<li><a href="#">June  2017</a></li>
-													<li><a href="#">November  2017</a></li>
-													<li><a href="#">March  2017</a></li>
-													<li><a href="#">July 2017</a></li>
-												</ul>
-											</div>
-										</section><!-- End / widget-text__widget -->
-
 									</div><!-- End /  -->
 
 							</aside>
