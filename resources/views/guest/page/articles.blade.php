@@ -201,7 +201,8 @@
 										<section class="widget-text__widget widget-text__style-02 widget">
 											<h3 class="widget-title">categories</h3>
 											<div class="widget-text__content">
-												@foreach ($category as $cate)
+                                                <form action="{{ URL::current() }}" method="get" name="filter">
+												{{-- @foreach ($category as $cate)
                                                     @php
                                                         $checked = [];
                                                         if (isset($_GET['filter_cate'])) {
@@ -214,7 +215,16 @@
                                                             @if (in_array($cate->id, $checked)) checked @endif>
                                                         {{ $cate->name }}
                                                     </div>
-                                                @endforeach
+                                                @endforeach --}}
+                                                <ul>
+													<li><a href="#">News</a></li>
+													<li><a href="#">Blog</a></li>
+													<li><a href="#">Tutorial</a></li>
+													<li><a href="#">Facts & More</a></li>
+													<li><a href="#">Your Articles</a></li>
+													<li><a href="#">Bookmarks</a></li>
+												</ul>
+                                                </form>
 											</div>
 										</section><!-- End / widget-text__widget -->
 
