@@ -49,24 +49,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <!--
     <script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script> -->
-
-
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Fonts-->
-    <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/fonts/themify-icons/themify-icons.css">
-    <!-- Vendors-->
-    <link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap4/bootstrap-grid.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendors/magnific-popup/magnific-popup.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/vendors/owl.carousel/owl.carousel.css">
-    <!-- App & fonts-->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css"><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -271,20 +253,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
 
-    <!-- Vendors-->
-    <script type="text/javascript" src="assets/vendors/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
-    <script type="text/javascript" src="assets/vendors/isotope-layout/isotope.pkgd.js"></script>
-    <script type="text/javascript" src="assets/vendors/jquery.countdown/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/jquery.countTo/jquery.countTo.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/jquery.countUp/jquery.countup.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/masonry-layout/masonry.pkgd.js"></script>
-    <script type="text/javascript" src="assets/vendors/owl.carousel/owl.carousel.js"></script>
-    <script type="text/javascript" src="assets/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/menu/menu.min.js"></script>
-    <script type="text/javascript" src="assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
-    <!-- App-->
-    <script type="text/javascript" src="assets/js/main.js"></script>
+
