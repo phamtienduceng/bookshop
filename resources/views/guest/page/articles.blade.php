@@ -1,3 +1,7 @@
+@extends('admin.layout.layout')
+
+@section('contents')
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -125,7 +129,7 @@
 
 								<!--  -->
 								<div class="post-01__style-02 md-text-center">
-									<div class="post-01__media"><a href="blog-detail.html"><img src="{{ asset('/img/blogs/2.jpg')}}" alt=""/></a>
+									<div class="post-01__media"><a href="blog-detail.html"><img src="{{ asset('/guest/img/blogs/2.jpg')}}" alt=""/></a>
 									</div>
 									<div>
 										<ul class="post-01__categories"><li>Facts & More</li></ul>
@@ -145,7 +149,7 @@
 											<div class="video" data-init="video">
 												<iframe src="https://www.youtube.com/embed/xtlSdQwOGWE" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 												<div class="video-content">
-													<div class="video-background" style="background-image: url({{ asset('/img/blogs/5.jpg')}});"></div>
+													<div class="video-background" style="background-image: url({{ asset('/guest/img/blogs/5.jpg')}});"></div>
 													<div class="video-inner">
 														<div class="video-button"><i class="fa fa-play"></i></div>
 													</div>
@@ -186,9 +190,9 @@
 
 										<!-- carousel__element owl-carousel -->
 										<div class="carousel__element owl-carousel" data-options="{items: 1, loop: true, nav: true, dots: false}">
-											<div><img src="{{ asset('/img/blogs/b1.jpg')}}" alt=""/></div>
-											<div><img src="{{ asset('/img/blogs/best2.jpg')}}" alt=""/></div>
-                                            <div><img src="{{ asset('/img/blogs/best3.jpg')}}" alt=""/></div>
+											<div><img src="{{ asset('/guest/img/blogs/b1.jpg')}}" alt=""/></div>
+											<div><img src="{{ asset('/guest/img/blogs/best2.jpg')}}" alt=""/></div>
+                                            <div><img src="{{ asset('/guest/img/blogs/best3.jpg')}}" alt=""/></div>
 										</div><!-- End / carousel__element owl-carousel -->
 
 									</div>
