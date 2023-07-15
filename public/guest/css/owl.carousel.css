@@ -39,10 +39,13 @@
     display: block;
     width: 100%;
     -webkit-transform-style: preserve-3d; }
-
+  .owl-carousel .owl-nav.disabled,
   .owl-carousel .owl-dots.disabled {
     display: none; }
-  .owl-carousel .owl-nav .owl-prev .owl-next,
+  .owl-carousel .owl-nav .owl-prev .owl-next{
+    font-size: 0;
+    display: inline-block;
+  }
   .owl-carousel .owl-dot {
     cursor: pointer;
     cursor: hand;
