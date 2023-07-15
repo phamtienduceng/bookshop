@@ -201,7 +201,7 @@
 										<section class="widget-text__widget widget-text__style-02 widget">
 											<h3 class="widget-title">categories</h3>
 											<div class="widget-text__content">
-												@foreach ($article_category as $cate)
+												@foreach ($articles as $cate)
                                                     @php
                                                         $checked = [];
                                                         if (isset($_GET['filter_cate'])) {
