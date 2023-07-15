@@ -29,7 +29,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="{{ Route('articles.index')}}">
+        <a class="nav-link" href="{{ Route('articles')}}">
             <i class="fa-solid fa-mug-saucer"></i>
             <span>Articles</span></a>
     </li>
