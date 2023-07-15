@@ -1,74 +1,56 @@
 @extends('admin.layout.layout')
 @section('contents')
-
-    <body id="page-top">
-        <div id="wrapper">
-            <div id="content-wrapper" class="d-flex flex-column">
-                <!-- Main Content -->
-                <div id="content">
-                    <!-- header -->
-                    <div wire:ignore class="container-fluid">
-
-                        <div class="row">
-                            <div class="col-lg-12 margin-tb">
-                                <div class="pull-left">
-                                    <h2>Users Management</h2>
-                                </div>
-                                <div class="pull-right">
-                                    <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card shadow mb-4">
-                            <div class="newdiv">
-
-                                @if ($message = Session::get('success'))
-                                    <div class="alert alert-success">
-                                        <p>{{ $message }}</p>
-                                    </div>
-                                @endif
-
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Roles</th>
-                                        <th width="280px">Action</th>
-                                    </tr>
-                                    @foreach ($data as $key => $user)
+    <div class="container-fluid">
+        <h1 class="h3 mb-2 text-gray-800">Users Management</h1>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+                </div>
+                
+                <div class="table-responsive">
+                    @if ($message = Session::get('success'))
+                                        <div class="alert alert-success">
+                                            <p>{{ $message }}</p>
+                                        </div>
+                                    @endif
+                                    <br>
+                                    <table class="table table-bordered">
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
-                                            <td>
-                                                @if (!empty($user->getRoleNames()))
-                                                    @foreach ($user->getRoleNames() as $v)
-                                                        <label class="badge badge-success">{{ $v }}</label>
-                                                    @endforeach
-                                                @endif
-                                            </td>
-                                            <td>
-                                                <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">Show</a>
-                                                <a class="btn btn-primary"
-                                                    href="{{ route('users.edit', $user->id) }}">Edit</a>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Roles</th>
+                                            <th width="280px">Action</th>
+                                        </tr>
+                                        @foreach ($data as $key => $user)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+                                                <td>{{ $user->name }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td></td>
+                                                <td>
+                                                    @if (!empty($user->getRoleNames()))
+                                                        @foreach ($user->getRoleNames() as $v)
+                                                            <label class="badge badge-success">{{ $v }}</label>
+                                                        @endforeach
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-info"
+                                                        href="{{ route('users.show', $user->id) }}">Show</a>
+                                                    <a class="btn btn-primary"
+                                                        href="{{ route('users.edit', $user->id) }}">Edit</a>
                                                     {{-- {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
                                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                                     {!! Form::close() !!} --}}
-                                                
-                                        </tr>
-                                    @endforeach
-                                </table>
-                                {!! $data->render() !!}
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <!-- End of Footer -->
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                    {!! $data->render() !!}
                 </div>
             </div>
         </div>
-    </body>
+    </div>
 @endsection

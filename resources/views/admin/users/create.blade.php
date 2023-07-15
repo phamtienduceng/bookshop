@@ -1,5 +1,6 @@
 @extends('admin.layout.layout')
 
+
 @section('contents')
 <!-- Page Wrapper -->
 <div id="wrapper">

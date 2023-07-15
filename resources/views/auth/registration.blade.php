@@ -72,7 +72,7 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="{{ asset('/images/img0001.jpg') }}" alt="" style="width: 470px;height: 561px;">
+                        <img src="{{ asset('/images/img004.jpg') }}" alt="" style="width: 470px;height: 561px;">
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">

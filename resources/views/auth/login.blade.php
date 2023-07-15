@@ -75,7 +75,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img src="{{ asset('/images/menread.jpg') }}" alt="" style="width:485px;height:630px;">
+                                <img src="{{ asset('/images/img004.jpg') }}" alt="" style="width:485px;height:630px;">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
