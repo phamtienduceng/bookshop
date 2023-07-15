@@ -125,9 +125,9 @@ class ProductController extends Controller
             'price.integer' => 'Price must be a number.',
             'price.digits_between' => 'Price must be betwwen 3 and 10 digits.',
             'price.between' => 'Price must be between 5.000 vnđ and 1.000.000 vnđ.',
-            'description.required' => 'description is required.',
-            'description.between' => 'description must be between 50 and 100 characters.',
-            'category_id.required' => 'category_id is required.',
+            'description.required' => 'Description is required.',
+            'description.between' => 'Description must be between 50 and 100 characters.',
+            'category_id.required' => 'Category is required.',
         ]);
 
 
@@ -174,7 +174,7 @@ class ProductController extends Controller
             $file->move('images', $imgName);
         }else
         {
-            $imgName = null;
+            $imgName = $product->image;
         }
 
         if($request->hasFile('photo1'))
@@ -191,7 +191,7 @@ class ProductController extends Controller
             $file->move('images', $imgName1);
         }else
         {
-            $imgName1 = null;
+            $imgName1 = $product->image1;
         }
 
         if($request->hasFile('photo2'))
@@ -208,7 +208,7 @@ class ProductController extends Controller
             $file->move('images', $imgName2);
         }else
         {
-            $imgName2 = null;
+            $imgName2 = $product->image2;
         }
 
         $books['image'] = $imgName;
@@ -228,9 +228,9 @@ class ProductController extends Controller
             'price.integer' => 'Price must be a number.',
             'price.digits_between' => 'Price must be betwwen 3 and 10 digits.',
             'price.between' => 'Price must be between 5.000 vnđ and 1.000.000 vnđ.',
-            'description.required' => 'description is required.',
-            'description.between' => 'description must be between 50 and 100 characters.',
-            'category_id.required' => 'category_id is required.',
+            'description.required' => 'Description is required.',
+            'description.between' => 'Description must be between 50 and 100 characters.',
+            'category_id.required' => 'Category is required.',
         ]);
         $product->update($books);
         return redirect()->route('product.index');

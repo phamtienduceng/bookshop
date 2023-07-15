@@ -4,8 +4,6 @@
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-
-<form class="row" >
     <div class="col-md-12">
         <div class="card card-primary">
             <div class="card-header">
@@ -13,26 +11,21 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="title">Name:</label> <span>{{$contact->name}}</span>
+                    <label for="title" class="label">Name:</label> <span>{{$contact->name}}</span>
                 </div>
                 <div class="form-group">
-                    <label for="price">Email:</label> <span>{{$contact->email}}</span>
+                    <label for="price" class="label">Email:</label> <span>{{$contact->email}}</span>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Subject:</label> <span>{{$contact->subject}}</span>
+                    <label for="description" class="label">Subject:</label> <span>{{$contact->subject}}</span>
                 </div>
                 <div class="form-group">
-                    <label for="description">Message:</label> <span>{{$contact->message}}</span>
-                </div>
-                <div>
+                    <label for="description" class="label">Message:</label> <span>{{$contact->message}}</span>
                 </div>
             </div>
-            <!-- /.card-body -->
          </div>
-    <!-- /.card -->
     </div>
-</form>
 </div>
 <!-- /.container-fluid -->
     

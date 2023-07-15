@@ -344,6 +344,29 @@
     <script src="{{ asset('guest/product/js/categories_custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('#sort').on('change', function(){
+                var url = $(this).val();
+                if(url){
+                    window.location = url;
+                }
+                return false;
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#cate_filter').on('change', function(){
+                var url = $(this).val();
+                if(url){
+                    window.location = url;
+                }
+                return false;
+            });
+        });
+    </script>
+
+   <script type="text/javascript">
     $(document).ready(function() {
         $("#slider-range").slider({
             range: true,
