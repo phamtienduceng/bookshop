@@ -43,7 +43,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        $cates = Category::all();
+        $cates = ArticleCategory::all();
         return view('admin.articles.create', compact('cates'));
     }
 

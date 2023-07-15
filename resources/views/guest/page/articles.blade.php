@@ -201,14 +201,20 @@
 										<section class="widget-text__widget widget-text__style-02 widget">
 											<h3 class="widget-title">categories</h3>
 											<div class="widget-text__content">
-												<ul>
-													<li><a href="#">Accounting</a></li>
-													<li><a href="#">Budgets</a></li>
-													<li><a href="#">Business</a></li>
-													<li><a href="#">Business Plans</a></li>
-													<li><a href="#">Commodities</a></li>
-													<li><a href="#">Insurance</a></li>
-												</ul>
+												@foreach ($article_category as $cate)
+                                                    @php
+                                                        $checked = [];
+                                                        if (isset($_GET['filter_cate'])) {
+                                                            $checked = $_GET['filter_cate'];
+                                                        }
+                                                    @endphp
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="check2"
+                                                            name="filter_cate[]" value="{{ $cate->id }}"
+                                                            @if (in_array($cate->id, $checked)) checked @endif>
+                                                        {{ $cate->name }}
+                                                    </div>
+                                                @endforeach
 											</div>
 										</section><!-- End / widget-text__widget -->
 
