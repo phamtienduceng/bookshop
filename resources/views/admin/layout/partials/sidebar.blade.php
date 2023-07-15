@@ -31,7 +31,7 @@
     <li class="nav-item">
 
         <a class="nav-link" href="{{ Route('adminContactUs')}}">
-        <i class="fa-regular fa-user"></i>
+            <i class="fa-solid fa-mug-saucer"></i>
             <span>Contact Us</span></a>
 
     </li>
