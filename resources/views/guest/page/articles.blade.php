@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="{{ asset('guest/css/magnific-popup.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}"> --}}
         <link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/contact.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/layout.css') }}">
@@ -154,7 +154,7 @@
 									<div class="post-01__media">
 
 										<!-- carousel__element owl-carousel -->
-										<div class="carousel__element owl-carousel" data-options="{items: 1, loop: true, dots: false, nav: true, navContainer: true}">
+										<div class="carousel__element owl-carousel" data-options="{items: 1, loop: true, dots: false, nav: true}">
 											<div><img src="{{ asset('/guest/img/blogs/best1.jpg')}}" alt=""/></div>
 											<div><img src="{{ asset('/guest/img/blogs/best2.jpg')}}" alt=""/></div>
                                             <div><img src="{{ asset('/guest/img/blogs/best3.jpg')}}" alt=""/></div>
@@ -336,7 +336,7 @@
         <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('guest/js/mail-script.js') }}"></script>
         <script src="{{ asset('guest/js/main.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('guest/js/articles.js')}}"></script>
+        <script src="{{ asset('guest/js/articles.js')}}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </html>
