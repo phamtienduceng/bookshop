@@ -102,13 +102,12 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <div class="container mt-5" style="margin-bottom: 50px">
     <form action="{{ route('checkout.processPayment') }}" method="POST">
             @csrf
         <div class="row">
 
-            <div class="col-md-4">
-                
+            <div class="col-md-6">
                     <!-- Customer Name -->
                     <div class="form-group">
                         <label for="customer_name">Customer Name:</label>
@@ -172,12 +171,7 @@
 
                 </div>
 
-                <div class="col-md-4">
-
-                    Làm ở đây nha
-                </div>
-
-                <div class="col-md-4">
+                <div class="col-md-6">
                                         <!-- Order Total -->
                                         <div class="form-group">
                         <label for="order_total">Order Total:</label>

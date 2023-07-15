@@ -59,9 +59,6 @@
                             <a href="{{ Route('products')}}">Product</a>
                         </li>
                         <li>
-                            <a href="{{ Route('articles')}}">Articles</a>
-                        </li>
-                        <li>
                             <a href="{{ Route('aboutUs')}}">About us</a>
                         </li>
                         <li>
@@ -116,9 +113,7 @@
                         <li>
                             <a href="{{ Route('products')}}">Product</a>
                         </li>
-                        <li>
-                            <a href="{{ Route('articles')}}">Articles</a>
-                        </li>
+
                         <li>
                             <a href="{{ Route('aboutUs')}}">About us</a>
                         </li>
@@ -170,7 +165,7 @@
     </header><!-- #header -->
 
     <!-- contents -->
-    <div class="super_container">
+    <div class="super_container" style="margin-top: -50px">
         <div class="container single_product_container">
             <div class="row">
                 <div class="col">
@@ -418,7 +413,6 @@
                         <h6 class="header-footer">Shopping</h6>
                         <ul class="ul-footer">
                             <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
 
                         </ul>
                     </div>

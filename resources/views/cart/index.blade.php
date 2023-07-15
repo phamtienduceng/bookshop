@@ -92,7 +92,7 @@
         </div>
     </header><!-- #header -->
 
-    <div class="container mt-5 body-center">
+    <div class="container mt-5 body-center" style="margin-bottom: 50px">
         <h1>My Cart</h1>
 
         <div class="row">
