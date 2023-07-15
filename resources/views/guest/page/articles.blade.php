@@ -94,7 +94,7 @@
 
 								<!--  -->
 								<div class="post-01__style-02 md-text-center">
-									<div class="post-01__media"><a href="blog-detail.html"><img src="{{ asset('/guest/img/blogs/2.jpg')}}" alt=""/></a>
+									<div class="post-01__media"><img src="{{ asset('/guest/img/blogs/2.jpg')}}" alt=""/>
 									</div>
 									<div>
 										<ul class="post-01__categories"><li>Facts & More</li></ul>
@@ -171,11 +171,11 @@
 									</div>
 								</div><!-- End /  -->
 
+								<!-- pagination -->
+								&emsp;<ul class="pagination"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
+                                    class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination -->
 
 							</div>
-<!-- pagination -->
-<ul class="pagination"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
-    class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination -->
 							<aside class="layout-blog__sidebar">
 
 									<!--  -->
