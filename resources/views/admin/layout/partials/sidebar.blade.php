@@ -29,9 +29,15 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link" href="{{ Route('articles.index')}}">
+            <i class="fa-solid fa-mug-saucer"></i>
+            <span>Articles</span></a>
+    </li>
+
+    <li class="nav-item">
 
         <a class="nav-link" href="{{ Route('adminContactUs')}}">
-            <i class="fa-solid fa-mug-saucer"></i>
+            <i class="fa-solid fa-phone"></i>
             <span>Contact Us</span></a>
 
     </li>
