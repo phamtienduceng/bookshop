@@ -20,8 +20,8 @@
         <title>Articles</title>
 
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
-        <!--
+        {{-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+        --}}<!--
         CSS
         ============================================= -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -39,7 +39,7 @@
         <link rel="stylesheet" href="{{ asset('guest/css/article.css') }}">
 
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap-grid.min.css')}}">
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap-grid.min.css')}}"> --}}
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/animate.css') }}">
@@ -157,7 +157,7 @@
 										<ul class="post-01__categories">
 											<li>Blog</li>
 										</ul>
-										<h2 class="post-01__title">Vlog: Iconic book shop tour 📚</h2>
+										<h2 class="post-01__title">Vlog - Iconic book shop tour 📚</h2>
 										<div class="post-01__time">May 06, 2023</div>
 										<div class="post-01__note">by Neska</div>
 									</div>
@@ -173,8 +173,8 @@
 										<ul class="post-01__categories">
 											<li>Your Articles</li>
 										</ul>
-										<h2 class="post-01__title">Music: Only Human</h2>
-										<div class="post-01__time">Feb 15, 2023</div>
+										<h2 class="post-01__title">Music - On My Way</h2>
+										<div class="post-01__time">Feb 22, 2023</div>
 										<div class="post-01__note">by Ryan Mack</div>
 									</div>
 								</div><!-- End /  -->
@@ -433,6 +433,6 @@
         <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('guest/js/mail-script.js') }}"></script>
         <script src="{{ asset('guest/js/main.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('guest/js/articles.js')}}"></script>
+        {{-- <script type="text/javascript" src="{{ asset('guest/js/articles.js')}}"></script> --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
