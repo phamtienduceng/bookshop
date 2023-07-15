@@ -111,7 +111,7 @@
                         <h6 class="header-footer">Shopping</h6>
                         <ul class="ul-footer">
                             <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
+                            <li><a href="{{ Route('adminArticles') }}">Articles</a></li>
 
                         </ul>
                     </div>
