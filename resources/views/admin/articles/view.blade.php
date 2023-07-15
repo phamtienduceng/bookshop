@@ -6,7 +6,7 @@
 <div wire:ignore class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Product List</h1>
+    <h1 class="h3 mb-2 text-gray-800">Article List</h1>
 
     <div class="card shadow mb-4">
 
@@ -16,24 +16,23 @@
                 @csrf
                 <select class="form-select" aria-label="Default select example" name="filter_cate" id="filter_cate">
                     <option value="{{Request::url()}}?cate=0">Category</option>
-                    <option value="{{Request::url()}}?cate=8">All</option>
-                    <option value="{{Request::url()}}?cate=1">Literature</option>
-                    <option value="{{Request::url()}}?cate=2">Politics - Legal</option>
-                    <option value="{{Request::url()}}?cate=3">Science - Technology</option>
-                    <option value="{{Request::url()}}?cate=4">Culture - Sociery - Hisory</option>
-                    <option value="{{Request::url()}}?cate=5">Novel</option>
-                    <option value="{{Request::url()}}?cate=6">Psychology</option>
-                    <option value="{{Request::url()}}?cate=7">Children</option>
+                    <option value="{{Request::url()}}?cate=7">All</option>
+                    <option value="{{Request::url()}}?cate=1">News</option>
+                    <option value="{{Request::url()}}?cate=2">Blog</option>
+                    <option value="{{Request::url()}}?cate=3">Tutorial</option>
+                    <option value="{{Request::url()}}?cate=4">Facts & More</option>
+                    <option value="{{Request::url()}}?cate=5">Your Articles</option>
+                    <option value="{{Request::url()}}?cate=6">Bookmarks</option>
                 </select>
             </form>
 
             </div>
             <div class="new-div-item new-div-add">
-                <a href="{{ Route('product.create')}}" class="btn btn-primary btn-icon-split">
+                <a href="{{ Route('articles.create')}}" class="btn btn-primary btn-icon-split">
                     <span class="icon text-white-50">
                         <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Add new product</span>
+                    <span class="text">Add article</span>
                 </a>
             </div>
         </div>
@@ -45,19 +44,17 @@
                         <tr>
                             <th width="10%">ID</th>
                             <th width="20%">Title</th>
-                            <th width="10%">Price</th>
                             <th width="15%">Category</th>
                             <th width="25%">Image</th>
                             <th width="20%">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if($books != null && count($books) > 0)
-                            @foreach($books as $item)
+                        @if($articles != null && count($articles) > 0)
+                            @foreach($articles as $item)
                                 <tr>
                                     <td>{{$item->id}}</td>
                                     <td>{{$item->title}}</td>
-                                    <td>{{ number_format($item->price, 0, ',', '.') }}₫</td>
                                     <td>{{$item->category != null ? $item->category->name : ''}}</td>
                                     <td>
                                         @if($item->image != null)
@@ -65,20 +62,20 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ Route('viewSingle', $item->slug)}}" class="action-item btn btn-info btn-icon-split">
+                                        <a href="{{ Route('viewSingleArt', $item->slug)}}" class="action-item btn btn-info btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-info-circle"></i>
                                             </span>
                                             <span class="text">View</span>
                                         </a>
-                                        <a href="{{ Route('product.edit', $item->id)}}" class="action-item btn btn-success btn-icon-split">
+                                        <a href="{{ Route('articles.edit', $item->id)}}" class="action-item btn btn-success btn-icon-split">
                                             <span class="icon text-white-50">
                                                 <i class="fas fa-flag"></i>
                                             </span>
                                             <span class="text">Update</span>
                                         </a>
                                         <a class="action-item btn btn-danger btn-icon-split">
-                                            <form action="{{ Route('product.destroy', $item->id) }}" method="POST">
+                                            <form action="{{ Route('articles.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <span class="icon text-white-50">
