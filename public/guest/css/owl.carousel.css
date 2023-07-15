@@ -44,7 +44,7 @@
     display: none; }
   .owl-carousel .owl-nav .owl-prev .owl-next{
     position: absolute;
-    bottom: 50%;
+    top: -50%;
     transform: translateY(-50%);
     display: block !important;
     border:0px solid black;
