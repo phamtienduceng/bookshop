@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('guest/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('guest/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('guest/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">					
+    <link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
@@ -34,42 +34,44 @@
 </head>
 
 <body class="bg-gradient-primary">
-<header id="header" id="home" style="background-color: black; opacity: 0.9" >
-			    <div class="container">
-			    	<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
-				        <a href="{{ Route('home')}}"><img src="{{ asset('/images/logo.jpg')}}" style="width: 80px"></a>
-				      </div>
-				      <nav id="nav-menu-container">
-				        <ul class="nav-menu">
-				          <li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
-				          <li><a href="{{ Route('products')}}">Product</a></li>
-				          <li><a href="{{ Route('articles')}}">Articles</a></li>
-						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
-				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
-						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
-						  <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
-                          @guest
-                          <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
-                          <ul>
-                              <li><a class="{{ (request()->is('login')) ? 'active' : '' }}" href="{{ Route('login') }}">Login</a></li>
-                              <li><a class="{{ (request()->is('register')) ? 'active' : '' }}" href="{{ Route('register') }}">Sign up</a></li>
-                          </ul>
-                          </li> 
-                              @else 
-                          <li class="menu-has-children"><a href="">{{auth()->user()->name}}</a>
-                          <ul> 
-                              <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
-                              <li><a class="" href="{{ Route('password') }}">Change Password</a></li>
-                              <li><a class="" href="{{ Route('logout') }}">LogOut</a></li> 
-                          </ul>
-                          </li>
-                          @endguest
-				        </ul>
-				      </nav><!-- #nav-menu-container -->		    		
-			    	</div>
-			    </div>
-</header><!-- #header -->
+    <header id="header" id="home" style="background-color: black; opacity: 0.9">
+        <div class="container">
+            <div class="row align-items-center justify-content-between d-flex">
+                <div id="logo">
+                    <a href="{{ Route('home') }}"><img src="{{ asset('/images/logo.jpg') }}" style="width: 80px"></a>
+                </div>
+                <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li class="menu-active"><a href="{{ Route('home') }}">Home</a></li>
+                        <li><a href="{{ Route('products') }}">Product</a></li>
+                        <li><a href="{{ Route('articles') }}">Articles</a></li>
+                        <li><a href="{{ Route('aboutUs') }}">About us</a></li>
+                        <li><a href="{{ Route('contactUs') }}">Contact us</a></li>
+                        <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <li><a href=""><i class="fa-solid fa-heart"></i></a></li>
+                        @guest
+                            <li class="menu-has-children"><a href=""><i class="fa-solid fa-user"></i></a>
+                                <ul>
+                                    <li><a class="{{ request()->is('login') ? 'active' : '' }}"
+                                            href="{{ Route('login') }}">Login</a></li>
+                                    <li><a class="{{ request()->is('register') ? 'active' : '' }}"
+                                            href="{{ Route('register') }}">Sign up</a></li>
+                                </ul>
+                            </li>
+                        @else
+                            <li class="menu-has-children"><a href="">{{ auth()->user()->name }}</a>
+                                <ul>
+                                    <li><a class="" href="{{ Route('profile') }}">Profile</a></li>
+                                    <li><a class="" href="{{ Route('password') }}">Change Password</a></li>
+                                    <li><a class="" href="{{ Route('logout') }}">LogOut</a></li>
+                                </ul>
+                            </li>
+                        @endguest
+                    </ul>
+                </nav><!-- #nav-menu-container -->
+            </div>
+        </div>
+    </header><!-- #header -->
 
     <div class="container" style="margin-top: 150px; margin-bottom: 100px">
 
@@ -77,43 +79,44 @@
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block">
+                        <img src="{{ asset('/images/img007.jpg') }}" alt="" style="width:485px;height:490px;">
+                    </div>
+
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Change Password</h1>
                             </div>
-                                @if(session()->has('success'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('success') }}
-                                    </div>
-                                @endif
-                                @if(session()->has('error'))
-                                    <div class="alert alert-warning">
-                                        {{ session()->get('error') }}
-                                    </div>
-                                @endif
+                            @if (session()->has('success'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('success') }}
+                                </div>
+                            @endif
+                            @if (session()->has('error'))
+                                <div class="alert alert-warning">
+                                    {{ session()->get('error') }}
+                                </div>
+                            @endif
                             <form class="user" action="{{ route('password') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <input type="password"
                                             class="form-control form-control-user @error('old_password') is-invalid @enderror"
-                                            id="exampleName" placeholder="Old Password" name="old_password"
-                                           >
+                                            id="exampleName" placeholder="Old Password" name="old_password">
                                         @if ($errors->has('old_password'))
                                             <span class="text-danger"
                                                 style=" font-size: 14px">{{ $errors->first('old_password') }}</span>
                                         @endif
-                                      
+
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12 mb-3 mb-sm-0">
-                                    <input type="password"
+                                        <input type="password"
                                             class="form-control form-control-user @error('new_password') is-invalid @enderror"
-                                            id="exampleName" placeholder="New Password" name="new_password"
-                                           >
+                                            id="exampleName" placeholder="New Password" name="new_password">
                                         @if ($errors->has('new_password'))
                                             <span class="text-danger"
                                                 style=" font-size: 14px">{{ $errors->first('new_password') }}</span>
@@ -122,7 +125,7 @@
                                 </div>
                                 <div class="form-group row">
 
-                                <div class="col-sm-12">
+                                    <div class="col-sm-12">
                                         <input type="password"
                                             class="form-control form-control-user @error('new_confirm_password') is-invalid @enderror"
                                             id="exampleRepeatPassword" placeholder="Repeat Password"
@@ -138,30 +141,32 @@
                                     Update
                                 </button>
                                 <hr>
-                                    {{-- @if (Route::has('forget.password.get')) --}}
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('forget.password.get') }}">Forgot Password?</a>
-                                    </div>
-                                    {{-- @endif --}}
+                                {{-- @if (Route::has('forget.password.get')) --}}
+                                <div class="text-center">
+                                    <a class="small" href="{{ route('forget.password.get') }}">Forgot Password?</a>
+                                </div>
+                                {{-- @endif --}}
                             </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
     </div>
-</div>
+    </div>
 
     <footer class="footer-area section-gap" style="padding-top: 50px;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-footer-widget">
-                    <h6 class="header-footer">About us</h6>
+                        <h6 class="header-footer">About us</h6>
                         <ul class="ul-footer">
                             <li>Location: District 3, Nam Ky Khoi Nghia street, Ho Chi Minh city</li>
                             <li>Number: 012345678</li>
-                            <li>Contact: <a href="#" style="text-decoration: none">triducstore@gmail.com</a></li>
+                            <li>Contact: <a href="#" style="text-decoration: none">triducstore@gmail.com</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -186,7 +191,7 @@
                 </div>
                 <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
                     <div class="single-footer-widget">
-                    <img src="{{ asset('/images/logo.jpg')}}" alt="" class="logo-footer">
+                        <img src="{{ asset('/images/logo.jpg') }}" alt="" class="logo-footer">
                         <div class="footer-social d-flex align-items-center social">
                             <a href="https://facebook.com">
                                 <i class="fa fa-facebook"></i>
@@ -211,7 +216,7 @@
                 </div>
             </div>
         </div>
-</footer>
+    </footer>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
@@ -227,20 +232,23 @@
 </html>
 
 <script src="{{ asset('guest/js/vendor/jquery-2.2.4.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>			
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-<script src="{{ asset('guest/js/easing.min.js') }}"></script>			
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="{{ asset('guest/js/vendor/bootstrap.min.js') }}"></script>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="{{ asset('guest/js/easing.min.js') }}"></script>
 <script src="{{ asset('guest/js/hoverIntent.js') }}"></script>
-<script src="{{ asset('guest/js/superfish.min.js') }}"></script>	
+<script src="{{ asset('guest/js/superfish.min.js') }}"></script>
 <script src="{{ asset('guest/js/jquery.ajaxchimp.min.js') }}"></script>
-<script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>	
-<script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>			
+<script src="{{ asset('guest/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('guest/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('guest/js/jquery.sticky.js') }}"></script>
-<script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>			
-<script src="{{ asset('guest/js/parallax.min.js') }}"></script>	
+<script src="{{ asset('guest/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('guest/js/parallax.min.js') }}"></script>
 <script src="{{ asset('guest/js/waypoints.min.js') }}"></script>
-<script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>			
-<script src="{{ asset('guest/js/mail-script.js') }}"></script>	
-<script src="{{ asset('guest/js/main.js') }}"></script>	
+<script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('guest/js/mail-script.js') }}"></script>
+<script src="{{ asset('guest/js/main.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>

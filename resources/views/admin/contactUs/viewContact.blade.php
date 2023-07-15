@@ -1,5 +1,4 @@
 @extends('admin.layout.layout')
-
 @section('contents')
 
 <!-- Begin Page Content -->
