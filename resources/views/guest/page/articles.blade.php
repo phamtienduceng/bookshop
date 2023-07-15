@@ -36,14 +36,14 @@
         <link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
-        {{-- <link rel="stylesheet" href="{{ asset('guest/css/main.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/contact.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/layout.css') }}">
         <!-- <link rel="stylesheet" href="{{ asset('guest/cart.css') }}"> -->
         <link rel="stylesheet" href="{{ asset('guest/css/article.css') }}">
 
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}">
-        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap-grid.min.css')}}"> --}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap-grid.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/animate.css') }}">
@@ -337,7 +337,7 @@
         <script src="{{ asset('guest/js/jquery.counterup.min.js') }}"></script>
         <script src="{{ asset('guest/js/mail-script.js') }}"></script>
         <script src="{{ asset('guest/js/main.js') }}"></script>
-        {{-- <script type="text/javascript" src="{{ asset('guest/js/articles.js')}}"></script> --}}
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script> --}}
+        <script type="text/javascript" src="{{ asset('guest/js/articles.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </html>
