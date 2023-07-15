@@ -1,6 +1,6 @@
 @extends('guest.layout.layout')
 
-	<body>
+
 		<div class="page-wrap">
 			<!-- Content-->
 			<div class="md-content">
@@ -258,5 +258,3 @@
 		<script type="text/javascript" src="assets/vendors/smoothscroll/SmoothScroll.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="assets/js/main.js"></script>
-	</body>
-
