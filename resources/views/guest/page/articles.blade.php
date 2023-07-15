@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="{{ asset('guest/css/magnific-popup.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/nice-select.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/animate.min.css') }}">
-        {{-- <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}"> --}}
+        <link rel="stylesheet" href="{{ asset('guest/css/owl.carousel.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/main.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/contact.css') }}">
         <link rel="stylesheet" href="{{ asset('guest/css/layout.css') }}">
@@ -44,9 +44,9 @@
 
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/bootstrap4/bootstrap-grid.min.css')}}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/animate.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/plugins/OwlCarousel2-2.2.1/animate.css') }}"> --}}
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/main_styles.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('guest/product/styles/responsive.css') }}">
 
