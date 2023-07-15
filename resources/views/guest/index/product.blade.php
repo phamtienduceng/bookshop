@@ -21,7 +21,7 @@
 							<div class="favorite favorite_left"></div>
 							<div class="product_info">
 								<h6 class="product_name"><a href="{{ Route('singleProducts', $item->slug) }}" style="margin-top: -20px">{{ $item->title}}</a></h6>
-								<div class="product_price">{{$item->price}}.000 đ<span>{{$item->price}}.000 đ</span></div>
+								<div class="product_price">{{$item->price}}<span>{{$item->price}}</span></div>
 							</div>
 						</div>
 						<div class="red_button add_to_cart_button" style="width: 100%; margin-left: unset; margin-top: -25px">
