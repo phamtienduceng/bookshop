@@ -6,10 +6,10 @@
 <html>
 	<head>
         <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {{-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> --}}
         {{-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> --}}
-		<meta name="format-detection" content="telephone=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
+		{{-- <meta name="format-detection" content="telephone=no"> --}}
+		{{-- <meta name="apple-mobile-web-app-capable" content="yes"> --}}
         <!-- Favicon-->
         <link rel="shortcut icon" href="{{ asset('/images/onlyLogo.png') }}">
         <!-- Author Meta -->
@@ -24,7 +24,7 @@
         <title>Articles</title>
 
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+        {{-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext"> --}}
         <!--
         =======================CSS======================
                                                         -->
@@ -172,7 +172,7 @@
 								</div><!-- End /  -->
 
 								<!-- pagination -->
-								<ul class="pagination ml-75"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
+								<ul class="pagination"><a class="pagination__item" href="#">1</a><a class="pagination__item" href="#">2</a><a
                                     class="pagination__item" href="#">3</a><span class="pagination__item active">4</span></ul><!-- End / pagination -->
 
 							</div>
