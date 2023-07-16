@@ -57,7 +57,6 @@
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
 				          <li><a href="{{ Route('products')}}">Product</a></li>
-				          <li><a href="{{ Route('articles')}}">Articles</a></li>
 						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -210,7 +209,6 @@
                         <h6 class="header-footer">Shopping</h6>
                         <ul class="ul-footer">
                             <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
 
                         </ul>
                     </div>

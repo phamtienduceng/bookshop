@@ -18,7 +18,6 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Subject</th>
-                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,10 +28,8 @@
                             <td>{{$item->name}}</td>
                             <td>{{$item->email}}</td>
                             <td>{{$item->subject}}</td>
-                            <td></td>
                             <td>
-                                <a href="{{ Route('viewContactDetail', $item->id)}}"><input type="button" value="view"></a>
-
+                                <a href="{{ Route('viewContactDetail', $item->id)}}"><input type="button" class="btn btn-success" value="view"></a>
                             </td>
                         </tr>
                         @endforeach

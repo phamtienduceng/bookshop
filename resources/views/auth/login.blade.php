@@ -42,7 +42,6 @@
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
 				          <li><a href="{{ Route('products')}}">Product</a></li>
-				          <li><a href="{{ Route('articles')}}">Articles</a></li>
 						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -126,12 +125,6 @@
                                             Login
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
                                     </form>
                                     <hr>
                                     {{-- @if (Route::has('forget.password.get')) --}}
@@ -169,8 +162,6 @@
                         <h6 class="header-footer">Shopping</h6>
                         <ul class="ul-footer">
                             <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
-
                         </ul>
                     </div>
                 </div>

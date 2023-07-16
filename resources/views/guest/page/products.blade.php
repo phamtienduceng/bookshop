@@ -55,7 +55,6 @@
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="{{ Route('home') }}">Home</a></li>
                         <li><a href="{{ Route('products') }}">Product</a></li>
-                        <li><a href="{{ Route('articles') }}">Articles</a></li>
                         <li><a href="{{ Route('aboutUs') }}">About us</a></li>
                         <li><a href="{{ Route('contactUs') }}">Contact us</a></li>
                         <li><a href="{{ Route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -260,69 +259,7 @@
             </div>
         </div>
     </div>
-
-    			<!-- start footer Area -->		
-                <footer class="footer-area section-gap" style="padding-top: 50px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                    <h6 class="header-footer">About us</h6>
-                        <ul class="ul-footer">
-                            <li>Location: District 3, Nam Ky Khoi Nghia street, Ho Chi Minh city</li>
-                            <li>Number: 012345678</li>
-                            <li>Contact: <a href="#" style="text-decoration: none">triducstore@gmail.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6 class="header-footer">Shopping</h6>
-                        <ul class="ul-footer">
-                            <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3  col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6 class="header-footer">Information</h6>
-                        <ul class="ul-footer">
-                            <li><a href="{{ Route('contactUs') }}">About us</a></li>
-                            <li><a href="{{ Route('aboutUs') }}">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
-                    <div class="single-footer-widget">
-                    <img src="{{ asset('/images/logo.jpg')}}" alt="" class="logo-footer">
-                        <div class="footer-social d-flex align-items-center social">
-                            <a href="https://facebook.com">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="https://twitter.com">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="https://google.com">
-                                <i class="fa fa-google"></i>
-                            </a>
-                            <a href="https://instagram.com">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr class="hr-footer">
-            <div class="row footer-end">
-                <div class="col-lg-12">
-                    Copyright 2023 Duc Tri Co. Ltd. All Right Reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
-			<!-- End footer Area -->	
+	
 
     <script src="{{ asset('guest/js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('guest/js/popper.js') }}"></script>
@@ -344,6 +281,29 @@
     <script src="{{ asset('guest/product/js/categories_custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script type="text/javascript">
+        $(document).ready(function(){
+            $('#sort').on('change', function(){
+                var url = $(this).val();
+                if(url){
+                    window.location = url;
+                }
+                return false;
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#cate_filter').on('change', function(){
+                var url = $(this).val();
+                if(url){
+                    window.location = url;
+                }
+                return false;
+            });
+        });
+    </script>
+
+   <script type="text/javascript">
     $(document).ready(function() {
         $("#slider-range").slider({
             range: true,

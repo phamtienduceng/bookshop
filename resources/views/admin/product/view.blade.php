@@ -77,14 +77,14 @@
                                             </span>
                                             <span class="text">Update</span>
                                         </a>
-                                        <a class="action-item btn btn-danger btn-icon-split">
+                                        <a class="action-item btn btn-danger btn-icon-split" style="height: 38px">
                                             <form action="{{ Route('product.destroy', $item->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <span class="icon text-white-50">
                                                     <i class="fas fa-trash"></i>
                                                 </span>
-                                                <button type="submit">Delete</button>
+                                                <button type="submit" class="btn btn-danger" >Delete</button>
                                             </form>
                                         </a>
                                     </td>

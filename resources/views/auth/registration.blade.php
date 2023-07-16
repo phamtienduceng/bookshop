@@ -40,7 +40,6 @@
 				        <ul class="nav-menu">
 				          <li class="menu-active"><a href="{{ Route('home')}}">Home</a></li>
 				          <li><a href="{{ Route('products')}}">Product</a></li>
-				          <li><a href="{{ Route('articles')}}">Articles</a></li>
 						  <li><a href="{{ Route('aboutUs')}}">About us</a></li>
 				          <li><a href="{{ Route('contactUs')}}">Contact us</a></li>
 						  <li><a href="{{ Route('cart.store') }}"><i class="fa-solid fa-cart-shopping"></i></a></li>
@@ -84,7 +83,7 @@
                                 @csrf
 
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input
                                             class="form-control form-control-user"
                                             id="exampleInputEmail" placeholder="Email Address" name="email"
@@ -93,8 +92,10 @@
                                             <span class="text-danger">{{ $errors->first('email') }}</span>
                                         @endif
                                     </div>
+                                </div>
 
-                                    <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
                                         <input type="text"
                                             class="form-control form-control-user @error('name') is-invalid @enderror"
                                             id="exampleInputName" placeholder="Fullname" name="name"
@@ -107,7 +108,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <div class="col-sm-12 mb-3 mb-sm-0">
                                         <input type="password"
                                             class="form-control form-control-user @error('password') is-invalid @enderror"
                                             id="exampleInputPassword" placeholder="Password" name="password">
@@ -116,7 +117,10 @@
                                                 style=" font-size: 14px">{{ $errors->first('password') }}</span>
                                         @endif
                                     </div>
-                                    <div class="col-sm-6">
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
                                         <input type="password"
                                             class="form-control form-control-user @error('Confirm-Password') is-invalid @enderror"
                                             id="exampleRepeatPassword" placeholder="Repeat Password"
@@ -127,17 +131,10 @@
                                         @endif
                                     </div>
                                 </div>
-
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Register Account
                                 </button>
                                 <hr>
-                                <a href="index.html" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
                             </form>
                             <hr>
                             @if (Route::has('password.request'))
@@ -172,8 +169,6 @@
                         <h6 class="header-footer">Shopping</h6>
                         <ul class="ul-footer">
                             <li><a href="{{ Route('products') }}">Products</a></li>
-                            <li><a href="{{ Route('articles') }}">Articles</a></li>
-
                         </ul>
                     </div>
                 </div>

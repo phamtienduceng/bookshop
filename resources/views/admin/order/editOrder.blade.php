@@ -2,8 +2,14 @@
 
 @section('contents')
 
-<div class="container">
-    <h1><span class="glitter">Order ID:</span> {{ $order->id }}</h1>
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header">
+            <h3 class="card-title">Order information</h3>
+        </div>
+    <div class="div-view">
+    <label for="" class="label">Order ID: </label> <span>{{ $order->id }}</span>
     
     <form action="{{ route('admin.orders.update', $order->id) }}" method="POST" id="updateOrderForm">
         @csrf
@@ -11,17 +17,21 @@
 
         <!-- Customer Name -->
         <div class="form-group">
-            <label for="customer_name">Customer Name: </label> <span>{{$order->customer_name}}</span>
+            <label for="customer_name" class="label">Customer Name: </label> <span>{{$order->customer_name}}</span>
         </div>
 
         <!-- Order Total -->
         <div class="form-group">
-            <label for="order_total">Order Total: </label> <span>{{ number_format($order->order_total, 0, ',', '.') }}₫</span>
+            <label for="order_total" class="label">Order Total: </label> <span>{{ number_format($order->order_total, 0, ',', '.') }}₫</span>
+        </div>
+
+        <div class="form-group">
+            <label for="order_total" class="label">Order date: </label> <span>{{ $order->created_at }}</span>
         </div>
 
         <!-- Status -->
         <div class="form-group">
-            <label for="status">Status</label>
+            <label for="status" class="label">Status</label>
             <select class="form-control" id="status" name="status">
                 <option value="">-- Select Status --</option>
                 <option value="Pending" {{ $order->status === 'Pending' ? 'selected' : '' }}>Pending</option>
@@ -34,6 +44,8 @@
         <button type="submit" name="submit" class="btn btn-primary glitter-button">Update</button>
 
     </form>
+    </div>
+</div>
 </div>
 
 <!-- Bootstrap JS -->

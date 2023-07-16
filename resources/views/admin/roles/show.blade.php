@@ -2,43 +2,31 @@
 
 @section('contents')
 <!-- Page Wrapper -->
-<div id="wrapper">
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                
-            <div class="row">
-                <div class="col-lg-12 margin-tb">
-                    <div class="pull-left">
-                        <h2> Show Role</h2>
-                    </div>
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-                    </div>
-                </div>
+
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Account Role</h3>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Name:</strong>
-                        {{ $role->name }}
-                    </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="title" class="label">Name:</label> <span>{{ $role->name }}</span>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Permissions:</strong>
-                        @if(!empty($rolePermissions))
+                <div class="form-group">
+                    <label for="price" class="label">Permissions:</label> <span>
+                        <ul>
+
+                            @if(!empty($rolePermissions))
                             @foreach($rolePermissions as $v)
-                                <label class="label label-success">{{ $v->name }},</label>
+                                <li>{{ $v->name }},</li>
                             @endforeach
                         @endif
-                    </div>
+                        </ul>
+                    </span>
                 </div>
             </div>
-
-            </div>
-        </div>
-        <!-- End of Content Wrapper -->
+         </div>
     </div>
-    <!-- End of Page Wrapper -->
+</div>
 @endsection

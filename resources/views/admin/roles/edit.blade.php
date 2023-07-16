@@ -2,22 +2,14 @@
 
 @section('contents')
 
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        <div id="content-wrapper" class="d-flex flex-column">
-            <!-- Main Content -->
-            <div id="content">
-                <div class="row">
-                    <div class="col-lg-12 margin-tb">
-                        <div class="pull-left">
-                            <h2>Edit Role</h2>
-                        </div>
-                        <div class="pull-right">
-                            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
-                        </div>
-                    </div>
-                </div>
-                @if (count($errors) > 0)
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Account Role</h3>
+            </div>
+            <div class="card-body">
+            @if (count($errors) > 0)
                     <div class="alert alert-danger">
                         <strong>Whoops!</strong> There were some problems with your input.<br><br>
                         <ul>
@@ -52,10 +44,9 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            <!-- End of Main Content -->
-        </div>
-        <!-- End of Content Wrapper -->
+         </div>
     </div>
+</div>
     <!-- End of Page Wrapper -->
 
     @endsection

@@ -55,9 +55,6 @@
                             <a href="{{ Route('products')}}">Product</a>
                         </li>
                         <li>
-                            <a href="{{ Route('articles')}}">Articles</a>
-                        </li>
-                        <li>
                             <a href="{{ Route('aboutUs')}}">About us</a>
                         </li>
                         <li>
@@ -95,7 +92,7 @@
         </div>
     </header><!-- #header -->
 
-    <div class="container mt-5 body-center">
+    <div class="container mt-5 body-center" style="margin-bottom: 50px">
         <h1>My Cart</h1>
 
         <div class="row">
@@ -170,9 +167,6 @@
                         <ul class="ul-footer">
                             <li>
                                 <a href="{{ Route('products') }}">Products</a>
-                            </li>
-                            <li>
-                                <a href="{{ Route('articles') }}">Articles</a>
                             </li>
                         </ul>
                     </div>

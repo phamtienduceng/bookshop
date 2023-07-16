@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('id', 26)->get();
+        $orders = Order::all();
         return view('admin.order.viewOrder', compact('orders'));
     }
 
